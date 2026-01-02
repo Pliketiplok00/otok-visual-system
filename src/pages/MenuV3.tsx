@@ -20,75 +20,70 @@ interface MenuItem {
   icon: LucideIcon;
   label: string;
   path: string;
-  color: string;
-  shadowColor: string;
+  accent?: boolean;
 }
 
 const menuItems: MenuItem[] = [
-  { icon: Home, label: 'Početna', path: '/home', color: 'bg-vis-blue', shadowColor: 'bg-vis-cyan' },
-  { icon: Calendar, label: 'Kalendar događanja', path: '/events', color: 'bg-vis-yellow', shadowColor: 'bg-vis-green' },
-  { icon: Ship, label: 'Vozni redovi', path: '/schedules', color: 'bg-vis-cyan', shadowColor: 'bg-vis-blue' },
-  { icon: Leaf, label: 'Geopark', path: '/geopark', color: 'bg-vis-green', shadowColor: 'bg-vis-yellow' },
-  { icon: Droplets, label: 'Sve o vodi', path: '/water', color: 'bg-vis-blue', shadowColor: 'bg-vis-cyan' },
-  { icon: Trash2, label: 'Smeće i reciklaža', path: '/waste', color: 'bg-vis-green', shadowColor: 'bg-vis-yellow' },
-  { icon: Info, label: 'Visitor info', path: '/visitor-info', color: 'bg-vis-cyan', shadowColor: 'bg-vis-blue' },
-  { icon: Phone, label: 'Imenik / kontakti', path: '/directory', color: 'bg-vis-yellow', shadowColor: 'bg-vis-green' },
-  { icon: Camera, label: 'Slikaj & popravi', path: '/report', color: 'bg-vis-green', shadowColor: 'bg-vis-cyan' },
-  { icon: MessageSquare, label: 'Uključi se', path: '/feedback', color: 'bg-vis-cyan', shadowColor: 'bg-vis-yellow' },
-  { icon: Settings, label: 'Postavke', path: '/settings', color: 'bg-muted', shadowColor: 'bg-vis-blue' },
+  { icon: Home, label: 'POČETNA', path: '/home', accent: true },
+  { icon: Calendar, label: 'KALENDAR DOGAĐANJA', path: '/events' },
+  { icon: Ship, label: 'VOZNI REDOVI', path: '/schedules' },
+  { icon: Leaf, label: 'GEOPARK', path: '/geopark' },
+  { icon: Droplets, label: 'SVE O VODI', path: '/water' },
+  { icon: Trash2, label: 'SMEĆE I RECIKLAŽA', path: '/waste' },
+  { icon: Info, label: 'VISITOR INFO', path: '/visitor-info' },
+  { icon: Phone, label: 'IMENIK / KONTAKTI', path: '/directory' },
+  { icon: Camera, label: 'SLIKAJ & POPRAVI', path: '/report' },
+  { icon: MessageSquare, label: 'UKLJUČI SE', path: '/feedback' },
+  { icon: Settings, label: 'POSTAVKE', path: '/settings' },
 ];
 
 const MenuV3 = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-vis-blue relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute top-20 right-0 w-40 h-40 bg-vis-cyan/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-40 left-0 w-32 h-32 bg-vis-yellow/20 rounded-full blur-2xl -translate-x-1/2" />
-      
+    <div className="min-h-screen bg-foreground">
       <AppHeader />
 
       {/* Header */}
-      <div className="px-5 pt-6 pb-4 text-primary-foreground">
-        <h1 className="text-3xl font-extrabold">
-          Izbornik <span className="text-vis-yellow">📋</span>
+      <div className="px-5 pt-6 pb-6 text-background">
+        <h1 className="text-4xl font-bold tracking-tighter">
+          IZBORNIK
         </h1>
-        <p className="opacity-80 mt-1">Sve na jednom mjestu</p>
+        <p className="font-mono opacity-80 mt-1 uppercase tracking-wide text-sm">
+          Sve na jednom mjestu
+        </p>
       </div>
 
-      {/* Menu items card */}
-      <div className="bg-card rounded-t-[2rem] border-t-2 border-x-2 border-foreground min-h-[calc(100vh-180px)] px-4 pt-5 pb-8">
+      {/* Menu items */}
+      <div className="bg-background border-t-[4px] border-foreground min-h-[calc(100vh-160px)] px-4 pt-6 pb-8">
         <div className="space-y-3">
           {menuItems.map((item, index) => (
             <button
               key={item.path}
               onClick={() => navigate(item.path)}
-              className="w-full flex items-center gap-4 p-3 rounded-2xl border-2 border-foreground bg-card hover:translate-x-[2px] hover:translate-y-[2px] transition-all group"
+              className={`w-full flex items-center gap-4 p-4 border-[3px] border-foreground hover:translate-x-[2px] hover:translate-y-[2px] transition-all group ${
+                item.accent ? 'bg-vis-yellow' : 'bg-background'
+              }`}
               style={{
-                boxShadow: `4px 4px 0 var(--shadow-color)`,
-                // @ts-ignore
-                '--shadow-color': item.shadowColor === 'bg-vis-cyan' ? 'hsl(var(--vis-cyan))' :
-                                  item.shadowColor === 'bg-vis-yellow' ? 'hsl(var(--vis-yellow))' :
-                                  item.shadowColor === 'bg-vis-green' ? 'hsl(var(--vis-green))' :
-                                  'hsl(var(--vis-blue))'
+                boxShadow: index % 4 === 0 ? '4px 4px 0 hsl(var(--vis-yellow))' :
+                          index % 4 === 1 ? '4px 4px 0 hsl(var(--vis-blue))' :
+                          index % 4 === 2 ? '4px 4px 0 hsl(var(--vis-cyan))' :
+                          '4px 4px 0 hsl(var(--vis-green))'
               }}
             >
-              <div className={`w-11 h-11 rounded-xl border-2 border-foreground ${item.color} flex items-center justify-center shrink-0 transition-transform group-hover:rotate-3`}>
-                <item.icon className={`w-5 h-5 ${item.color === 'bg-vis-blue' ? 'text-primary-foreground' : 'text-foreground'}`} strokeWidth={2.5} />
-              </div>
-              <span className="flex-1 text-left font-semibold">{item.label}</span>
-              <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+              <item.icon className="w-6 h-6" strokeWidth={2.5} />
+              <span className="flex-1 text-left font-bold tracking-tight">{item.label}</span>
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
             </button>
           ))}
         </div>
 
-        {/* Decorative dots at bottom */}
-        <div className="flex justify-center gap-2 mt-8">
-          <div className="w-2 h-2 rounded-full bg-vis-blue" />
-          <div className="w-2 h-2 rounded-full bg-vis-cyan" />
-          <div className="w-2 h-2 rounded-full bg-vis-green" />
-          <div className="w-2 h-2 rounded-full bg-vis-yellow" />
+        {/* Decorative blocks at bottom */}
+        <div className="flex justify-center gap-3 mt-8">
+          <div className="w-4 h-4 bg-vis-blue border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-cyan border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-green border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-yellow border-2 border-foreground" />
         </div>
       </div>
     </div>
