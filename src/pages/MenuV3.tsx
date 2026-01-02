@@ -25,7 +25,7 @@ interface MenuItem {
 }
 
 const menuItems: MenuItem[] = [
-  { icon: Home, label: 'Početna', path: '/home-v3', color: 'bg-vis-blue', shadowColor: 'bg-vis-cyan' },
+  { icon: Home, label: 'Početna', path: '/home', color: 'bg-vis-blue', shadowColor: 'bg-vis-cyan' },
   { icon: Calendar, label: 'Kalendar događanja', path: '/events', color: 'bg-vis-yellow', shadowColor: 'bg-vis-green' },
   { icon: Ship, label: 'Vozni redovi', path: '/schedules', color: 'bg-vis-cyan', shadowColor: 'bg-vis-blue' },
   { icon: Leaf, label: 'Geopark', path: '/geopark', color: 'bg-vis-green', shadowColor: 'bg-vis-yellow' },
