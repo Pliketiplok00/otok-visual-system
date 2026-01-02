@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import VisButton from '@/components/ui/VisButton';
-import { Mail, KeyRound, ArrowLeft, Loader2, Sparkles } from 'lucide-react';
+import { Mail, KeyRound, ArrowLeft, Loader2 } from 'lucide-react';
 
 type Step = 'email' | 'otp';
 
@@ -40,17 +39,7 @@ const LoginV3 = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-vis-blue relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-vis-cyan/20 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-40 left-0 w-48 h-48 bg-vis-yellow/20 rounded-full blur-2xl -translate-x-1/2" />
-      <div className="absolute top-1/3 right-0 w-32 h-32 bg-vis-green/20 rounded-full blur-xl translate-x-1/4" />
-
-      {/* Floating icon */}
-      <div className="absolute top-24 right-8 w-10 h-10 rounded-full bg-vis-yellow/60 flex items-center justify-center">
-        <Sparkles className="w-5 h-5 text-foreground" strokeWidth={2} />
-      </div>
-
+    <div className="min-h-screen flex flex-col bg-vis-blue">
       {/* Back button */}
       <div className="px-5 pt-6">
         <button
@@ -58,13 +47,13 @@ const LoginV3 = () => {
           className="flex items-center gap-2 text-primary-foreground font-semibold opacity-90 hover:opacity-100"
         >
           <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
-          Natrag
+          <span className="uppercase">Natrag</span>
         </button>
       </div>
 
       {/* Header */}
       <div className="px-6 pt-8 pb-6 text-primary-foreground">
-        <h1 className="text-3xl font-extrabold mb-1">
+        <h1 className="text-3xl font-extrabold mb-1 uppercase">
           {step === 'email' ? (
             <>Prijavite <span className="text-vis-yellow">se</span></>
           ) : (
@@ -80,11 +69,11 @@ const LoginV3 = () => {
       </div>
 
       {/* Form card */}
-      <div className="flex-1 bg-card rounded-t-[2rem] border-t-2 border-x-2 border-foreground px-5 pt-8 pb-8">
+      <div className="flex-1 bg-card border-t-[3px] border-x-[3px] border-foreground px-5 pt-8 pb-8">
         {step === 'email' ? (
           <form onSubmit={handleSendOtp} className="space-y-5">
             <div>
-              <label className="block font-bold mb-2 flex items-center gap-2">
+              <label className="block font-bold mb-2 flex items-center gap-2 uppercase">
                 <Mail className="w-5 h-5 text-vis-blue" />
                 Email adresa
               </label>
@@ -93,7 +82,7 @@ const LoginV3 = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="vas@email.hr"
-                className="w-full px-5 py-4 border-2 border-foreground rounded-2xl bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-vis-blue text-lg"
+                className="w-full px-5 py-4 border-[3px] border-foreground bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-vis-blue text-lg"
                 style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
               />
             </div>
@@ -105,7 +94,8 @@ const LoginV3 = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-2xl border-2 border-foreground bg-vis-blue text-primary-foreground font-bold text-lg flex items-center justify-center gap-2 shadow-[4px_4px_0_hsl(var(--vis-cyan))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_hsl(var(--vis-cyan))] transition-all disabled:opacity-50"
+              className="w-full py-4 border-[3px] border-foreground bg-vis-blue text-primary-foreground font-bold text-lg flex items-center justify-center gap-2 hover:translate-x-[2px] hover:translate-y-[2px] transition-all disabled:opacity-50 uppercase"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
             >
               {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Pošalji kod'}
             </button>
@@ -113,7 +103,7 @@ const LoginV3 = () => {
         ) : (
           <form onSubmit={handleVerifyOtp} className="space-y-5">
             <div>
-              <label className="block font-bold mb-2 flex items-center gap-2">
+              <label className="block font-bold mb-2 flex items-center gap-2 uppercase">
                 <KeyRound className="w-5 h-5 text-vis-cyan" />
                 Jednokratni kod
               </label>
@@ -122,7 +112,7 @@ const LoginV3 = () => {
                 value={otp}
                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
                 placeholder="000000"
-                className="w-full px-5 py-4 border-2 border-foreground rounded-2xl bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-vis-cyan text-center text-3xl tracking-[0.5em] font-mono"
+                className="w-full px-5 py-4 border-[3px] border-foreground bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-vis-cyan text-center text-3xl tracking-[0.5em] font-mono"
                 style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
                 maxLength={6}
               />
@@ -135,7 +125,8 @@ const LoginV3 = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-4 rounded-2xl border-2 border-foreground bg-vis-cyan text-foreground font-bold text-lg flex items-center justify-center gap-2 shadow-[4px_4px_0_hsl(var(--vis-blue))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_hsl(var(--vis-blue))] transition-all disabled:opacity-50"
+              className="w-full py-4 border-[3px] border-foreground bg-vis-cyan text-foreground font-bold text-lg flex items-center justify-center gap-2 hover:translate-x-[2px] hover:translate-y-[2px] transition-all disabled:opacity-50 uppercase"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
             >
               {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Potvrdi'}
             </button>
@@ -151,7 +142,7 @@ const LoginV3 = () => {
         )}
 
         {/* Dev login */}
-        <div className="mt-8 pt-6 border-t-2 border-dashed border-muted">
+        <div className="mt-8 pt-6 border-t-[3px] border-dashed border-muted">
           <button
             onClick={() => navigate('/channels')}
             className="w-full text-center text-sm text-muted-foreground hover:text-foreground underline"

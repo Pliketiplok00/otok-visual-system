@@ -20,7 +20,7 @@ const VisBadge = ({ variant = 'default', children, className }: VisBadgeProps) =
   return (
     <span
       className={cn(
-        'inline-flex items-center px-2 py-0.5 text-xs font-semibold uppercase tracking-wide rounded border-2 border-foreground',
+        'inline-flex items-center px-2 py-0.5 text-xs font-semibold uppercase tracking-wide border-2 border-foreground',
         variantClasses[variant],
         className
       )}

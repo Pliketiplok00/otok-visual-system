@@ -39,24 +39,22 @@ const ReportAndFixV3 = () => {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-vis-green relative overflow-hidden flex flex-col">
-        <div className="absolute top-20 right-0 w-40 h-40 bg-vis-yellow/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 left-0 w-32 h-32 bg-vis-cyan/20 rounded-full blur-2xl" />
-        
+      <div className="min-h-screen bg-vis-green flex flex-col">
         <AppHeader />
         
         <div className="flex-1 flex items-center justify-center px-6">
           <div className="text-center animate-fade-in">
-            <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-card border-2 border-foreground flex items-center justify-center shadow-[6px_6px_0_hsl(var(--vis-yellow))] rotate-3">
+            <div className="w-24 h-24 mx-auto mb-6 bg-card border-[3px] border-foreground flex items-center justify-center rotate-3" style={{ boxShadow: '6px 6px 0 hsl(var(--vis-yellow))' }}>
               <Check className="w-12 h-12 text-vis-green" strokeWidth={2.5} />
             </div>
-            <h1 className="text-3xl font-extrabold mb-2">
+            <h1 className="text-3xl font-extrabold mb-2 uppercase">
               Prijava <span className="text-primary-foreground">zaprimljena!</span>
             </h1>
             <p className="text-lg opacity-90 mb-8">Zahvaljujemo na vašem doprinosu. 🙏</p>
             <button
               onClick={() => navigate('/home-v3')}
-              className="px-8 py-4 rounded-2xl border-2 border-foreground bg-card font-bold text-lg shadow-[4px_4px_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_hsl(var(--foreground))] transition-all"
+              className="px-8 py-4 border-[3px] border-foreground bg-card font-bold text-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all uppercase"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
             >
               Povratak na početnu
             </button>
@@ -67,43 +65,34 @@ const ReportAndFixV3 = () => {
   }
 
   return (
-    <div className="min-h-screen bg-vis-green relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-0 w-40 h-40 bg-vis-yellow/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-60 left-0 w-24 h-24 bg-vis-cyan/20 rounded-full blur-xl -translate-x-1/2" />
-      
-      {/* Floating camera icon */}
-      <div className="absolute top-32 right-6 w-10 h-10 rounded-full bg-vis-yellow/60 flex items-center justify-center animate-pulse">
-        <Camera className="w-5 h-5 text-foreground" strokeWidth={2} />
-      </div>
-
+    <div className="min-h-screen bg-vis-green">
       <AppHeader />
 
       {/* Header */}
       <div className="px-5 pt-6 pb-4 text-foreground">
-        <h1 className="text-3xl font-extrabold mb-1">
+        <h1 className="text-3xl font-extrabold mb-1 uppercase">
           Slikaj & <span className="text-vis-blue">popravi</span>
         </h1>
         <p className="opacity-80">Prijavite problem na otoku</p>
       </div>
 
       {/* Content card */}
-      <div className="bg-card rounded-t-[2rem] border-t-2 border-x-2 border-foreground min-h-[calc(100vh-200px)] px-5 pt-6 pb-8">
+      <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-200px)] px-5 pt-6 pb-8">
         <div className="space-y-5">
           {/* Location */}
           <div>
-            <label className="block font-bold mb-2 flex items-center gap-2">
+            <label className="block font-bold mb-2 flex items-center gap-2 uppercase">
               <MapPin className="w-5 h-5 text-vis-blue" />
               Lokacija
             </label>
             <div 
-              className="p-4 rounded-2xl border-2 border-foreground bg-vis-blue/5"
+              className="p-4 border-[3px] border-foreground bg-vis-blue/5"
               style={{ boxShadow: '3px 3px 0 hsl(var(--vis-blue))' }}
             >
               {location ? (
                 <div className="flex items-center justify-between">
                   <span className="font-medium">{location}</span>
-                  <button onClick={() => setLocation('')} className="p-1 hover:bg-muted rounded-lg">
+                  <button onClick={() => setLocation('')} className="p-1 hover:bg-muted">
                     <X className="w-5 h-5" />
                   </button>
                 </div>
@@ -118,7 +107,7 @@ const ReportAndFixV3 = () => {
                   ) : (
                     <>
                       <MapPin className="w-5 h-5" />
-                      <span className="font-medium">Dohvati moju lokaciju</span>
+                      <span className="font-medium uppercase">Dohvati moju lokaciju</span>
                     </>
                   )}
                 </button>
@@ -128,7 +117,7 @@ const ReportAndFixV3 = () => {
 
           {/* Photos */}
           <div>
-            <label className="block font-bold mb-2 flex items-center gap-2">
+            <label className="block font-bold mb-2 flex items-center gap-2 uppercase">
               <Camera className="w-5 h-5 text-vis-green" />
               Fotografije ({photos.length}/3)
             </label>
@@ -136,12 +125,13 @@ const ReportAndFixV3 = () => {
               {photos.map((_, index) => (
                 <div
                   key={index}
-                  className="w-20 h-20 rounded-xl border-2 border-foreground bg-vis-cyan flex items-center justify-center relative shadow-[2px_2px_0_hsl(var(--foreground))]"
+                  className="w-20 h-20 border-[3px] border-foreground bg-vis-cyan flex items-center justify-center relative"
+                  style={{ boxShadow: '2px 2px 0 hsl(var(--foreground))' }}
                 >
                   <Camera className="w-8 h-8 opacity-50" />
                   <button
                     onClick={() => handleRemovePhoto(index)}
-                    className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-vis-emergency border-2 border-foreground flex items-center justify-center"
+                    className="absolute -top-2 -right-2 w-6 h-6 bg-vis-emergency border-2 border-foreground flex items-center justify-center"
                   >
                     <X className="w-3 h-3 text-primary-foreground" />
                   </button>
@@ -150,7 +140,7 @@ const ReportAndFixV3 = () => {
               {photos.length < 3 && (
                 <button
                   onClick={handleAddPhoto}
-                  className="w-20 h-20 rounded-xl border-2 border-dashed border-foreground bg-muted flex items-center justify-center hover:bg-card transition-colors"
+                  className="w-20 h-20 border-[3px] border-dashed border-foreground bg-muted flex items-center justify-center hover:bg-card transition-colors"
                 >
                   <Plus className="w-6 h-6 text-muted-foreground" />
                 </button>
@@ -160,13 +150,13 @@ const ReportAndFixV3 = () => {
 
           {/* Description */}
           <div>
-            <label className="block font-bold mb-2">Opis problema</label>
+            <label className="block font-bold mb-2 uppercase">Opis problema</label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Opišite problem koji ste uočili..."
               rows={4}
-              className="w-full p-4 border-2 border-foreground rounded-2xl bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-vis-green resize-none"
+              className="w-full p-4 border-[3px] border-foreground bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-vis-green resize-none"
               style={{ boxShadow: '3px 3px 0 hsl(var(--vis-green))' }}
             />
           </div>
@@ -176,7 +166,8 @@ const ReportAndFixV3 = () => {
         <button
           onClick={handleSubmit}
           disabled={!location || !description || submitting}
-          className="w-full mt-6 py-4 rounded-2xl border-2 border-foreground bg-vis-green font-bold text-lg flex items-center justify-center gap-2 shadow-[4px_4px_0_hsl(var(--vis-yellow))] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_hsl(var(--vis-yellow))] transition-all disabled:opacity-50 disabled:pointer-events-none"
+          className="w-full mt-6 py-4 border-[3px] border-foreground bg-vis-green font-bold text-lg flex items-center justify-center gap-2 hover:translate-x-[2px] hover:translate-y-[2px] transition-all disabled:opacity-50 disabled:pointer-events-none uppercase"
+          style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
         >
           {submitting ? (
             <Loader2 className="w-5 h-5 animate-spin" />

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { Ship, Anchor, Waves, ArrowRight, ArrowLeftRight, Clock, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Ship, ArrowRight, Clock, ExternalLink, ChevronLeft } from 'lucide-react';
 import { format, addDays, startOfToday } from 'date-fns';
 import { hr } from 'date-fns/locale';
 
@@ -81,34 +81,26 @@ const SeaScheduleV3 = () => {
   const departures = direction === 'outbound' ? currentRoute.departures : currentRoute.returnDepartures;
 
   return (
-    <div className="min-h-screen bg-vis-blue relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute top-20 right-0 w-40 h-40 bg-vis-cyan/30 rounded-full blur-3xl" />
-      <div className="absolute top-40 left-0 w-32 h-32 bg-primary-foreground/10 rounded-full blur-2xl -translate-x-1/2" />
-      
-      {/* Floating icons */}
-      <Ship className="absolute top-24 right-8 w-6 h-6 text-vis-cyan/40 rotate-12" />
-      <Anchor className="absolute top-36 right-20 w-5 h-5 text-primary-foreground/30 -rotate-6" />
-      
+    <div className="min-h-screen bg-vis-blue">
       <AppHeader />
 
       {/* Header */}
       <div className="px-5 pt-6 pb-4 text-primary-foreground">
         <button 
           onClick={() => navigate('/schedules')}
-          className="flex items-center gap-1 text-sm opacity-80 mb-2 hover:opacity-100"
+          className="flex items-center gap-1 text-sm opacity-80 mb-2 hover:opacity-100 uppercase"
         >
           <ChevronLeft className="w-4 h-4" />
           Natrag
         </button>
-        <h1 className="text-3xl font-extrabold">
+        <h1 className="text-3xl font-extrabold uppercase">
           <span className="text-vis-cyan">Pomorski</span> promet ⛴️
         </h1>
         <p className="opacity-80 mt-1">Trajekti i katamarani</p>
       </div>
 
       {/* Content card */}
-      <div className="bg-card rounded-t-[2rem] border-t-2 border-x-2 border-foreground min-h-[calc(100vh-200px)] px-4 pt-5 pb-8">
+      <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-200px)] px-4 pt-5 pb-8">
         
         {/* Date Picker */}
         <div className="flex gap-2 overflow-x-auto pb-3 mb-4 -mx-4 px-4 scrollbar-hide">
@@ -118,12 +110,12 @@ const SeaScheduleV3 = () => {
               <button
                 key={date.toISOString()}
                 onClick={() => setSelectedDate(date)}
-                className={`flex flex-col items-center px-4 py-2 rounded-xl border-2 border-foreground min-w-[60px] transition-all ${
+                className={`flex flex-col items-center px-4 py-2 border-[3px] border-foreground min-w-[60px] transition-all ${
                   isSelected ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
                 }`}
                 style={{ boxShadow: isSelected ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
               >
-                <span className="text-xs uppercase">{format(date, 'EEE', { locale: hr })}</span>
+                <span className="text-xs uppercase font-mono">{format(date, 'EEE', { locale: hr })}</span>
                 <span className="text-lg font-bold">{format(date, 'd')}</span>
               </button>
             );
@@ -132,26 +124,26 @@ const SeaScheduleV3 = () => {
 
         {/* Route Selector */}
         <section className="mb-4">
-          <h2 className="font-bold text-sm mb-2 text-muted-foreground uppercase tracking-wide">Linija</h2>
+          <h2 className="font-bold text-sm mb-2 text-muted-foreground uppercase tracking-wide font-mono">Linija</h2>
           <div className="space-y-2">
             {routes.map((route) => (
               <button
                 key={route.id}
                 onClick={() => setSelectedRoute(route.id)}
-                className={`w-full flex items-center gap-3 p-3 rounded-xl border-2 border-foreground transition-all ${
+                className={`w-full flex items-center gap-3 p-3 border-[3px] border-foreground transition-all ${
                   selectedRoute === route.id ? 'bg-vis-cyan/20' : 'bg-card'
                 }`}
                 style={{ boxShadow: selectedRoute === route.id ? '3px 3px 0 hsl(var(--vis-blue))' : 'none' }}
               >
-                <div className={`w-10 h-10 rounded-xl border-2 border-foreground flex items-center justify-center ${route.type === 'trajekt' ? 'bg-vis-blue text-primary-foreground' : 'bg-vis-cyan'}`}>
+                <div className={`w-10 h-10 border-[3px] border-foreground flex items-center justify-center ${route.type === 'trajekt' ? 'bg-vis-blue text-primary-foreground' : 'bg-vis-cyan'}`}>
                   <Ship className="w-5 h-5" />
                 </div>
                 <div className="flex-1 text-left">
-                  <p className="font-bold text-sm">{route.from} → {route.to}</p>
-                  <p className="text-xs text-muted-foreground capitalize">{route.type}</p>
+                  <p className="font-bold text-sm uppercase">{route.from} → {route.to}</p>
+                  <p className="text-xs text-muted-foreground capitalize font-mono">{route.type}</p>
                 </div>
                 {selectedRoute === route.id && (
-                  <div className="w-3 h-3 rounded-full bg-vis-blue" />
+                  <div className="w-3 h-3 bg-vis-blue border-2 border-foreground" />
                 )}
               </button>
             ))}
@@ -162,50 +154,50 @@ const SeaScheduleV3 = () => {
         <div className="flex gap-2 mb-4">
           <button
             onClick={() => setDirection('outbound')}
-            className={`flex-1 flex items-center justify-center gap-2 p-3 rounded-xl border-2 border-foreground transition-all ${
+            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
               direction === 'outbound' ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
             }`}
             style={{ boxShadow: direction === 'outbound' ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
           >
             <ArrowRight className="w-4 h-4" />
-            <span className="font-medium text-sm">{currentRoute.from} → {currentRoute.to}</span>
+            <span className="font-medium text-sm uppercase">{currentRoute.from} → {currentRoute.to}</span>
           </button>
           <button
             onClick={() => setDirection('return')}
-            className={`flex-1 flex items-center justify-center gap-2 p-3 rounded-xl border-2 border-foreground transition-all ${
+            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
               direction === 'return' ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
             }`}
             style={{ boxShadow: direction === 'return' ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
           >
             <ArrowRight className="w-4 h-4 rotate-180" />
-            <span className="font-medium text-sm">{currentRoute.to} → {currentRoute.from}</span>
+            <span className="font-medium text-sm uppercase">{currentRoute.to} → {currentRoute.from}</span>
           </button>
         </div>
 
         {/* Departures */}
         <section className="mb-6">
-          <h2 className="font-bold text-sm mb-3 text-muted-foreground uppercase tracking-wide">
+          <h2 className="font-bold text-sm mb-3 text-muted-foreground uppercase tracking-wide font-mono">
             Polasci - {format(selectedDate, 'd. MMMM', { locale: hr })}
           </h2>
           <div className="space-y-3">
             {departures.map((dep, i) => (
               <div 
                 key={i}
-                className="flex items-center gap-4 p-4 rounded-2xl border-2 border-foreground bg-card"
+                className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
                 style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
               >
-                <div className="w-16 h-16 rounded-xl bg-vis-blue border-2 border-foreground flex flex-col items-center justify-center text-primary-foreground">
+                <div className="w-16 h-16 bg-vis-blue border-[3px] border-foreground flex flex-col items-center justify-center text-primary-foreground">
                   <span className="text-xl font-bold">{dep.time.split(':')[0]}</span>
-                  <span className="text-sm">:{dep.time.split(':')[1]}</span>
+                  <span className="text-sm font-mono">:{dep.time.split(':')[1]}</span>
                 </div>
                 <div className="flex-1">
-                  <p className="font-bold">{dep.vessel}</p>
-                  <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                  <p className="font-bold uppercase">{dep.vessel}</p>
+                  <div className="flex items-center gap-1 text-sm text-muted-foreground font-mono">
                     <Clock className="w-3 h-3" />
                     {dep.duration}
                   </div>
                   {dep.note && (
-                    <p className="text-xs text-vis-yellow mt-1 font-medium">{dep.note}</p>
+                    <p className="text-xs text-vis-yellow mt-1 font-medium uppercase">{dep.note}</p>
                   )}
                 </div>
               </div>
@@ -218,19 +210,19 @@ const SeaScheduleV3 = () => {
           href="https://www.jadrolinija.hr"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 p-4 rounded-2xl border-2 border-foreground bg-vis-cyan/10 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
+          className="flex items-center justify-center gap-2 p-4 border-[3px] border-foreground bg-vis-cyan/10 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
           style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
         >
           <ExternalLink className="w-5 h-5" />
-          <span className="font-bold">Kupi kartu na Jadrolinija.hr</span>
+          <span className="font-bold uppercase">Kupi kartu na Jadrolinija.hr</span>
         </a>
 
-        {/* Decorative dots */}
+        {/* Decorative blocks */}
         <div className="flex justify-center gap-2 mt-8">
-          <div className="w-2 h-2 rounded-full bg-vis-blue" />
-          <div className="w-2 h-2 rounded-full bg-vis-cyan" />
-          <div className="w-2 h-2 rounded-full bg-vis-green" />
-          <div className="w-2 h-2 rounded-full bg-vis-yellow" />
+          <div className="w-3 h-3 bg-vis-blue border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-cyan border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-green border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-yellow border-2 border-foreground" />
         </div>
       </div>
     </div>

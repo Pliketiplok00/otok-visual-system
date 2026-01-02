@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import VisBadge from '@/components/ui/VisBadge';
-import { ChevronRight, Bell, AlertTriangle, Megaphone, Info } from 'lucide-react';
+import { ChevronRight, Bell, Info } from 'lucide-react';
 
 type Filter = 'all' | 'vis' | 'komiza' | 'general' | 'emergency';
 
@@ -81,21 +81,17 @@ const InboxV3 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-vis-cyan relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute top-24 right-0 w-32 h-32 bg-vis-yellow/20 rounded-full blur-2xl" />
-      <div className="absolute top-60 left-0 w-24 h-24 bg-vis-blue/20 rounded-full blur-xl -translate-x-1/2" />
-
+    <div className="min-h-screen bg-vis-cyan">
       <AppHeader />
 
       {/* Header */}
       <div className="px-5 pt-6 pb-4 text-foreground">
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-12 h-12 rounded-2xl bg-card border-2 border-foreground flex items-center justify-center shadow-[3px_3px_0_hsl(var(--vis-yellow))]">
+          <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center" style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}>
             <Bell className="w-6 h-6" strokeWidth={2} />
           </div>
           <div>
-            <h1 className="text-2xl font-extrabold">Obavijesti</h1>
+            <h1 className="text-2xl font-extrabold uppercase">Obavijesti</h1>
             <p className="text-sm opacity-80">{mockNotifications.filter(n => n.unread).length} nepročitanih</p>
           </div>
         </div>
@@ -108,11 +104,12 @@ const InboxV3 = () => {
             <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              className={`px-4 py-2 rounded-full border-2 border-foreground font-semibold text-sm whitespace-nowrap transition-all ${
+              className={`px-4 py-2 border-[3px] border-foreground font-semibold text-sm whitespace-nowrap transition-all ${
                 activeFilter === filter.id 
-                  ? `${filter.color} shadow-[2px_2px_0_hsl(var(--foreground))]` 
+                  ? `${filter.color}` 
                   : 'bg-card text-foreground hover:bg-muted'
               }`}
+              style={{ boxShadow: activeFilter === filter.id ? '2px 2px 0 hsl(var(--foreground))' : 'none' }}
             >
               {filter.label}
             </button>
@@ -121,7 +118,7 @@ const InboxV3 = () => {
       </div>
 
       {/* Content card */}
-      <div className="bg-card rounded-t-[2rem] border-t-2 border-x-2 border-foreground min-h-[calc(100vh-280px)] px-4 pt-5 pb-8">
+      <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-280px)] px-4 pt-5 pb-8">
         <div className="space-y-3">
           {filteredNotifications.length > 0 ? (
             filteredNotifications.map((notification) => {
@@ -130,12 +127,12 @@ const InboxV3 = () => {
                 <button
                   key={notification.id}
                   onClick={() => navigate(`/notification/${notification.id}`)}
-                  className={`w-full text-left p-4 rounded-2xl border-2 border-foreground ${styles.bg} hover:translate-x-[2px] hover:translate-y-[2px] transition-all relative overflow-hidden`}
+                  className={`w-full text-left p-4 border-[3px] border-foreground ${styles.bg} hover:translate-x-[2px] hover:translate-y-[2px] transition-all relative overflow-hidden`}
                   style={{ boxShadow: `4px 4px 0 ${styles.shadow}` }}
                 >
                   {/* Unread indicator */}
                   {notification.unread && (
-                    <div className="absolute top-3 right-3 w-3 h-3 rounded-full bg-vis-emergency border border-foreground" />
+                    <div className="absolute top-3 right-3 w-3 h-3 bg-vis-emergency border-2 border-foreground" />
                   )}
                   
                   <div className="flex items-start gap-3">
@@ -145,7 +142,7 @@ const InboxV3 = () => {
                         <VisBadge variant={notification.category}>
                           {notification.category === 'emergency' ? 'Hitno' : notification.category}
                         </VisBadge>
-                        <span className="text-xs text-muted-foreground">{notification.date}</span>
+                        <span className="text-xs text-muted-foreground font-mono">{notification.date}</span>
                       </div>
                       <h3 className="font-bold mb-1">{notification.title}</h3>
                       <p className="text-sm text-muted-foreground line-clamp-2">{notification.excerpt}</p>
@@ -157,7 +154,7 @@ const InboxV3 = () => {
             })
           ) : (
             <div className="text-center py-12">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-muted flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-4 bg-muted border-[3px] border-foreground flex items-center justify-center">
                 <Info className="w-8 h-8 text-muted-foreground" />
               </div>
               <p className="text-muted-foreground">Nema obavijesti u ovoj kategoriji</p>

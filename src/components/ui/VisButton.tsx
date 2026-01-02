@@ -32,16 +32,17 @@ const VisButton = forwardRef<HTMLButtonElement, VisButtonProps>(
         ref={ref}
         disabled={disabled}
         className={cn(
-          'inline-flex items-center justify-center gap-2 font-semibold rounded-lg border-2',
+          'inline-flex items-center justify-center gap-2 font-semibold border-[3px]',
           'transition-all duration-150',
-          'hover:translate-y-[-2px] hover:shadow-[3px_3px_0_hsl(var(--foreground))]',
-          'active:translate-y-0 active:shadow-none',
+          'hover:translate-x-[2px] hover:translate-y-[2px]',
+          'active:translate-x-[4px] active:translate-y-[4px] active:shadow-none',
           'disabled:opacity-50 disabled:pointer-events-none',
           'min-h-touch',
           variantClasses[variant],
           sizeClasses[size],
           className
         )}
+        style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
         {...props}
       >
         {children}
