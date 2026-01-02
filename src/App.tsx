@@ -12,16 +12,10 @@ import HomeV3 from "./pages/HomeV3";
 import MenuV3 from "./pages/MenuV3";
 import InboxV3 from "./pages/InboxV3";
 import SchedulesV3 from "./pages/SchedulesV3";
-import SeaScheduleV3 from "./pages/SeaScheduleV3";
-import LandScheduleV3 from "./pages/LandScheduleV3";
 import SettingsV3 from "./pages/SettingsV3";
 import ReportAndFixV3 from "./pages/ReportAndFixV3";
 import EventsCalendarV3 from "./pages/EventsCalendarV3";
 import GeoparkAlt from "./pages/GeoparkAlt";
-import WaterInfoV3 from "./pages/WaterInfoV3";
-import WasteRecyclingV3 from "./pages/WasteRecyclingV3";
-import VisitorInfoV3 from "./pages/VisitorInfoV3";
-import DirectoryV3 from "./pages/DirectoryV3";
 import NotFoundV3 from "./pages/NotFoundV3";
 
 // Legacy screens (kept for reference)
@@ -46,24 +40,11 @@ const App = () => (
           <Route path="/home" element={<HomeV3 />} />
           <Route path="/menu" element={<MenuV3 />} />
           <Route path="/inbox" element={<InboxV3 />} />
-          
-          {/* Schedules */}
           <Route path="/schedules" element={<SchedulesV3 />} />
-          <Route path="/schedules/sea" element={<SeaScheduleV3 />} />
-          <Route path="/schedules/land" element={<LandScheduleV3 />} />
-          
-          {/* Content pages */}
-          <Route path="/water" element={<WaterInfoV3 />} />
-          <Route path="/waste" element={<WasteRecyclingV3 />} />
-          <Route path="/visitor-info" element={<VisitorInfoV3 />} />
-          <Route path="/directory" element={<DirectoryV3 />} />
-          <Route path="/geopark" element={<GeoparkAlt />} />
-          
-          {/* Actions */}
           <Route path="/settings" element={<SettingsV3 />} />
           <Route path="/report" element={<ReportAndFixV3 />} />
           <Route path="/events" element={<EventsCalendarV3 />} />
-          <Route path="/feedback" element={<ReportAndFixV3 />} />
+          <Route path="/geopark" element={<GeoparkAlt />} />
           
           {/* Aliases for V3 */}
           <Route path="/v3" element={<SplashV3 />} />
@@ -74,6 +55,13 @@ const App = () => (
           <Route path="/home-v1" element={<Home />} />
           <Route path="/v2" element={<SplashAlt />} />
           <Route path="/home-v2" element={<HomeAlt />} />
+          
+          {/* Placeholder routes - use HomeV3 for now */}
+          <Route path="/water" element={<HomeV3 />} />
+          <Route path="/waste" element={<HomeV3 />} />
+          <Route path="/visitor-info" element={<HomeV3 />} />
+          <Route path="/directory" element={<HomeV3 />} />
+          <Route path="/feedback" element={<HomeV3 />} />
           
           {/* 404 */}
           <Route path="*" element={<NotFoundV3 />} />
