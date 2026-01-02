@@ -1,4 +1,4 @@
-/* Nunito font loaded via index.html for better performance */
+/* Poppins font loaded via index.html for better performance */
 
 @tailwind base;
 @tailwind components;
@@ -118,7 +118,7 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
   }
 }
 
