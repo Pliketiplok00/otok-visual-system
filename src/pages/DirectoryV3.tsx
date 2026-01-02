@@ -60,27 +60,19 @@ const DirectoryV3 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-vis-yellow relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute top-20 right-0 w-40 h-40 bg-vis-green/30 rounded-full blur-3xl" />
-      <div className="absolute top-40 left-0 w-32 h-32 bg-primary-foreground/10 rounded-full blur-2xl -translate-x-1/2" />
-      
-      {/* Floating icons */}
-      <Phone className="absolute top-24 right-8 w-6 h-6 text-vis-blue/40 rotate-12" />
-      <Mail className="absolute top-36 right-20 w-5 h-5 text-foreground/30 -rotate-6" />
-      
+    <div className="min-h-screen bg-vis-yellow">
       <AppHeader />
 
       {/* Header */}
       <div className="px-5 pt-6 pb-4 text-foreground">
-        <h1 className="text-3xl font-extrabold">
+        <h1 className="text-3xl font-extrabold uppercase">
           <span className="text-vis-blue">Imenik</span> kontakti 📞
         </h1>
         <p className="opacity-80 mt-1">Svi važni brojevi na jednom mjestu</p>
       </div>
 
       {/* Content card */}
-      <div className="bg-card rounded-t-[2rem] border-t-2 border-x-2 border-foreground min-h-[calc(100vh-180px)] px-4 pt-5 pb-8">
+      <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-180px)] px-4 pt-5 pb-8">
         
         {/* Search */}
         <div className="relative mb-4">
@@ -90,7 +82,7 @@ const DirectoryV3 = () => {
             placeholder="Pretraži kontakte..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 border-foreground bg-card focus:outline-none focus:ring-2 focus:ring-vis-blue"
+            className="w-full pl-10 pr-4 py-3 border-[3px] border-foreground bg-card focus:outline-none focus:ring-2 focus:ring-vis-blue"
             style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
           />
         </div>
@@ -101,7 +93,7 @@ const DirectoryV3 = () => {
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`flex items-center gap-2 px-3 py-2 rounded-xl border-2 border-foreground whitespace-nowrap transition-all ${
+              className={`flex items-center gap-2 px-3 py-2 border-[3px] border-foreground whitespace-nowrap transition-all ${
                 selectedCategory === cat.id 
                   ? `${cat.color} ${cat.color === 'bg-vis-blue' || cat.color === 'bg-destructive' ? 'text-primary-foreground' : 'text-foreground'}` 
                   : 'bg-card'
@@ -109,7 +101,7 @@ const DirectoryV3 = () => {
               style={{ boxShadow: selectedCategory === cat.id ? '2px 2px 0 hsl(var(--foreground))' : 'none' }}
             >
               <cat.icon className="w-4 h-4" />
-              <span className="text-sm font-medium">{cat.label}</span>
+              <span className="text-sm font-medium uppercase">{cat.label}</span>
             </button>
           ))}
         </div>
@@ -119,18 +111,18 @@ const DirectoryV3 = () => {
           {filteredContacts.map((contact, i) => (
             <div 
               key={i}
-              className="p-4 rounded-2xl border-2 border-foreground bg-card"
+              className="p-4 border-[3px] border-foreground bg-card"
               style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
             >
               <div className="flex items-start gap-3">
-                <div className={`w-10 h-10 rounded-xl ${getCategoryColor(contact.category)} border-2 border-foreground flex items-center justify-center shrink-0 ${getCategoryColor(contact.category) === 'bg-vis-blue' || getCategoryColor(contact.category) === 'bg-destructive' ? 'text-primary-foreground' : 'text-foreground'}`}>
+                <div className={`w-10 h-10 ${getCategoryColor(contact.category)} border-[3px] border-foreground flex items-center justify-center shrink-0 ${getCategoryColor(contact.category) === 'bg-vis-blue' || getCategoryColor(contact.category) === 'bg-destructive' ? 'text-primary-foreground' : 'text-foreground'}`}>
                   <Phone className="w-5 h-5" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-sm">{contact.name}</p>
+                  <p className="font-bold text-sm uppercase">{contact.name}</p>
                   <a 
                     href={`tel:${contact.phone.replace(/\s/g, '')}`}
-                    className="text-vis-blue font-semibold text-sm hover:underline"
+                    className="text-vis-blue font-semibold text-sm hover:underline font-mono"
                   >
                     {contact.phone}
                   </a>
@@ -138,11 +130,11 @@ const DirectoryV3 = () => {
               </div>
               
               {(contact.email || contact.web) && (
-                <div className="flex gap-2 mt-3 pt-3 border-t border-border">
+                <div className="flex gap-2 mt-3 pt-3 border-t-2 border-border">
                   {contact.email && (
                     <a 
                       href={`mailto:${contact.email}`}
-                      className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+                      className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground font-mono"
                     >
                       <Mail className="w-3 h-3" />
                       {contact.email}
@@ -153,7 +145,7 @@ const DirectoryV3 = () => {
                       href={`https://${contact.web}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
+                      className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground font-mono"
                     >
                       <Globe className="w-3 h-3" />
                       {contact.web}
@@ -171,12 +163,12 @@ const DirectoryV3 = () => {
           </div>
         )}
 
-        {/* Decorative dots */}
+        {/* Decorative blocks */}
         <div className="flex justify-center gap-2 mt-8">
-          <div className="w-2 h-2 rounded-full bg-vis-blue" />
-          <div className="w-2 h-2 rounded-full bg-vis-cyan" />
-          <div className="w-2 h-2 rounded-full bg-vis-green" />
-          <div className="w-2 h-2 rounded-full bg-vis-yellow" />
+          <div className="w-3 h-3 bg-vis-blue border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-cyan border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-green border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-yellow border-2 border-foreground" />
         </div>
       </div>
     </div>

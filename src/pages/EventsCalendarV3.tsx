@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import VisBadge from '@/components/ui/VisBadge';
-import { ChevronLeft, ChevronRight, MapPin, Clock, Calendar, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MapPin, Clock, Calendar } from 'lucide-react';
 
 interface Event {
   id: number;
@@ -51,58 +51,49 @@ const EventsCalendarV3 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-vis-blue relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-0 w-40 h-40 bg-vis-yellow/20 rounded-full blur-3xl" />
-      <div className="absolute top-60 left-0 w-24 h-24 bg-vis-cyan/20 rounded-full blur-xl -translate-x-1/2" />
-      
-      {/* Floating stars */}
-      <div className="absolute top-28 right-6 w-8 h-8 rounded-full bg-vis-yellow/60 flex items-center justify-center">
-        <Star className="w-4 h-4 text-foreground" strokeWidth={2} />
-      </div>
-
+    <div className="min-h-screen bg-vis-blue">
       <AppHeader />
 
       {/* Header */}
       <div className="px-5 pt-6 pb-4 text-primary-foreground">
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-12 h-12 rounded-2xl bg-card border-2 border-foreground flex items-center justify-center shadow-[3px_3px_0_hsl(var(--vis-yellow))]">
+          <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center" style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}>
             <Calendar className="w-6 h-6 text-vis-blue" strokeWidth={2} />
           </div>
           <div>
-            <h1 className="text-2xl font-extrabold">Događanja</h1>
+            <h1 className="text-2xl font-extrabold uppercase">Događanja</h1>
             <p className="text-sm opacity-80">Što se zbiva na otoku</p>
           </div>
         </div>
       </div>
 
       {/* Calendar card */}
-      <div className="bg-card rounded-t-[2rem] border-t-2 border-x-2 border-foreground min-h-[calc(100vh-200px)] px-4 pt-5 pb-8">
+      <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-200px)] px-4 pt-5 pb-8">
         {/* Month navigation */}
         <div className="flex items-center justify-between mb-5 px-1">
           <button
             onClick={() => { setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1)); setSelectedDay(null); }}
-            className="w-10 h-10 flex items-center justify-center rounded-xl border-2 border-foreground hover:bg-muted transition-colors"
+            className="w-10 h-10 flex items-center justify-center border-[3px] border-foreground hover:bg-muted transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <h2 className="font-bold text-lg">
+          <h2 className="font-bold text-lg uppercase">
             {monthNames[currentMonth.getMonth()]} <span className="text-vis-blue">{currentMonth.getFullYear()}</span>
           </h2>
           <button
             onClick={() => { setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1)); setSelectedDay(null); }}
-            className="w-10 h-10 flex items-center justify-center rounded-xl border-2 border-foreground hover:bg-muted transition-colors"
+            className="w-10 h-10 flex items-center justify-center border-[3px] border-foreground hover:bg-muted transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
 
         {/* Calendar grid */}
-        <div className="p-4 rounded-2xl border-2 border-foreground bg-muted/30 mb-5" style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}>
+        <div className="p-4 border-[3px] border-foreground bg-muted/30 mb-5" style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}>
           {/* Day headers */}
           <div className="grid grid-cols-7 gap-1 mb-2">
             {dayNames.map((day, i) => (
-              <div key={i} className="text-center text-sm font-semibold text-muted-foreground py-2">
+              <div key={i} className="text-center text-sm font-semibold text-muted-foreground py-2 font-mono">
                 {day}
               </div>
             ))}
@@ -122,19 +113,20 @@ const EventsCalendarV3 = () => {
                 <button
                   key={day}
                   onClick={() => setSelectedDay(day)}
-                  className={`aspect-square flex flex-col items-center justify-center rounded-xl border-2 transition-all ${
+                  className={`aspect-square flex flex-col items-center justify-center border-[3px] transition-all ${
                     isSelected 
-                      ? 'border-foreground bg-vis-blue text-primary-foreground shadow-[2px_2px_0_hsl(var(--foreground))]' 
+                      ? 'border-foreground bg-vis-blue text-primary-foreground' 
                       : hasEvents
-                      ? 'border-vis-yellow bg-vis-yellow/80 text-foreground'
+                      ? 'border-foreground bg-vis-yellow/80 text-foreground'
                       : 'border-transparent hover:border-muted-foreground hover:bg-muted'
                   }`}
+                  style={{ boxShadow: isSelected ? '2px 2px 0 hsl(var(--foreground))' : 'none' }}
                 >
                   <span className="font-semibold text-sm">{day}</span>
                   {hasEvents && !isSelected && (
                     <div className="flex gap-0.5 mt-0.5">
                       {mockEvents[day]?.slice(0, 2).map((e, i) => (
-                        <div key={i} className="w-1 h-1 rounded-full bg-vis-blue" />
+                        <div key={i} className="w-1 h-1 bg-vis-blue" />
                       ))}
                     </div>
                   )}
@@ -145,7 +137,7 @@ const EventsCalendarV3 = () => {
         </div>
 
         {/* Events list */}
-        <h3 className="font-bold text-lg mb-3 px-1">
+        <h3 className="font-bold text-lg mb-3 px-1 uppercase">
           {selectedDay 
             ? `${selectedDay}. ${monthNames[currentMonth.getMonth()].toLowerCase()}`
             : 'Odaberite dan'
@@ -158,7 +150,7 @@ const EventsCalendarV3 = () => {
               <button
                 key={event.id}
                 onClick={() => navigate(`/events/${event.id}`)}
-                className="w-full text-left p-4 rounded-2xl border-2 border-foreground bg-card hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                className="w-full text-left p-4 border-[3px] border-foreground bg-card hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
                 style={{ boxShadow: `4px 4px 0 ${getCategoryColor(event.category)}` }}
               >
                 <div className="flex items-start gap-3">
@@ -166,7 +158,7 @@ const EventsCalendarV3 = () => {
                   <div className="flex-1">
                     <VisBadge variant={event.category} className="mb-2">{event.category}</VisBadge>
                     <h4 className="font-bold mb-2">{event.title}</h4>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground font-mono">
                       <span className="flex items-center gap-1"><Clock className="w-4 h-4" />{event.time}</span>
                       <span className="flex items-center gap-1"><MapPin className="w-4 h-4" />{event.location}</span>
                     </div>
@@ -177,7 +169,7 @@ const EventsCalendarV3 = () => {
             ))}
           </div>
         ) : (
-          <div className="p-6 rounded-2xl border-2 border-dashed border-muted-foreground/30 text-center">
+          <div className="p-6 border-[3px] border-dashed border-muted-foreground/30 text-center">
             <p className="text-muted-foreground">
               {selectedDay ? 'Nema događanja ovaj dan' : 'Kliknite na dan za pregled'}
             </p>
