@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import VisBadge from '@/components/ui/VisBadge';
 import { Calendar, Ship, Camera, Droplets, ChevronRight, MapPin, Clock, Leaf, MessageSquare, AlertTriangle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -9,7 +8,6 @@ interface QuickAction {
   label: string;
   path: string;
   bgColor: string;
-  shadowColor: string;
 }
 
 const HomeV3 = () => {
@@ -17,126 +15,116 @@ const HomeV3 = () => {
 
   const todayEvent = {
     id: 1,
-    title: 'Ljetna fešta u Visu',
+    title: 'LJETNA FEŠTA U VISU',
     time: '20:00',
     location: 'Trg sv. Jurja',
-    category: 'vis' as const,
   };
 
   const quickActions: QuickAction[] = [
-    { icon: Ship, label: 'Trajekti', path: '/schedules', bgColor: 'bg-vis-blue', shadowColor: 'shadow-[4px_4px_0_hsl(var(--vis-cyan))]' },
-    { icon: Camera, label: 'Prijavi', path: '/report', bgColor: 'bg-vis-green', shadowColor: 'shadow-[4px_4px_0_hsl(var(--vis-yellow))]' },
-    { icon: Droplets, label: 'Voda', path: '/water', bgColor: 'bg-vis-cyan', shadowColor: 'shadow-[4px_4px_0_hsl(var(--vis-blue))]' },
-    { icon: Leaf, label: 'Geopark', path: '/geopark', bgColor: 'bg-vis-yellow', shadowColor: 'shadow-[4px_4px_0_hsl(var(--vis-green))]' },
+    { icon: Ship, label: 'TRAJEKTI', path: '/schedules', bgColor: 'bg-vis-blue' },
+    { icon: Camera, label: 'PRIJAVI', path: '/report', bgColor: 'bg-vis-green' },
+    { icon: Droplets, label: 'VODA', path: '/water', bgColor: 'bg-vis-cyan' },
+    { icon: Leaf, label: 'GEOPARK', path: '/geopark', bgColor: 'bg-vis-yellow' },
   ];
 
   return (
-    <div className="min-h-screen bg-muted relative overflow-hidden">
-      {/* Decorative background shapes */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-vis-blue/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-20 left-0 w-40 h-40 bg-vis-green/5 rounded-full -translate-x-1/2" />
-
+    <div className="min-h-screen bg-background">
       <AppHeader />
 
-      {/* Emergency banner - pill style */}
+      {/* Emergency banner - brutal style */}
       <div className="px-4 pt-4">
         <button 
           onClick={() => navigate('/inbox')}
-          className="w-full bg-vis-emergency text-primary-foreground px-4 py-3 rounded-2xl flex items-center gap-3 border-2 border-foreground shadow-[4px_4px_0_hsl(var(--foreground))] hover:shadow-[2px_2px_0_hsl(var(--foreground))] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+          className="w-full bg-vis-emergency text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
         >
-          <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center shrink-0">
-            <AlertTriangle className="w-5 h-5" />
-          </div>
+          <AlertTriangle className="w-6 h-6" strokeWidth={2.5} />
           <div className="flex-1 text-left">
-            <p className="font-bold text-sm">Prekid vodoopskrbe</p>
-            <p className="text-xs opacity-80">Vis · Danas 10-14h</p>
+            <p className="font-bold uppercase tracking-wide">PREKID VODOOPSKRBE</p>
+            <p className="text-sm font-mono opacity-80">VIS · DANAS 10-14H</p>
           </div>
-          <ChevronRight className="w-5 h-5 opacity-70" />
+          <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
         </button>
       </div>
 
-      {/* Welcome */}
-      <div className="px-5 pt-6 pb-4">
-        <h1 className="text-3xl font-extrabold">
-          Bok! <span className="inline-block animate-pulse">👋</span>
+      {/* Welcome - brutal typography */}
+      <div className="px-5 pt-8 pb-4">
+        <h1 className="text-5xl font-bold tracking-tighter">
+          BOK!
         </h1>
-        <p className="text-muted-foreground mt-1">Sve informacije za danas</p>
+        <p className="text-muted-foreground font-mono mt-1 uppercase tracking-wide">
+          Sve informacije za danas
+        </p>
       </div>
 
-      {/* Quick Actions Grid - Illustrated style */}
+      {/* Quick Actions Grid - Brutalist cards */}
       <div className="px-4 mb-6">
         <div className="grid grid-cols-2 gap-4">
-          {quickActions.map((action) => (
+          {quickActions.map((action, index) => (
             <button
               key={action.path}
               onClick={() => navigate(action.path)}
-              className={`${action.bgColor} ${action.shadowColor} p-5 rounded-2xl border-2 border-foreground flex flex-col items-start gap-3 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0_hsl(var(--foreground))] transition-all`}
+              className={`${action.bgColor} p-5 border-[3px] border-foreground flex flex-col items-start gap-3 hover:translate-x-[2px] hover:translate-y-[2px] transition-all ${action.bgColor === 'bg-vis-blue' ? 'text-background' : 'text-foreground'}`}
+              style={{ 
+                boxShadow: index % 2 === 0 
+                  ? '6px 6px 0 hsl(var(--foreground))' 
+                  : '6px 6px 0 hsl(var(--vis-yellow))'
+              }}
             >
-              <div className="w-12 h-12 rounded-xl bg-card/90 border-2 border-foreground flex items-center justify-center">
-                <action.icon className="w-6 h-6 text-foreground" strokeWidth={2} />
-              </div>
-              <span className="font-bold text-lg text-foreground">{action.label}</span>
+              <action.icon className="w-10 h-10" strokeWidth={2} />
+              <span className="font-bold text-xl tracking-tight">{action.label}</span>
             </button>
           ))}
         </div>
       </div>
 
-      {/* Today's Event - Card with illustration style */}
+      {/* Today's Event - Brutal card */}
       <div className="px-4 mb-6">
-        <div className="flex items-center gap-2 mb-3 px-1">
-          <div className="w-7 h-7 rounded-lg bg-vis-blue flex items-center justify-center">
-            <Calendar className="w-4 h-4 text-primary-foreground" />
-          </div>
-          <h2 className="font-bold">Danas na otoku</h2>
+        <div className="flex items-center gap-2 mb-3">
+          <Calendar className="w-5 h-5" strokeWidth={2.5} />
+          <h2 className="font-bold uppercase tracking-wide">DANAS NA OTOKU</h2>
         </div>
         
         <button
           onClick={() => navigate(`/events/${todayEvent.id}`)}
-          className="w-full bg-card p-5 rounded-2xl border-2 border-foreground shadow-[4px_4px_0_hsl(var(--vis-yellow))] hover:shadow-[2px_2px_0_hsl(var(--vis-yellow))] hover:translate-x-[2px] hover:translate-y-[2px] transition-all relative overflow-hidden text-left"
+          className="w-full bg-vis-yellow p-5 border-[3px] border-foreground shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm transition-all text-left"
         >
-          {/* Decorative blob */}
-          <div className="absolute -top-10 -right-10 w-32 h-32 bg-vis-yellow/20 rounded-full" />
-          
-          <div className="relative z-10">
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-vis-yellow border-2 border-foreground flex items-center justify-center shrink-0 text-2xl">
-                🎉
-              </div>
-              <div className="flex-1 min-w-0">
-                <VisBadge variant={todayEvent.category} className="mb-2">
-                  {todayEvent.category}
-                </VisBadge>
-                <h3 className="font-bold text-lg leading-tight mb-2">{todayEvent.title}</h3>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-4 h-4" />
-                    {todayEvent.time}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-4 h-4" />
-                    {todayEvent.location}
-                  </span>
-                </div>
+          <div className="flex items-start gap-4">
+            <div className="w-16 h-16 bg-foreground text-background flex items-center justify-center text-3xl border-[3px] border-foreground">
+              🎉
+            </div>
+            <div className="flex-1 min-w-0">
+              <span className="inline-block bg-foreground text-background px-2 py-0.5 text-xs font-bold uppercase tracking-wider mb-2">
+                VIS
+              </span>
+              <h3 className="font-bold text-xl leading-tight mb-2">{todayEvent.title}</h3>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-sm">
+                <span className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  {todayEvent.time}
+                </span>
+                <span className="flex items-center gap-1">
+                  <MapPin className="w-4 h-4" />
+                  {todayEvent.location}
+                </span>
               </div>
             </div>
           </div>
         </button>
       </div>
 
-      {/* Bottom action */}
+      {/* Bottom action - Feedback */}
       <div className="px-4 pb-8">
         <button
           onClick={() => navigate('/feedback')}
-          className="w-full bg-vis-cyan/20 border-2 border-vis-cyan text-foreground px-5 py-4 rounded-2xl flex items-center gap-3 hover:bg-vis-cyan/30 transition-colors"
+          className="w-full bg-background border-[3px] border-foreground px-5 py-4 flex items-center gap-3 hover:bg-muted transition-colors"
+          style={{ boxShadow: '6px 6px 0 hsl(var(--vis-cyan))' }}
         >
-          <div className="w-10 h-10 rounded-xl bg-vis-cyan border-2 border-foreground flex items-center justify-center">
-            <MessageSquare className="w-5 h-5" />
-          </div>
+          <MessageSquare className="w-8 h-8" strokeWidth={2} />
           <div className="flex-1 text-left">
-            <p className="font-bold">Imate prijedlog?</p>
-            <p className="text-sm text-muted-foreground">Javite nam svoje ideje</p>
+            <p className="font-bold uppercase tracking-wide">IMATE PRIJEDLOG?</p>
+            <p className="text-sm font-mono text-muted-foreground">Javite nam svoje ideje</p>
           </div>
-          <ChevronRight className="w-5 h-5 text-muted-foreground" />
+          <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
         </button>
       </div>
     </div>

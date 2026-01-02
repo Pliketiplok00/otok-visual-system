@@ -1,113 +1,106 @@
-/* Funnel Display font loaded via index.html for better performance */
+/* Space Grotesk + Space Mono loaded via index.html */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* OTOK VIS APP Design System
-   Color-block based layout with strong outlines
-   Municipal app for island of Vis
+/* OTOK VIS APP - NEOBRUTALIST Design System
+   Raw, bold, high-contrast design with harsh edges
 */
 
 @layer base {
   :root {
-    /* Core palette - Island of Vis */
-    --vis-yellow: 45 82% 58%;      /* #EAC43D */
-    --vis-blue: 213 56% 38%;       /* #2A5C99 */
-    --vis-cyan: 184 82% 44%;       /* #14C0CC */
-    --vis-green: 80 55% 55%;       /* #A6CD4E */
-    --vis-white: 0 0% 100%;        /* #FFFFFF */
-    --vis-black: 0 0% 8%;          /* Near black for outlines */
-    --vis-emergency: 0 72% 51%;    /* Red for emergencies */
+    /* Core palette - Bold and harsh */
+    --vis-yellow: 50 100% 50%;       /* Pure harsh yellow */
+    --vis-blue: 220 100% 50%;        /* Electric blue */
+    --vis-cyan: 180 100% 45%;        /* Sharp cyan */
+    --vis-green: 120 80% 45%;        /* Bold green */
+    --vis-white: 0 0% 100%;
+    --vis-black: 0 0% 0%;
+    --vis-emergency: 0 100% 50%;     /* Pure red */
 
-    /* Semantic tokens */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 8%;
+    /* Semantic tokens - High contrast */
+    --background: 60 10% 95%;        /* Off-white cream */
+    --foreground: 0 0% 0%;           /* Pure black */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 213 56% 38%;
+    --primary: 0 0% 0%;              /* Black primary */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 80 55% 55%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 50 100% 50%;        /* Yellow secondary */
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 210 20% 96%;
+    --muted: 60 5% 90%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 184 82% 44%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 220 100% 50%;          /* Blue accent */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 8%;
-    --input: 0 0% 8%;
-    --ring: 213 56% 38%;
+    --border: 0 0% 0%;               /* Black borders */
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
 
-    --radius: 0.5rem;
+    --radius: 0;                     /* No rounded corners */
 
-    /* Spacing system */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 0.75rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.25rem;
-    --spacing-xl: 1.5rem;
+    /* Neobrutalist specific */
+    --border-thick: 3px;
+    --shadow-offset: 6px;
 
-    /* Outline width */
-    --outline-width: 2px;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 8%;
-    --sidebar-primary: 213 56% 38%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 184 82% 44%;
-    --sidebar-accent-foreground: 0 0% 8%;
-    --sidebar-border: 0 0% 8%;
-    --sidebar-ring: 213 56% 38%;
+    --sidebar-accent: 50 100% 50%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 0%;
+    --sidebar-ring: 0 0% 0%;
   }
 
   .dark {
-    --background: 0 0% 8%;
+    --background: 0 0% 5%;
     --foreground: 0 0% 100%;
 
-    --card: 0 0% 12%;
+    --card: 0 0% 10%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 0 0% 12%;
+    --popover: 0 0% 10%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 184 82% 44%;
-    --primary-foreground: 0 0% 8%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 80 55% 55%;
-    --secondary-foreground: 0 0% 8%;
+    --secondary: 50 100% 50%;
+    --secondary-foreground: 0 0% 0%;
 
     --muted: 0 0% 20%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 45 82% 58%;
-    --accent-foreground: 0 0% 8%;
+    --accent: 180 100% 45%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 30%;
-    --input: 0 0% 30%;
-    --ring: 184 82% 44%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
+    --ring: 0 0% 100%;
 
-    --sidebar-background: 0 0% 8%;
+    --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 184 82% 44%;
-    --sidebar-primary-foreground: 0 0% 8%;
-    --sidebar-accent: 45 82% 58%;
-    --sidebar-accent-foreground: 0 0% 8%;
-    --sidebar-border: 0 0% 30%;
-    --sidebar-ring: 184 82% 44%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 50 100% 50%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 100%;
+    --sidebar-ring: 0 0% 100%;
   }
 }
 
@@ -117,31 +110,111 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Funnel Display', system-ui, -apple-system, sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  /* Neobrutalist base styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Neobrutalist card */
+  .neo-card {
+    @apply bg-card border-[3px] border-foreground p-4;
+    box-shadow: 6px 6px 0 hsl(var(--foreground));
+  }
+
+  .neo-card:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 hsl(var(--foreground));
+  }
+
+  /* Neobrutalist button */
+  .neo-btn {
+    @apply bg-secondary text-secondary-foreground border-[3px] border-foreground px-6 py-3 font-bold uppercase tracking-wide;
+    box-shadow: 4px 4px 0 hsl(var(--foreground));
+    transition: all 0.1s ease;
+  }
+
+  .neo-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 hsl(var(--foreground));
+  }
+
+  .neo-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
+
+  /* Color accent cards */
+  .neo-yellow {
+    @apply bg-vis-yellow;
+    box-shadow: 6px 6px 0 hsl(var(--foreground));
+  }
+
+  .neo-blue {
+    @apply bg-vis-blue text-primary-foreground;
+    box-shadow: 6px 6px 0 hsl(var(--vis-yellow));
+  }
+
+  .neo-cyan {
+    @apply bg-vis-cyan;
+    box-shadow: 6px 6px 0 hsl(var(--foreground));
+  }
+
+  .neo-green {
+    @apply bg-vis-green;
+    box-shadow: 6px 6px 0 hsl(var(--foreground));
+  }
+
+  /* Mono text for labels */
+  .mono {
+    font-family: 'Space Mono', monospace;
   }
 }
 
 @layer utilities {
-  .color-block-blue {
-    @apply bg-[hsl(var(--vis-blue))];
+  .border-brutal {
+    @apply border-[3px] border-foreground;
   }
-  .color-block-yellow {
-    @apply bg-[hsl(var(--vis-yellow))];
+
+  .shadow-brutal {
+    box-shadow: 6px 6px 0 hsl(var(--foreground));
   }
-  .color-block-cyan {
-    @apply bg-[hsl(var(--vis-cyan))];
+
+  .shadow-brutal-sm {
+    box-shadow: 4px 4px 0 hsl(var(--foreground));
   }
-  .color-block-green {
-    @apply bg-[hsl(var(--vis-green))];
+
+  .shadow-brutal-yellow {
+    box-shadow: 6px 6px 0 hsl(var(--vis-yellow));
   }
-  .color-block-white {
-    @apply bg-[hsl(var(--vis-white))];
+
+  .shadow-brutal-blue {
+    box-shadow: 6px 6px 0 hsl(var(--vis-blue));
   }
-  .strong-outline {
-    @apply border-2 border-foreground;
+
+  .shadow-brutal-cyan {
+    box-shadow: 6px 6px 0 hsl(var(--vis-cyan));
   }
-  .vis-card {
-    @apply bg-card strong-outline rounded-lg p-4;
+
+  .shadow-brutal-green {
+    box-shadow: 6px 6px 0 hsl(var(--vis-green));
+  }
+
+  /* Marquee for announcements */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
   }
 }
