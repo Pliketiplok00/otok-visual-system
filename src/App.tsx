@@ -17,6 +17,7 @@ import LandScheduleV3 from "./pages/LandScheduleV3";
 import SettingsV3 from "./pages/SettingsV3";
 import ReportAndFixV3 from "./pages/ReportAndFixV3";
 import EventsCalendarV3 from "./pages/EventsCalendarV3";
+import EventDetailV3 from "./pages/EventDetailV3";
 import GeoparkAlt from "./pages/GeoparkAlt";
 import GeoparkFloraV3 from "./pages/GeoparkFloraV3";
 import GeoparkFaunaV3 from "./pages/GeoparkFaunaV3";
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="/settings" element={<SettingsV3 />} />
           <Route path="/report" element={<ReportAndFixV3 />} />
           <Route path="/events" element={<EventsCalendarV3 />} />
+          <Route path="/events/:id" element={<EventDetailV3 />} />
           <Route path="/geopark" element={<GeoparkAlt />} />
           <Route path="/geopark/flora" element={<GeoparkFloraV3 />} />
           <Route path="/geopark/fauna" element={<GeoparkFaunaV3 />} />
