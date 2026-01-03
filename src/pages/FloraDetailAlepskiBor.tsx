@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, MapPin, Sun, Droplets, TreePine, Info } from "lucide-react";
+import { ImageCarousel } from "@/components/ui/ImageCarousel";
 import alepskiBorImage from "@/assets/alepski-bor.jpg";
 
 const FloraDetailAlepskiBor = () => {
   const navigate = useNavigate();
+
+  const images = [
+    { src: alepskiBorImage, alt: "Alepski bor - Aleppo Pine" },
+    { src: alepskiBorImage, alt: "Alepski bor - Bark detail" },
+    { src: alepskiBorImage, alt: "Alepski bor - Pine cones" },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -22,22 +29,12 @@ const FloraDetailAlepskiBor = () => {
         </div>
       </header>
 
-      {/* Hero Image */}
-      <div className="relative">
-        <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
-          <img 
-            src={alepskiBorImage} 
-            alt="Alepski bor - Aleppo Pine"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div 
-          className="absolute bottom-4 left-4 bg-[#96C7B3] border-3 border-foreground px-4 py-2"
-          style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}
-        >
-          <span className="text-xs font-bold uppercase tracking-wide">Endemic Species</span>
-        </div>
-      </div>
+      {/* Hero Image Carousel */}
+      <ImageCarousel
+        images={images}
+        badgeText="Endemic Species"
+        badgeColor="#96C7B3"
+      />
 
       {/* Content */}
       <div className="p-4 space-y-6">
