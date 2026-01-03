@@ -21,6 +21,8 @@ import EventDetailV3 from "./pages/EventDetailV3";
 import GeoparkAlt from "./pages/GeoparkAlt";
 import GeoparkFloraV3 from "./pages/GeoparkFloraV3";
 import GeoparkFaunaV3 from "./pages/GeoparkFaunaV3";
+import FloraDetailAlepskiBor from "./pages/FloraDetailAlepskiBor";
+import FloraDetailViskaKadulja from "./pages/FloraDetailViskaKadulja";
 import WaterInfoV3 from "./pages/WaterInfoV3";
 import WasteRecyclingV3 from "./pages/WasteRecyclingV3";
 import VisitorInfoV3 from "./pages/VisitorInfoV3";
@@ -56,6 +58,8 @@ const App = () => (
           <Route path="/events/:id" element={<EventDetailV3 />} />
           <Route path="/geopark" element={<GeoparkAlt />} />
           <Route path="/geopark/flora" element={<GeoparkFloraV3 />} />
+          <Route path="/geopark/flora/alepski-bor" element={<FloraDetailAlepskiBor />} />
+          <Route path="/geopark/flora/viska-kadulja" element={<FloraDetailViskaKadulja />} />
           <Route path="/geopark/fauna" element={<GeoparkFaunaV3 />} />
           
           {/* Aliases for V3 */}
