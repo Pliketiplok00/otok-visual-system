@@ -18,6 +18,8 @@ import SettingsV3 from "./pages/SettingsV3";
 import ReportAndFixV3 from "./pages/ReportAndFixV3";
 import EventsCalendarV3 from "./pages/EventsCalendarV3";
 import GeoparkAlt from "./pages/GeoparkAlt";
+import GeoparkFloraV3 from "./pages/GeoparkFloraV3";
+import GeoparkFaunaV3 from "./pages/GeoparkFaunaV3";
 import WaterInfoV3 from "./pages/WaterInfoV3";
 import WasteRecyclingV3 from "./pages/WasteRecyclingV3";
 import VisitorInfoV3 from "./pages/VisitorInfoV3";
@@ -51,6 +53,8 @@ const App = () => (
           <Route path="/report" element={<ReportAndFixV3 />} />
           <Route path="/events" element={<EventsCalendarV3 />} />
           <Route path="/geopark" element={<GeoparkAlt />} />
+          <Route path="/geopark/flora" element={<GeoparkFloraV3 />} />
+          <Route path="/geopark/fauna" element={<GeoparkFaunaV3 />} />
           
           {/* Aliases for V3 */}
           <Route path="/v3" element={<SplashV3 />} />
