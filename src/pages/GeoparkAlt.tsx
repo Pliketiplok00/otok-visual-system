@@ -43,14 +43,19 @@ const GeoparkAlt = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-vis-green relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-0 w-40 h-40 bg-vis-yellow/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-40 left-0 w-32 h-32 bg-vis-cyan/20 rounded-full blur-2xl -translate-x-1/2" />
+      {/* Decorative geometric elements - neobrutalist squares */}
+      <div 
+        className="absolute top-20 right-4 w-16 h-16 bg-vis-yellow border-[3px] border-foreground" 
+        style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+      />
+      <div 
+        className="absolute top-40 right-12 w-8 h-8 bg-vis-cyan border-[3px] border-foreground" 
+        style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}
+      />
       
       {/* Leaf pattern decoration */}
-      <svg className="absolute top-32 right-4 w-24 h-24 opacity-20" viewBox="0 0 100 100">
-        <ellipse cx="50" cy="50" rx="30" ry="45" fill="currentColor" className="text-foreground" transform="rotate(-30 50 50)" />
-        <line x1="50" y1="10" x2="50" y2="90" stroke="currentColor" strokeWidth="2" className="text-foreground" />
+      <svg className="absolute top-32 left-4 w-20 h-20 opacity-30" viewBox="0 0 100 100">
+        <polygon points="50,10 90,90 10,90" fill="none" stroke="currentColor" strokeWidth="3" className="text-foreground" />
       </svg>
 
       <AppHeader />
@@ -58,18 +63,21 @@ const GeoparkAlt = () => {
       {/* Hero section */}
       <div className="px-6 pt-8 pb-6 text-foreground">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 rounded-2xl bg-card border-2 border-foreground flex items-center justify-center shadow-[3px_3px_0_hsl(var(--vis-yellow))]">
+          <div 
+            className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
+          >
             <Leaf className="w-6 h-6 text-vis-green" strokeWidth={2.5} />
           </div>
           <div>
-            <h1 className="text-2xl font-extrabold">Geopark</h1>
-            <p className="text-sm opacity-80">Prirodna baština otoka Visa</p>
+            <h1 className="text-2xl font-extrabold uppercase tracking-tight">Geopark</h1>
+            <p className="text-sm opacity-80 mono">Prirodna baština otoka Visa</p>
           </div>
         </div>
       </div>
 
       {/* Main content */}
-      <div className="flex-1 bg-card rounded-t-[2rem] border-t-2 border-x-2 border-foreground px-5 pt-6 pb-8">
+      <div className="flex-1 bg-card border-t-[3px] border-x-[3px] border-foreground px-5 pt-6 pb-8">
         {/* Category cards with illustrations */}
         <div className="space-y-4 mb-8">
           {categories.map((cat) => (
@@ -78,52 +86,61 @@ const GeoparkAlt = () => {
               onClick={() => navigate(cat.path)}
               className="relative overflow-hidden"
             >
-              {/* Decorative blob */}
-              <div className={`absolute -top-4 -right-4 w-24 h-24 ${cat.color} opacity-20 rounded-full`} />
+              {/* Decorative square - no rounded corners */}
+              <div className={`absolute -top-2 -right-2 w-16 h-16 ${cat.color} opacity-30 border-[2px] border-foreground`} />
               
               <div className="flex items-center gap-4 relative z-10">
-                <div className={`w-16 h-16 rounded-2xl ${cat.color} border-2 border-foreground flex items-center justify-center shadow-[3px_3px_0_hsl(var(--foreground))]`}>
+                <div 
+                  className={`w-16 h-16 ${cat.color} border-[3px] border-foreground flex items-center justify-center`}
+                  style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+                >
                   <cat.icon className="w-8 h-8" strokeWidth={2} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-xl mb-1">{cat.title}</h3>
+                  <h3 className="font-bold text-xl mb-1 uppercase">{cat.title}</h3>
                   <p className="text-sm text-muted-foreground">{cat.description}</p>
-                  <span className="text-xs font-semibold text-vis-blue mt-1 inline-block">
+                  <span className="text-xs font-bold text-vis-blue mt-1 inline-block mono uppercase">
                     {cat.count} vrsta
                   </span>
                 </div>
-                <ChevronRight className="w-6 h-6 text-muted-foreground" />
+                <ChevronRight className="w-6 h-6 text-foreground" strokeWidth={2.5} />
               </div>
             </VisCard>
           ))}
         </div>
 
-        {/* Featured species - circular icons like reference */}
+        {/* Featured species - square icons, neobrutalist */}
         <div>
-          <h2 className="font-bold text-lg mb-4">Istaknute vrste</h2>
+          <h2 className="font-bold text-lg mb-4 uppercase">Istaknute vrste</h2>
           <div className="flex justify-between">
             {featuredSpecies.map((species, i) => (
               <button
                 key={i}
                 className="flex flex-col items-center gap-2 group"
               >
-                <div className={`w-16 h-16 rounded-full ${species.color} border-2 border-foreground flex items-center justify-center transition-all group-hover:scale-105 group-hover:shadow-[2px_2px_0_hsl(var(--foreground))]`}>
+                <div 
+                  className={`w-16 h-16 ${species.color} border-[3px] border-foreground flex items-center justify-center transition-all group-hover:translate-x-[2px] group-hover:translate-y-[2px]`}
+                  style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+                >
                   <species.icon className="w-7 h-7" strokeWidth={2} />
                 </div>
-                <span className="text-xs font-semibold text-center">{species.name}</span>
-                <span className="text-[10px] text-muted-foreground">{species.status}</span>
+                <span className="text-xs font-bold text-center uppercase">{species.name}</span>
+                <span className="text-[10px] text-muted-foreground mono uppercase">{species.status}</span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Illustrated info card */}
-        <div className="mt-8 bg-vis-blue/10 rounded-2xl border-2 border-vis-blue p-4 relative overflow-hidden">
-          <div className="absolute -bottom-2 -right-2 opacity-10">
-            <Leaf className="w-24 h-24" />
+        {/* Illustrated info card - neobrutalist */}
+        <div 
+          className="mt-8 bg-vis-blue/20 border-[3px] border-foreground p-4 relative overflow-hidden"
+          style={{ boxShadow: '6px 6px 0 hsl(var(--vis-blue))' }}
+        >
+          <div className="absolute -bottom-2 -right-2 opacity-20">
+            <Leaf className="w-24 h-24" strokeWidth={1.5} />
           </div>
           <div className="relative z-10">
-            <h3 className="font-bold text-vis-blue mb-2">UNESCO Geopark kandidat</h3>
+            <h3 className="font-bold text-foreground mb-2 uppercase">UNESCO Geopark kandidat</h3>
             <p className="text-sm text-muted-foreground">
               Otok Vis prepoznat je po iznimnoj geološkoj raznolikosti i endemskim vrstama.
             </p>
