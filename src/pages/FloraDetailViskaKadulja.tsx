@@ -1,9 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, MapPin, Sun, Droplets, Flower2, Info, Sparkles } from "lucide-react";
+import { ImageCarousel } from "@/components/ui/ImageCarousel";
 import viskaKaduljaImage from "@/assets/viska-kadulja.jpg";
 
 const FloraDetailViskaKadulja = () => {
   const navigate = useNavigate();
+
+  const images = [
+    { src: viskaKaduljaImage, alt: "Viška kadulja - Vis Sage" },
+    { src: viskaKaduljaImage, alt: "Viška kadulja - Flower detail" },
+    { src: viskaKaduljaImage, alt: "Viška kadulja - Leaves" },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -22,22 +29,12 @@ const FloraDetailViskaKadulja = () => {
         </div>
       </header>
 
-      {/* Hero Image */}
-      <div className="relative">
-        <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
-          <img 
-            src={viskaKaduljaImage} 
-            alt="Viška kadulja - Vis Sage"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div 
-          className="absolute bottom-4 left-4 bg-[#D7897F] border-3 border-foreground px-4 py-2"
-          style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}
-        >
-          <span className="text-xs font-bold uppercase tracking-wide">Endemic to Vis</span>
-        </div>
-      </div>
+      {/* Hero Image Carousel */}
+      <ImageCarousel
+        images={images}
+        badgeText="Endemic to Vis"
+        badgeColor="#D7897F"
+      />
 
       {/* Content */}
       <div className="p-4 space-y-6">
