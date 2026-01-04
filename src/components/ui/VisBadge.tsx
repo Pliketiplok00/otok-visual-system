@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 
-type BadgeVariant = 'vis' | 'komiza' | 'general' | 'emergency' | 'default';
+type BadgeVariant = 'vis' | 'komiza' | 'kultura' | 'hitno' | 'opcenito' | 'general' | 'emergency' | 'default';
 
 interface VisBadgeProps {
   variant?: BadgeVariant;
@@ -11,6 +11,9 @@ interface VisBadgeProps {
 const variantClasses: Record<BadgeVariant, string> = {
   vis: 'bg-vis-blue text-primary-foreground',
   komiza: 'bg-vis-green text-foreground',
+  kultura: 'bg-vis-yellow text-foreground',
+  hitno: 'bg-vis-emergency text-primary-foreground',
+  opcenito: 'bg-vis-cyan text-foreground',
   general: 'bg-vis-cyan text-foreground',
   emergency: 'bg-vis-emergency text-primary-foreground',
   default: 'bg-vis-yellow text-foreground',

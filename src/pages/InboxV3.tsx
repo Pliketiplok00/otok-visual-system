@@ -6,14 +6,14 @@ import { ChevronRight, Bell, Info, Settings, X } from 'lucide-react';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
-type Filter = 'all' | 'vis' | 'komiza' | 'general' | 'emergency';
+type Filter = 'all' | 'vis' | 'komiza' | 'kultura' | 'hitno' | 'opcenito';
 
 interface Notification {
   id: number;
   title: string;
   excerpt: string;
   date: string;
-  category: 'vis' | 'komiza' | 'general' | 'emergency';
+  category: 'vis' | 'komiza' | 'kultura' | 'hitno' | 'opcenito';
   unread: boolean;
   emoji: string;
 }
@@ -24,7 +24,7 @@ const mockNotifications: Notification[] = [
     title: 'Prekid vodoopskrbe u Visu',
     excerpt: 'Zbog planiranih radova na vodovodnoj mreži, doći će do prekida vodoopskrbe...',
     date: 'Danas',
-    category: 'emergency',
+    category: 'hitno',
     unread: true,
     emoji: '🚨',
   },
@@ -42,7 +42,7 @@ const mockNotifications: Notification[] = [
     title: 'Ljetni raspored odvoza otpada',
     excerpt: 'Obavještavamo građane da od 1. lipnja vrijedi ljetni raspored odvoza...',
     date: '2 dana',
-    category: 'general',
+    category: 'opcenito',
     unread: false,
     emoji: '♻️',
   },
@@ -55,14 +55,24 @@ const mockNotifications: Notification[] = [
     unread: false,
     emoji: '🎵',
   },
+  {
+    id: 5,
+    title: 'Izložba "More i otok" u galeriji',
+    excerpt: 'Pozivamo vas na otvorenje izložbe "More i otok" u Gradskoj galeriji Vis...',
+    date: '4 dana',
+    category: 'kultura',
+    unread: false,
+    emoji: '🎨',
+  },
 ];
 
 const filters: { id: Filter; label: string; color: string }[] = [
   { id: 'all', label: 'Sve', color: 'bg-foreground text-background' },
   { id: 'vis', label: 'Vis', color: 'bg-vis-blue text-primary-foreground' },
   { id: 'komiza', label: 'Komiža', color: 'bg-vis-green text-foreground' },
-  { id: 'general', label: 'Općenito', color: 'bg-vis-cyan text-foreground' },
-  { id: 'emergency', label: 'Hitno', color: 'bg-vis-emergency text-primary-foreground' },
+  { id: 'kultura', label: 'Kultura', color: 'bg-vis-yellow text-foreground' },
+  { id: 'hitno', label: 'Hitno', color: 'bg-vis-emergency text-primary-foreground' },
+  { id: 'opcenito', label: 'Općenito', color: 'bg-vis-cyan text-foreground' },
 ];
 
 const InboxV3 = () => {
@@ -95,10 +105,22 @@ const InboxV3 = () => {
 
   const getCategoryStyles = (category: string) => {
     switch (category) {
-      case 'emergency': return { shadow: 'hsl(var(--vis-emergency))', bg: 'bg-vis-emergency/5' };
+      case 'hitno': return { shadow: 'hsl(var(--vis-emergency))', bg: 'bg-vis-emergency/5' };
       case 'vis': return { shadow: 'hsl(var(--vis-blue))', bg: 'bg-vis-blue/5' };
       case 'komiza': return { shadow: 'hsl(var(--vis-green))', bg: 'bg-vis-green/5' };
+      case 'kultura': return { shadow: 'hsl(var(--vis-yellow))', bg: 'bg-vis-yellow/5' };
       default: return { shadow: 'hsl(var(--vis-cyan))', bg: 'bg-vis-cyan/5' };
+    }
+  };
+
+  const getCategoryLabel = (category: string) => {
+    switch (category) {
+      case 'hitno': return 'Hitno';
+      case 'vis': return 'Vis';
+      case 'komiza': return 'Komiža';
+      case 'kultura': return 'Kultura';
+      case 'opcenito': return 'Općenito';
+      default: return category;
     }
   };
 
@@ -172,7 +194,7 @@ const InboxV3 = () => {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <VisBadge variant={notification.category}>
-                          {notification.category === 'emergency' ? 'Hitno' : notification.category}
+                          {getCategoryLabel(notification.category)}
                         </VisBadge>
                         <span className="text-xs text-muted-foreground font-mono">{notification.date}</span>
                       </div>

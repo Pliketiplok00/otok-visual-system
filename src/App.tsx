@@ -32,6 +32,7 @@ import VisitorInfoV3 from "./pages/VisitorInfoV3";
 import DirectoryV3 from "./pages/DirectoryV3";
 import WineRoutesV3 from "./pages/WineRoutesV3";
 import WineRouteDetailV3 from "./pages/WineRouteDetailV3";
+import NotificationDetailV3 from "./pages/NotificationDetailV3";
 import NotFoundV3 from "./pages/NotFoundV3";
 
 // Legacy screens (kept for reference)
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/home" element={<HomeV3 />} />
           <Route path="/menu" element={<MenuV3 />} />
           <Route path="/inbox" element={<InboxV3 />} />
+          <Route path="/notification/:id" element={<NotificationDetailV3 />} />
           <Route path="/schedules" element={<SchedulesV3 />} />
           <Route path="/settings" element={<SettingsV3 />} />
           <Route path="/report" element={<ReportAndFixV3 />} />
