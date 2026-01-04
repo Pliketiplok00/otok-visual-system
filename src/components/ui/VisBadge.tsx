@@ -13,8 +13,8 @@ const variantClasses: Record<BadgeVariant, string> = {
   komiza: 'bg-vis-green text-foreground',
   kultura: 'bg-vis-yellow text-foreground',
   hitno: 'bg-vis-emergency text-primary-foreground',
-  opcenito: 'bg-vis-cyan text-foreground',
-  general: 'bg-vis-cyan text-foreground',
+  opcenito: 'bg-vis-purple text-foreground',
+  general: 'bg-vis-purple text-foreground',
   emergency: 'bg-vis-emergency text-primary-foreground',
   default: 'bg-vis-yellow text-foreground',
 };

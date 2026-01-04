@@ -72,7 +72,7 @@ const filters: { id: Filter; label: string; color: string }[] = [
   { id: 'komiza', label: 'Komiža', color: 'bg-vis-green text-foreground' },
   { id: 'kultura', label: 'Kultura', color: 'bg-vis-yellow text-foreground' },
   { id: 'hitno', label: 'Hitno', color: 'bg-vis-emergency text-primary-foreground' },
-  { id: 'opcenito', label: 'Općenito', color: 'bg-vis-cyan text-foreground' },
+  { id: 'opcenito', label: 'Općenito', color: 'bg-vis-purple text-foreground' },
 ];
 
 const InboxV3 = () => {
@@ -96,7 +96,7 @@ const InboxV3 = () => {
     { id: 'komiza' as const, label: 'Komiža', color: 'bg-vis-green' },
     { id: 'kultura' as const, label: 'Kultura', color: 'bg-vis-yellow' },
     { id: 'hitno' as const, label: 'Hitno', color: 'bg-vis-emergency' },
-    { id: 'opcenito' as const, label: 'Općenito', color: 'bg-vis-cyan' },
+    { id: 'opcenito' as const, label: 'Općenito', color: 'bg-vis-purple' },
   ];
 
   const filteredNotifications = activeFilter === 'all' 
@@ -109,7 +109,7 @@ const InboxV3 = () => {
       case 'vis': return { shadow: 'hsl(var(--vis-blue))', bg: 'bg-vis-blue/5' };
       case 'komiza': return { shadow: 'hsl(var(--vis-green))', bg: 'bg-vis-green/5' };
       case 'kultura': return { shadow: 'hsl(var(--vis-yellow))', bg: 'bg-vis-yellow/5' };
-      default: return { shadow: 'hsl(var(--vis-cyan))', bg: 'bg-vis-cyan/5' };
+      default: return { shadow: 'hsl(var(--vis-purple))', bg: 'bg-vis-purple/5' };
     }
   };
 
