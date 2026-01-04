@@ -44,9 +44,9 @@ const SchedulesV3 = () => {
               <div className="flex-1">
                 <h2 className="font-bold text-xl mb-1 uppercase">Pomorski promet</h2>
                 <p className="text-sm text-muted-foreground">Trajekti, katamarani, brodske linije</p>
-                <div className="flex items-center gap-2 mt-2">
-                  <span className="text-xs px-2 py-0.5 bg-vis-cyan/20 text-foreground font-semibold border border-foreground">Split-Vis</span>
-                  <span className="text-xs px-2 py-0.5 bg-vis-cyan/20 text-foreground font-semibold border border-foreground">Hvar-Vis</span>
+                <div className="flex items-center gap-2 mt-2 flex-wrap">
+                  <span className="text-xs px-2 py-0.5 bg-vis-cyan/20 text-foreground font-semibold border border-foreground">Vis-Split-Vis</span>
+                  <span className="text-xs px-2 py-0.5 bg-vis-cyan/20 text-foreground font-semibold border border-foreground">Komiža-Biševo-Komiža</span>
                 </div>
               </div>
               <ChevronRight className="w-6 h-6 text-muted-foreground group-hover:translate-x-1 transition-transform" />
@@ -66,8 +66,10 @@ const SchedulesV3 = () => {
               <div className="flex-1">
                 <h2 className="font-bold text-xl mb-1 uppercase">Cestovni promet</h2>
                 <p className="text-sm text-muted-foreground">Autobusi na otoku</p>
-                <div className="flex items-center gap-2 mt-2">
+                <div className="flex items-center gap-2 mt-2 flex-wrap">
                   <span className="text-xs px-2 py-0.5 bg-vis-green/20 text-foreground font-semibold border border-foreground">Vis-Komiža</span>
+                  <span className="text-xs px-2 py-0.5 bg-vis-green/20 text-foreground font-semibold border border-foreground">Podšpilje-Žena Glava</span>
+                  <span className="text-xs px-2 py-0.5 bg-vis-green/20 text-foreground font-semibold border border-foreground">Rukavac</span>
                 </div>
               </div>
               <ChevronRight className="w-6 h-6 text-muted-foreground group-hover:translate-x-1 transition-transform" />
