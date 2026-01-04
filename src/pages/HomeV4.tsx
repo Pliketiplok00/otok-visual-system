@@ -44,7 +44,7 @@ const HomeV4 = () => {
     icon: Calendar,
     label: 'KALENDAR DOGAĐANJA',
     path: '/events',
-    bgColor: 'bg-vis-purple'
+    bgColor: 'bg-vis-green'
   }, {
     icon: Droplets,
     label: 'VODA',
