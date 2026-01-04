@@ -25,6 +25,20 @@ const routes: Route[] = [
     iconText: 'text-foreground',
     duration: '~25 min',
   },
+  {
+    id: 'komiza-podspile',
+    name: 'Komiža-Podšpilje-Žena Glava-M.Zemlje-Vis',
+    iconBg: 'bg-vis-blue',
+    iconText: 'text-primary-foreground',
+    duration: '~40 min',
+  },
+  {
+    id: 'komiza-rukavac',
+    name: 'Komiža-Rukavac-Vis',
+    iconBg: 'bg-vis-yellow',
+    iconText: 'text-foreground',
+    duration: '~30 min',
+  },
 ];
 
 const visToKomiza: Departure[] = [
@@ -40,6 +54,14 @@ const komizaToVis: Departure[] = [
   { time: '15:00', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'] },
   { time: '17:30', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'] },
 ];
+
+const podspiljeDeparture: Departure = {
+  time: '08:00', stops: ['Komiža', 'Podšpilje', 'Žena Glava', 'M.Zemlje', 'Vis']
+};
+
+const rukavacDeparture: Departure = {
+  time: '09:30', stops: ['Komiža', 'Rukavac', 'Vis']
+};
 
 const LandScheduleV3 = () => {
   const navigate = useNavigate();
@@ -120,6 +142,42 @@ const LandScheduleV3 = () => {
                 </div>
               </div>
             ))}
+            
+            {/* Podšpilje route departure */}
+            <div 
+              className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
+            >
+              <div className="w-16 h-16 bg-vis-blue border-[3px] border-foreground flex flex-col items-center justify-center text-primary-foreground">
+                <span className="text-xl font-bold">{podspiljeDeparture.time.split(':')[0]}</span>
+                <span className="text-sm font-mono">:{podspiljeDeparture.time.split(':')[1]}</span>
+              </div>
+              <div className="flex-1">
+                <p className="font-bold uppercase">{podspiljeDeparture.stops[0]} → {podspiljeDeparture.stops[podspiljeDeparture.stops.length - 1]}</p>
+                <div className="flex items-center gap-1 text-sm text-muted-foreground font-mono">
+                  <Clock className="w-3 h-3" />
+                  ~40 min
+                </div>
+              </div>
+            </div>
+            
+            {/* Rukavac route departure */}
+            <div 
+              className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
+            >
+              <div className="w-16 h-16 bg-vis-yellow border-[3px] border-foreground flex flex-col items-center justify-center text-foreground">
+                <span className="text-xl font-bold">{rukavacDeparture.time.split(':')[0]}</span>
+                <span className="text-sm font-mono">:{rukavacDeparture.time.split(':')[1]}</span>
+              </div>
+              <div className="flex-1">
+                <p className="font-bold uppercase">{rukavacDeparture.stops[0]} → {rukavacDeparture.stops[rukavacDeparture.stops.length - 1]}</p>
+                <div className="flex items-center gap-1 text-sm text-muted-foreground font-mono">
+                  <Clock className="w-3 h-3" />
+                  ~30 min
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
