@@ -68,8 +68,8 @@ const SchedulesV3 = () => {
                 <p className="text-sm text-muted-foreground">Autobusi na otoku</p>
                 <div className="flex items-center gap-2 mt-2 flex-wrap">
                   <span className="text-xs px-2 py-0.5 bg-vis-green/20 text-foreground font-semibold border border-foreground">Vis-Komiža</span>
-                  <span className="text-xs px-2 py-0.5 bg-vis-green/20 text-foreground font-semibold border border-foreground">Kž-Pdš-Žg-M.Z.-Vis</span>
-                  <span className="text-xs px-2 py-0.5 bg-vis-green/20 text-foreground font-semibold border border-foreground">Kž-Rukavac-Vis</span>
+                  <span className="text-xs px-2 py-0.5 bg-vis-green/20 text-foreground font-semibold border border-foreground">Komiža-Vis (stara cesta)</span>
+                  <span className="text-xs px-2 py-0.5 bg-vis-green/20 text-foreground font-semibold border border-foreground">Komiža-Rukavac-Vis</span>
                 </div>
               </div>
               <ChevronRight className="w-6 h-6 text-muted-foreground group-hover:translate-x-1 transition-transform" />
