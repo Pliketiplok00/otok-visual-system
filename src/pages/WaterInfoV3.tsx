@@ -1,5 +1,5 @@
 import ImageHeader from '@/components/layout/ImageHeader';
-import { ThermometerSun, AlertTriangle, Phone, Clock, MapPin, Droplets } from 'lucide-react';
+import { ThermometerSun, AlertTriangle, Phone, Clock, MapPin, Droplets, ShowerHead, Droplet, Flower2, Wrench } from 'lucide-react';
 
 const WaterInfoV3 = () => {
   // Using a placeholder - ideally would have a water-themed image
@@ -36,23 +36,23 @@ const WaterInfoV3 = () => {
           </div>
         </section>
 
-        {/* Tips Section - 2x2 grid */}
+        {/* Tips Section - 2x2 grid like home page */}
         <section className="mb-6">
           <h2 className="font-bold text-lg mb-3 uppercase">💡 Savjeti za uštedu</h2>
           <div className="grid grid-cols-2 gap-3">
             {[
-              { emoji: '🚿', tip: 'Tuširajte se kraće - svaka minuta štedi 10L vode' },
-              { emoji: '🚰', tip: 'Zatvarajte slavinu dok perete zube' },
-              { emoji: '🌿', tip: 'Zalijevajte vrt ujutro ili navečer' },
-              { emoji: '🔧', tip: 'Prijavite curenje - jedna kap = 20L dnevno' },
+              { icon: ShowerHead, tip: 'Tuširajte se kraće', color: 'bg-vis-cyan', shadow: 'hsl(var(--vis-blue))' },
+              { icon: Droplet, tip: 'Zatvarajte slavinu', color: 'bg-vis-green', shadow: 'hsl(var(--vis-yellow))' },
+              { icon: Flower2, tip: 'Zalijevajte navečer', color: 'bg-vis-yellow', shadow: 'hsl(var(--vis-orange))' },
+              { icon: Wrench, tip: 'Prijavite curenje', color: 'bg-vis-coral', shadow: 'hsl(var(--vis-violet))' },
             ].map((item, i) => (
               <div 
                 key={i}
-                className="flex flex-col items-center text-center gap-2 p-4 border-[3px] border-foreground bg-vis-yellow/15"
-                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}
+                className={`${item.color} flex flex-col items-center text-center gap-2 p-4 border-[3px] border-foreground`}
+                style={{ boxShadow: `4px 4px 0 ${item.shadow}` }}
               >
-                <span className="text-2xl">{item.emoji}</span>
-                <p className="text-xs font-medium">{item.tip}</p>
+                <item.icon className="w-8 h-8" strokeWidth={2} />
+                <p className="text-sm font-bold uppercase">{item.tip}</p>
               </div>
             ))}
           </div>
