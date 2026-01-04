@@ -14,6 +14,7 @@ import MenuV3 from "./pages/MenuV3";
 import InboxV3 from "./pages/InboxV3";
 import SchedulesV3 from "./pages/SchedulesV3";
 import SeaScheduleV3 from "./pages/SeaScheduleV3";
+import SeaScheduleDetailV3 from "./pages/SeaScheduleDetailV3";
 import LandScheduleV3 from "./pages/LandScheduleV3";
 import SettingsV3 from "./pages/SettingsV3";
 import ReportAndFixV3 from "./pages/ReportAndFixV3";
@@ -77,6 +78,7 @@ const App = () => (
           
           {/* Schedule sub-routes */}
           <Route path="/schedules/sea" element={<SeaScheduleV3 />} />
+          <Route path="/schedules/sea/:routeId" element={<SeaScheduleDetailV3 />} />
           <Route path="/schedules/land" element={<LandScheduleV3 />} />
           
           {/* Content pages */}
