@@ -12,7 +12,7 @@
 @layer base {
   :root {
     /* Core palette - Main tones */
-    --vis-yellow: 253 33% 81%;         /* Soft Lavender */
+    --vis-yellow: 45 70% 58%;          /* Soft Golden */
     --vis-blue: 200 55% 48%;           /* Mediterranean Blue */
     --vis-cyan: 180 45% 45%;           /* Teal Cyan */
     --vis-green: 160 40% 45%;          /* Sea Green */
@@ -23,7 +23,7 @@
     --vis-reddish: 195 50% 40%;        /* Steel Blue */
     --vis-violet: 220 50% 50%;         /* Ocean Blue */
     --vis-orange: 175 45% 42%;         /* Seafoam */
-    --vis-purple: 205 55% 42%;         /* Deep Sky Blue */
+    --vis-purple: 253 33% 81%;         /* Soft Lavender */
     --vis-deep-blue: 215 60% 35%;      /* Navy Blue */
     
     --vis-emergency: 0 55% 50%;        /* Red alert */
