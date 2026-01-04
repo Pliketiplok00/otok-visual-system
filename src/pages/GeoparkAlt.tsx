@@ -66,7 +66,7 @@ const GeoparkAlt = () => {
         
         {/* Intro */}
         <div 
-          className="p-4 border-[3px] border-foreground bg-vis-green/10 mb-6"
+          className="p-4 border-[3px] border-foreground bg-vis-green mb-6"
           style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
         >
           <p className="text-sm">
