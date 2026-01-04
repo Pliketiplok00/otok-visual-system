@@ -89,9 +89,9 @@ const SeaScheduleDetailV3 = () => {
           <button
             onClick={() => setDirection('outbound')}
             className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
-              direction === 'outbound' ? 'bg-vis-orange text-foreground' : 'bg-card'
+              direction === 'outbound' ? 'bg-vis-yellow text-foreground' : 'bg-card'
             }`}
-            style={{ boxShadow: direction === 'outbound' ? '2px 2px 0 hsl(var(--vis-yellow))' : 'none' }}
+            style={{ boxShadow: direction === 'outbound' ? '2px 2px 0 hsl(var(--vis-orange))' : 'none' }}
           >
             <ArrowRight className="w-4 h-4" />
             <span className="font-medium text-sm uppercase">Vis → Split</span>
@@ -99,9 +99,9 @@ const SeaScheduleDetailV3 = () => {
           <button
             onClick={() => setDirection('return')}
             className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
-              direction === 'return' ? 'bg-vis-orange text-foreground' : 'bg-card'
+              direction === 'return' ? 'bg-vis-yellow text-foreground' : 'bg-card'
             }`}
-            style={{ boxShadow: direction === 'return' ? '2px 2px 0 hsl(var(--vis-yellow))' : 'none' }}
+            style={{ boxShadow: direction === 'return' ? '2px 2px 0 hsl(var(--vis-orange))' : 'none' }}
           >
             <ArrowRight className="w-4 h-4 rotate-180" />
             <span className="font-medium text-sm uppercase">Split → Vis</span>
