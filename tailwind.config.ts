@@ -73,6 +73,7 @@ export default {
           white: "hsl(var(--vis-white))",
           black: "hsl(var(--vis-black))",
           emergency: "hsl(var(--vis-emergency))",
+          notice: "hsl(var(--vis-notice))",
         },
       },
       borderRadius: {

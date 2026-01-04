@@ -18,7 +18,8 @@
     --vis-green: 152 33% 68%;         /* Sage Green #96C7B3 */
     --vis-white: 0 0% 100%;
     --vis-black: 0 0% 0%;
-    --vis-emergency: 0 70% 50%;       /* Muted red */
+    --vis-emergency: 12 45% 45%;       /* Muted terracotta-red for urgent */
+    --vis-notice: 25 50% 55%;          /* Warm amber for community notices */
 
     /* Semantic tokens - High contrast */
     --background: 40 20% 96%;         /* Warm off-white */
