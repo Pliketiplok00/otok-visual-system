@@ -1,4 +1,4 @@
-import { Bird, Sparkles } from "lucide-react";
+import { Bird, Sparkles, ShieldAlert } from "lucide-react";
 
 import ImageHeader from "@/components/layout/ImageHeader";
 import eleonorasFalconImg from "@/assets/eleonoras-falcon.jpg";
@@ -56,6 +56,39 @@ const GeoparkFaunaV3 = () => {
             <div className="flex items-start gap-2">
               <span className="text-lg">🦭</span>
               <p className="text-sm"><span className="font-bold">Medvjeđa špilja na Biševu:</span> Špilja je dobila ime po sredozemnoj medvjedici; pristup i ponašanje posjetitelja bitni su za očuvanje staništa.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Endangered Species Section */}
+        <div 
+          className="border-3 border-foreground bg-vis-coral p-4 mb-6"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
+            <h3 className="font-mono uppercase font-bold">Ugrožene i zaštićene vrste</h3>
+          </div>
+          <div className="space-y-2">
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🦅</span>
+              <p className="text-sm"><span className="font-bold">Sokol Eleonore</span> – strogo zaštićena vrsta, gnijezdi na liticama</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🐬</span>
+              <p className="text-sm"><span className="font-bold">Dobri dupin</span> – zaštićen Natura 2000 mrežom</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🦭</span>
+              <p className="text-sm"><span className="font-bold">Sredozemna medvjedica</span> – kritično ugrožena, povijesno prisutna</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🐢</span>
+              <p className="text-sm"><span className="font-bold">Glavata želva</span> – povremeno viđena u okolnim vodama</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🦇</span>
+              <p className="text-sm"><span className="font-bold">Vrste šišmiša</span> – zaštićene, obitavaju u špiljama i tunelima</p>
             </div>
           </div>
         </div>
