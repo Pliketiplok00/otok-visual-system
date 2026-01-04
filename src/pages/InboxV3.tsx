@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import VisBadge from '@/components/ui/VisBadge';
-import { ChevronRight, Bell, Info } from 'lucide-react';
+import { ChevronRight, Bell, Info, Settings } from 'lucide-react';
 
 type Filter = 'all' | 'vis' | 'komiza' | 'general' | 'emergency';
 
@@ -86,14 +86,24 @@ const InboxV3 = () => {
 
       {/* Header */}
       <div className="px-5 pt-6 pb-4 text-foreground">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center" style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}>
-            <Bell className="w-6 h-6" strokeWidth={2} />
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center" style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}>
+              <Bell className="w-6 h-6" strokeWidth={2} />
+            </div>
+            <div>
+              <h1 className="text-2xl font-extrabold uppercase">Obavijesti</h1>
+              <p className="text-sm opacity-80">{mockNotifications.filter(n => n.unread).length} nepročitanih</p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-2xl font-extrabold uppercase">Obavijesti</h1>
-            <p className="text-sm opacity-80">{mockNotifications.filter(n => n.unread).length} nepročitanih</p>
-          </div>
+          <button
+            onClick={() => navigate('/settings')}
+            className="w-10 h-10 bg-card border-[3px] border-foreground flex items-center justify-center hover:bg-muted transition-colors"
+            style={{ boxShadow: '3px 3px 0 hsl(var(--vis-green))' }}
+            aria-label="Postavke"
+          >
+            <Settings className="w-5 h-5" strokeWidth={2.5} />
+          </button>
         </div>
       </div>
 
