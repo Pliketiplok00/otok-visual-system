@@ -51,12 +51,16 @@ const WaterInfoV3 = () => {
               Vis je među rijetkim jadranskim otocima s vlastitim značajnijim podzemnim zalihama pitke vode. Voda dolazi iz krškog sustava i crpi se iz izvorišta i bušotina u unutrašnjosti otoka. Lokalna infrastruktura (vodovodna mreža) povezuje naselja, a kvaliteta se redovito kontrolira. Zbog ograničenih zaliha, štednja je važna posebno od lipnja do rujna.
             </p>
           </div>
-          
-          <h3 className="font-bold text-sm mt-5 mb-3 text-muted-foreground uppercase tracking-wide font-mono">
+        </section>
+
+        {/* Water Facts Section */}
+        <section className="mb-6">
+          <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
+            <Droplets className="w-5 h-5 text-vis-green" />
             Vodene zanimljivosti Visa
-          </h3>
+          </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-card"
+            className="p-4 border-[3px] border-foreground bg-vis-green/10"
             style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
           >
             <div className="space-y-3">
