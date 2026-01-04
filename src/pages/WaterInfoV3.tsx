@@ -9,7 +9,7 @@ const WaterInfoV3 = () => {
     <div className="min-h-screen bg-vis-blue">
       <ImageHeader
         image={waterImageUrl}
-        title="Sve o vodi"
+        title="Voda otoka Visa"
         subtitle="Kvaliteta, dostupnost i savjeti"
         icon={<Droplets className="w-6 h-6 text-vis-blue" strokeWidth={2.5} />}
         iconBg="bg-card"
