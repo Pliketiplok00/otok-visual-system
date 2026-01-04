@@ -1,7 +1,15 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import VisBadge from '@/components/ui/VisBadge';
+import { ImageCarousel } from '@/components/ui/ImageCarousel';
 import { ChevronLeft, MapPin, Clock, Calendar, Users, Share2, Bell } from 'lucide-react';
+
+// Event photos
+import festivalPhoto from '@/assets/wild-rosemary.jpg';
+import concertPhoto from '@/assets/dalmatian-iris.jpg';
+import fishPhoto from '@/assets/bottlenose-dolphin.jpg';
+import exhibitionPhoto from '@/assets/eleonoras-falcon.jpg';
+import winePhoto from '@/assets/immortelle.jpg';
 
 interface Event {
   id: number;
@@ -16,6 +24,7 @@ interface Event {
   description: string;
   organizer: string;
   attendees?: number;
+  photos?: { src: string; alt: string }[];
 }
 
 const allEvents: Event[] = [
@@ -31,7 +40,11 @@ const allEvents: Event[] = [
     emoji: '🎉',
     description: 'Tradicionalna ljetna fešta na glavnom trgu grada Visa. Program uključuje nastupe lokalnih klapa, glazbu uživo, tradicionalnu hranu i piće. Posebna atrakcija večeri bit će vatromet iznad luke.',
     organizer: 'Turistička zajednica Vis',
-    attendees: 234
+    attendees: 234,
+    photos: [
+      { src: festivalPhoto, alt: 'Ljetna fešta na trgu' },
+      { src: winePhoto, alt: 'Tradicionalna hrana i piće' },
+    ]
   },
   { 
     id: 2, 
@@ -45,7 +58,11 @@ const allEvents: Event[] = [
     emoji: '🎵',
     description: 'Ljetni koncert poznate klape Komiža na rivi. Uživajte u tradicijskim dalmatinskim pjesmama uz zvuk mora. Ulaz slobodan.',
     organizer: 'Kulturno društvo Komiža',
-    attendees: 156
+    attendees: 156,
+    photos: [
+      { src: concertPhoto, alt: 'Koncert klape' },
+      { src: festivalPhoto, alt: 'Riva Komiža' },
+    ]
   },
   { 
     id: 3, 
@@ -59,7 +76,11 @@ const allEvents: Event[] = [
     emoji: '🐟',
     description: 'Tradicionalna ribarska večer s degustacijom svježe ulovljene ribe pripremljene na tradicionalan način. Na jelovniku: gira na gradele, brudet, crni rižot i bijelo vino.',
     organizer: 'Ribarska zadruga Vis',
-    attendees: 89
+    attendees: 89,
+    photos: [
+      { src: fishPhoto, alt: 'Ribarska večer' },
+      { src: festivalPhoto, alt: 'Luka Vis' },
+    ]
   },
   { 
     id: 4, 
@@ -73,7 +94,12 @@ const allEvents: Event[] = [
     emoji: '📸',
     description: 'Fotografska izložba "Vis nekad i sad" prikazuje povijesne fotografije otoka iz privatnih kolekcija uspoređene sa suvremenim fotografijama istih lokacija.',
     organizer: 'Muzej grada Visa',
-    attendees: 42
+    attendees: 42,
+    photos: [
+      { src: exhibitionPhoto, alt: 'Fotografska izložba' },
+      { src: concertPhoto, alt: 'Galerija Vis' },
+      { src: winePhoto, alt: 'Povijesne fotografije' },
+    ]
   },
   { 
     id: 5, 
@@ -87,7 +113,11 @@ const allEvents: Event[] = [
     emoji: '🍷',
     description: 'Godišnji festival vina s degustacijama najboljih vina otoka Visa. Lokalni vinari predstavljaju Vugavu, Plavac i druge autohtone sorte. Uz vino, tradicionalni specijaliteti i glazba uživo.',
     organizer: 'Udruga vinara otoka Visa',
-    attendees: 312
+    attendees: 312,
+    photos: [
+      { src: winePhoto, alt: 'Festival vina' },
+      { src: festivalPhoto, alt: 'Degustacija vina' },
+    ]
   },
 ];
 
@@ -130,19 +160,31 @@ const EventDetailV3 = () => {
     <div className="min-h-screen bg-background">
       <AppHeader />
 
-      {/* Hero section */}
-      <div 
-        className="px-5 pt-6 pb-8"
-        style={{ backgroundColor: getCategoryColor(event.category) }}
-      >
+      {/* Back button */}
+      <div className="px-5 pt-4">
         <button
           onClick={() => navigate('/events')}
-          className="flex items-center gap-2 text-primary-foreground mb-4 font-semibold hover:opacity-80 transition-opacity"
+          className="flex items-center gap-2 text-muted-foreground mb-4 font-semibold hover:text-foreground transition-colors"
         >
           <ChevronLeft className="w-5 h-5" />
           NATRAG
         </button>
-        
+      </div>
+
+      {/* Photo Gallery */}
+      {event.photos && event.photos.length > 0 && (
+        <ImageCarousel 
+          images={event.photos} 
+          badgeText={event.category}
+          badgeColor={getCategoryColor(event.category)}
+        />
+      )}
+
+      {/* Hero section */}
+      <div 
+        className="px-5 pt-6 pb-6"
+        style={{ backgroundColor: getCategoryColor(event.category) }}
+      >
         <div className="flex items-start gap-4">
           <div 
             className="w-16 h-16 bg-card border-[3px] border-foreground flex items-center justify-center text-3xl shrink-0"
@@ -151,7 +193,6 @@ const EventDetailV3 = () => {
             {event.emoji}
           </div>
           <div className="flex-1">
-            <VisBadge variant={event.category} className="mb-2">{event.category}</VisBadge>
             <h1 className="text-2xl font-extrabold uppercase text-primary-foreground leading-tight">
               {event.title}
             </h1>
