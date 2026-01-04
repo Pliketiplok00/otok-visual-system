@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, MapPin } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, CalendarRange } from 'lucide-react';
 import VisBadge from '@/components/ui/VisBadge';
 
 type Category = 'vis' | 'komiza' | 'kultura' | 'hitno' | 'opcenito';
@@ -12,6 +12,8 @@ interface Notification {
   category: Category;
   emoji: string;
   location?: string;
+  validFrom: string;
+  validTo: string;
 }
 
 const notifications: Record<number, Notification> = {
@@ -23,6 +25,8 @@ const notifications: Record<number, Notification> = {
     category: 'hitno',
     emoji: '🚨',
     location: 'Grad Vis',
+    validFrom: '15. siječnja 2026.',
+    validTo: '15. siječnja 2026.',
   },
   2: {
     id: 2,
@@ -32,6 +36,8 @@ const notifications: Record<number, Notification> = {
     category: 'vis',
     emoji: '⛴️',
     location: 'Luka Vis',
+    validFrom: '15. lipnja 2026.',
+    validTo: '15. rujna 2026.',
   },
   3: {
     id: 3,
@@ -40,6 +46,8 @@ const notifications: Record<number, Notification> = {
     date: '2. siječnja 2026.',
     category: 'opcenito',
     emoji: '♻️',
+    validFrom: '1. lipnja 2026.',
+    validTo: '30. rujna 2026.',
   },
   4: {
     id: 4,
@@ -49,6 +57,8 @@ const notifications: Record<number, Notification> = {
     category: 'komiza',
     emoji: '🎵',
     location: 'Trg Komiže',
+    validFrom: '20. lipnja 2026.',
+    validTo: '20. lipnja 2026.',
   },
   5: {
     id: 5,
@@ -58,6 +68,8 @@ const notifications: Record<number, Notification> = {
     category: 'kultura',
     emoji: '🎨',
     location: 'Gradska galerija Vis',
+    validFrom: '10. siječnja 2026.',
+    validTo: '31. siječnja 2026.',
   },
 };
 
@@ -151,6 +163,27 @@ const NotificationDetailV3 = () => {
           style={{ boxShadow: `4px 4px 0 ${styles.shadow}` }}
         >
           <p className="leading-relaxed">{notification.content}</p>
+        </div>
+
+        {/* Date range box */}
+        <div 
+          className="mt-4 p-4 border-[3px] border-foreground bg-muted"
+          style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <CalendarRange className="w-5 h-5" strokeWidth={2.5} />
+            <span className="font-bold uppercase text-sm">Obavijest se odnosi na:</span>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex-1 p-3 bg-card border-[2px] border-foreground">
+              <span className="text-xs font-bold uppercase text-muted-foreground block mb-1">Od</span>
+              <span className="font-bold">{notification.validFrom}</span>
+            </div>
+            <div className="flex-1 p-3 bg-card border-[2px] border-foreground">
+              <span className="text-xs font-bold uppercase text-muted-foreground block mb-1">Do</span>
+              <span className="font-bold">{notification.validTo}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
