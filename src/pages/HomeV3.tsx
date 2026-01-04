@@ -47,7 +47,7 @@ const HomeV3 = () => {
 
         <button 
           onClick={() => navigate('/inbox')}
-          className="w-full bg-vis-emergency text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+          className="w-full bg-vis-emergency/70 text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
         >
           <Users className="w-6 h-6" strokeWidth={2.5} />
           <div className="flex-1 text-left">
