@@ -2,41 +2,47 @@ import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import { Calendar, Ship, Camera, Droplets, ChevronRight, MapPin, Clock, Leaf, MessageSquare, Droplet, Users } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-
 interface QuickAction {
   icon: LucideIcon;
   label: string;
   path: string;
   bgColor: string;
 }
-
 const HomeV3 = () => {
   const navigate = useNavigate();
-
   const todayEvent = {
     id: 1,
     title: 'LJETNA FEŠTA U VISU',
     time: '20:00',
-    location: 'Trg sv. Jurja',
+    location: 'Trg sv. Jurja'
   };
-
-  const quickActions: QuickAction[] = [
-    { icon: Ship, label: 'TRAJEKTI', path: '/schedules', bgColor: 'bg-vis-blue' },
-    { icon: Camera, label: 'PRIJAVI', path: '/report', bgColor: 'bg-vis-green' },
-    { icon: Droplets, label: 'VODA', path: '/water', bgColor: 'bg-vis-cyan' },
-    { icon: Leaf, label: 'GEOPARK', path: '/geopark', bgColor: 'bg-vis-yellow' },
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const quickActions: QuickAction[] = [{
+    icon: Ship,
+    label: 'TRAJEKTI',
+    path: '/schedules',
+    bgColor: 'bg-vis-blue'
+  }, {
+    icon: Camera,
+    label: 'PRIJAVI',
+    path: '/report',
+    bgColor: 'bg-vis-green'
+  }, {
+    icon: Droplets,
+    label: 'VODA',
+    path: '/water',
+    bgColor: 'bg-vis-cyan'
+  }, {
+    icon: Leaf,
+    label: 'GEOPARK',
+    path: '/geopark',
+    bgColor: 'bg-vis-yellow'
+  }];
+  return <div className="min-h-screen bg-background">
       <AppHeader />
 
       {/* Emergency banners - brutal style */}
       <div className="px-4 pt-4 space-y-2">
-        <button 
-          onClick={() => navigate('/inbox')}
-          className="w-full bg-vis-emergency text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-        >
+        <button onClick={() => navigate('/inbox')} className="w-full bg-vis-emergency text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
           <Droplet className="w-6 h-6" strokeWidth={2.5} />
           <div className="flex-1 text-left">
             <p className="font-bold uppercase tracking-wide">PREKID VODOOPSKRBE</p>
@@ -45,10 +51,7 @@ const HomeV3 = () => {
           <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
         </button>
 
-        <button 
-          onClick={() => navigate('/inbox')}
-          className="w-full bg-vis-notice text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-        >
+        <button onClick={() => navigate('/inbox')} className="w-full bg-vis-notice text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all">
           <Users className="w-6 h-6" strokeWidth={2.5} />
           <div className="flex-1 text-left">
             <p className="font-bold uppercase tracking-wide">KOMIŽA: POZIV NA SUDJELOVANJE</p>
@@ -61,7 +64,7 @@ const HomeV3 = () => {
       {/* Welcome - brutal typography */}
       <div className="px-5 pt-8 pb-4">
         <h1 className="text-5xl font-bold tracking-tighter">
-          BOK!
+          ​Pomalo
         </h1>
         <p className="text-muted-foreground font-mono mt-1 uppercase tracking-wide">
           Sve informacije za danas
@@ -71,21 +74,12 @@ const HomeV3 = () => {
       {/* Quick Actions Grid - Brutalist cards */}
       <div className="px-4 mb-6">
         <div className="grid grid-cols-2 gap-4">
-          {quickActions.map((action, index) => (
-            <button
-              key={action.path}
-              onClick={() => navigate(action.path)}
-              className={`${action.bgColor} p-5 border-[3px] border-foreground flex flex-col items-start gap-3 hover:translate-x-[2px] hover:translate-y-[2px] transition-all ${action.bgColor === 'bg-vis-blue' ? 'text-background' : 'text-foreground'}`}
-              style={{ 
-                boxShadow: index % 2 === 0 
-                  ? '6px 6px 0 hsl(var(--foreground))' 
-                  : '6px 6px 0 hsl(var(--vis-yellow))'
-              }}
-            >
+          {quickActions.map((action, index) => <button key={action.path} onClick={() => navigate(action.path)} className={`${action.bgColor} p-5 border-[3px] border-foreground flex flex-col items-start gap-3 hover:translate-x-[2px] hover:translate-y-[2px] transition-all ${action.bgColor === 'bg-vis-blue' ? 'text-background' : 'text-foreground'}`} style={{
+          boxShadow: index % 2 === 0 ? '6px 6px 0 hsl(var(--foreground))' : '6px 6px 0 hsl(var(--vis-yellow))'
+        }}>
               <action.icon className="w-10 h-10" strokeWidth={2} />
               <span className="font-bold text-xl tracking-tight">{action.label}</span>
-            </button>
-          ))}
+            </button>)}
         </div>
       </div>
 
@@ -96,10 +90,7 @@ const HomeV3 = () => {
           <h2 className="font-bold uppercase tracking-wide">DANAS NA OTOKU</h2>
         </div>
         
-        <button
-          onClick={() => navigate(`/events/${todayEvent.id}`)}
-          className="w-full bg-vis-yellow p-5 border-[3px] border-foreground shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm transition-all text-left"
-        >
+        <button onClick={() => navigate(`/events/${todayEvent.id}`)} className="w-full bg-vis-yellow p-5 border-[3px] border-foreground shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm transition-all text-left">
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 bg-foreground text-background flex items-center justify-center text-3xl border-[3px] border-foreground">
               🎉
@@ -126,11 +117,9 @@ const HomeV3 = () => {
 
       {/* Bottom action - Feedback */}
       <div className="px-4 pb-8">
-        <button
-          onClick={() => navigate('/feedback')}
-          className="w-full bg-background border-[3px] border-foreground px-5 py-4 flex items-center gap-3 hover:bg-muted transition-colors"
-          style={{ boxShadow: '6px 6px 0 hsl(var(--vis-cyan))' }}
-        >
+        <button onClick={() => navigate('/feedback')} className="w-full bg-background border-[3px] border-foreground px-5 py-4 flex items-center gap-3 hover:bg-muted transition-colors" style={{
+        boxShadow: '6px 6px 0 hsl(var(--vis-cyan))'
+      }}>
           <MessageSquare className="w-8 h-8" strokeWidth={2} />
           <div className="flex-1 text-left">
             <p className="font-bold uppercase tracking-wide">IMATE PRIJEDLOG?</p>
@@ -139,8 +128,6 @@ const HomeV3 = () => {
           <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
         </button>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default HomeV3;
