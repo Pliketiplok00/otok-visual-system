@@ -36,6 +36,28 @@ const WaterInfoV3 = () => {
           </div>
         </section>
 
+        {/* Tips Section - 2x2 grid */}
+        <section className="mb-6">
+          <h2 className="font-bold text-lg mb-3 uppercase">💡 Savjeti za uštedu</h2>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { emoji: '🚿', tip: 'Tuširajte se kraće - svaka minuta štedi 10L vode' },
+              { emoji: '🚰', tip: 'Zatvarajte slavinu dok perete zube' },
+              { emoji: '🌿', tip: 'Zalijevajte vrt ujutro ili navečer' },
+              { emoji: '🔧', tip: 'Prijavite curenje - jedna kap = 20L dnevno' },
+            ].map((item, i) => (
+              <div 
+                key={i}
+                className="flex flex-col items-center text-center gap-2 p-4 border-[3px] border-foreground bg-vis-yellow/15"
+                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}
+              >
+                <span className="text-2xl">{item.emoji}</span>
+                <p className="text-xs font-medium">{item.tip}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Water Sources Section */}
         <section className="mb-6">
           <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
@@ -50,28 +72,6 @@ const WaterInfoV3 = () => {
             <p className="text-sm">
               Vis je među rijetkim jadranskim otocima s vlastitim značajnijim podzemnim zalihama pitke vode. Voda dolazi iz krškog sustava i crpi se iz izvorišta i bušotina u unutrašnjosti otoka. Lokalna infrastruktura (vodovodna mreža) povezuje naselja, a kvaliteta se redovito kontrolira. Zbog ograničenih zaliha, štednja je važna posebno od lipnja do rujna.
             </p>
-          </div>
-        </section>
-
-        {/* Tips Section */}
-        <section className="mb-6">
-          <h2 className="font-bold text-lg mb-3 uppercase">💡 Savjeti za uštedu</h2>
-          <div className="space-y-3">
-            {[
-              { emoji: '🚿', tip: 'Tuširajte se kraće - svaka minuta štedi 10L vode' },
-              { emoji: '🚰', tip: 'Zatvarajte slavinu dok perete zube' },
-              { emoji: '🌿', tip: 'Zalijevajte vrt ujutro ili navečer' },
-              { emoji: '🔧', tip: 'Prijavite curenje - jedna kap = 20L dnevno' },
-            ].map((item, i) => (
-              <div 
-                key={i}
-                className="flex items-center gap-3 p-3 border-[3px] border-foreground bg-vis-yellow/15"
-                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}
-              >
-                <span className="text-xl">{item.emoji}</span>
-                <p className="text-sm font-medium">{item.tip}</p>
-              </div>
-            ))}
           </div>
         </section>
 
