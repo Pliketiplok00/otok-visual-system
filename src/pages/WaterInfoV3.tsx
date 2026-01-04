@@ -43,14 +43,19 @@ const WaterInfoV3 = () => {
             Izvori i pitka voda
           </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-cyan/10"
+            className="p-4 border-[3px] border-foreground bg-vis-cyan/10 mb-3"
             style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
           >
             <p className="font-bold uppercase mb-2">Gdje je "život" otoka</p>
-            <p className="text-sm mb-4">
+            <p className="text-sm">
               Vis je među rijetkim jadranskim otocima s vlastitim značajnijim podzemnim zalihama pitke vode. Voda dolazi iz krškog sustava i crpi se iz izvorišta i bušotina u unutrašnjosti otoka. Lokalna infrastruktura (vodovodna mreža) povezuje naselja, a kvaliteta se redovito kontrolira. Zbog ograničenih zaliha, štednja je važna posebno od lipnja do rujna.
             </p>
-            <div className="space-y-2">
+          </div>
+          <div 
+            className="p-4 border-[3px] border-foreground bg-card"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
+          >
+            <div className="space-y-3">
               <div className="flex items-start gap-2">
                 <span className="text-lg">💧</span>
                 <p className="text-sm"><span className="font-bold">Rijetkost u Jadranu:</span> Vis se često navodi kao otok s vlastitim sustavom pitke vode bez "pupčane vrpce" prema kopnu.</p>
