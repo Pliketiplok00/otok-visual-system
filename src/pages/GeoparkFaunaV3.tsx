@@ -4,6 +4,7 @@ import ImageHeader from "@/components/layout/ImageHeader";
 import eleonorasFalconImg from "@/assets/eleonoras-falcon.jpg";
 import bottlenoseDolphinImg from "@/assets/bottlenose-dolphin.jpg";
 import mediterraneanBatImg from "@/assets/mediterranean-bat.jpg";
+import eleonorasFalconCliffImg from "@/assets/eleonoras-falcon-cliff.jpg";
 
 const GeoparkFaunaV3 = () => {
   return (
@@ -64,6 +65,13 @@ const GeoparkFaunaV3 = () => {
           className="border-3 border-foreground bg-card mb-4"
           style={{ boxShadow: "4px 4px 0 hsl(var(--vis-blue))" }}
         >
+          <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
+            <img 
+              src={eleonorasFalconCliffImg} 
+              alt="Sokol Eleonore"
+              className="w-full h-full object-cover"
+            />
+          </div>
           <div className="bg-vis-blue p-3 border-b-3 border-foreground">
             <h3 className="font-mono uppercase font-bold text-primary-foreground">Ptice – Vis kao "zračna stanica" Jadrana</h3>
           </div>
