@@ -16,6 +16,8 @@ const GeoparkFloraV3 = () => {
         icon={<Leaf className="w-6 h-6" strokeWidth={2.5} />}
         iconBg="bg-vis-green"
         iconShadow="hsl(var(--foreground))"
+        backPath="/geopark"
+        backLabel="Flora & Fauna"
       />
 
       <main className="p-4 pb-8">

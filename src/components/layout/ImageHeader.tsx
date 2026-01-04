@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import AppHeader from '@/components/layout/AppHeader';
 
 interface ImageHeaderProps {
@@ -8,6 +10,8 @@ interface ImageHeaderProps {
   icon?: ReactNode;
   iconBg?: string;
   iconShadow?: string;
+  backPath?: string;
+  backLabel?: string;
 }
 
 const ImageHeader = ({ 
@@ -16,11 +20,26 @@ const ImageHeader = ({
   subtitle, 
   icon,
   iconBg = 'bg-card',
-  iconShadow = 'hsl(var(--vis-yellow))'
+  iconShadow = 'hsl(var(--vis-yellow))',
+  backPath,
+  backLabel = 'Natrag'
 }: ImageHeaderProps) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <AppHeader />
+      {backPath && (
+        <div className="bg-card border-b-[3px] border-foreground px-4 py-2">
+          <button 
+            onClick={() => navigate(backPath)}
+            className="flex items-center gap-2 text-sm font-bold uppercase hover:opacity-70 transition-opacity"
+          >
+            <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
+            {backLabel}
+          </button>
+        </div>
+      )}
       <div className="relative h-48 overflow-hidden border-b-[3px] border-foreground">
         <img 
           src={image} 
