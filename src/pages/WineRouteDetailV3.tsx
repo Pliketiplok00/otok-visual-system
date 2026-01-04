@@ -116,12 +116,9 @@ const WineRouteDetailV3 = () => {
         </section>
 
         {/* Notice */}
-        <div 
-          className="p-4 border-[3px] border-foreground bg-vis-yellow/20"
-          style={{ boxShadow: '3px 3px 0 hsl(var(--vis-orange))' }}
-        >
-          <p className="text-sm text-center">
-            <span className="font-bold uppercase">Napomena:</span> Savjetujemo provjeru radnih vremena vinarija prije posjeta, pogotovo van sezone.
+        <div className="p-4 border-2 border-dashed border-muted-foreground/40 bg-muted/30 rounded-sm">
+          <p className="text-sm text-muted-foreground text-center">
+            <span className="font-bold">Napomena:</span> Savjetujemo provjeru radnih vremena vinarija prije posjeta, pogotovo van sezone.
           </p>
         </div>
 
