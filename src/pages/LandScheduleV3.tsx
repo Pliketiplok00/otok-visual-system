@@ -193,7 +193,7 @@ const LandScheduleV3 = () => {
               <Phone className="w-6 h-6" />
             </div>
             <div>
-              <p className="font-bold uppercase">Autobusni prijevoz Vis</p>
+              <p className="font-bold uppercase">Nautički centar Komiža</p>
               <p className="text-vis-blue font-semibold font-mono">021 711 060</p>
             </div>
           </a>
