@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import ImageHeader from '@/components/layout/ImageHeader';
 import VisCard from '@/components/ui/VisCard';
-import { Leaf, ChevronRight, TreePine, Bird, Fish, Flower2 } from 'lucide-react';
+import { Leaf, ChevronRight, ShieldAlert } from 'lucide-react';
 import viskaKaduljaPhoto from '@/assets/viska-kadulja.jpg';
 import dalmatianIrisImg from '@/assets/dalmatian-iris.jpg';
 import eleonorasFalconImg from '@/assets/eleonoras-falcon.jpg';
@@ -28,22 +28,6 @@ const GeoparkAlt = () => {
     path: '/geopark/fauna'
   }];
   
-  const featuredSpecies = [{
-    icon: TreePine,
-    name: 'Alepski bor',
-    status: 'Zaštićena',
-    color: 'bg-vis-green'
-  }, {
-    icon: Flower2,
-    name: 'Viška kadulja',
-    status: 'Endemska',
-    color: 'bg-vis-yellow'
-  }, {
-    icon: Fish,
-    name: 'Modra orada',
-    status: 'Lokalna',
-    color: 'bg-vis-cyan'
-  }];
   
   return (
     <div className="min-h-screen flex flex-col bg-vis-green relative overflow-hidden">
@@ -94,21 +78,32 @@ const GeoparkAlt = () => {
           ))}
         </div>
 
-        {/* Featured species - square icons, neobrutalist */}
-        <div>
-          <h2 className="font-bold text-lg mb-4 uppercase">Istaknute vrste</h2>
-          <div className="flex justify-between">
-            {featuredSpecies.map((species, i) => (
-              <button key={i} className="flex flex-col items-center gap-2 group">
-                <div className={`w-16 h-16 ${species.color} border-[3px] border-foreground flex items-center justify-center transition-all group-hover:translate-x-[2px] group-hover:translate-y-[2px]`} style={{
-                  boxShadow: '4px 4px 0 hsl(var(--foreground))'
-                }}>
-                  <species.icon className="w-7 h-7" strokeWidth={2} />
-                </div>
-                <span className="text-xs font-bold text-center uppercase">{species.name}</span>
-                <span className="text-[10px] text-muted-foreground mono uppercase">{species.status}</span>
-              </button>
-            ))}
+        {/* Strictly Protected Species */}
+        <div 
+          className="border-[3px] border-foreground bg-vis-coral p-4"
+          style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
+            <h3 className="font-bold uppercase">Strogo zaštićene vrste</h3>
+          </div>
+          <div className="space-y-2">
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🦅</span>
+              <p className="text-sm"><span className="font-bold">Sokol Eleonore</span> – rijetka ptica grabljivica</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🐬</span>
+              <p className="text-sm"><span className="font-bold">Dobri dupin</span> – zaštićen Natura 2000</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🌸</span>
+              <p className="text-sm"><span className="font-bold">Dalmatinska perunika</span> – endemska biljka</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🦇</span>
+              <p className="text-sm"><span className="font-bold">Šišmiši</span> – obitavaju u špiljama i tunelima</p>
+            </div>
           </div>
         </div>
 
