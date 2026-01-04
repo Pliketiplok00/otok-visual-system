@@ -91,7 +91,7 @@ const HomeV3 = () => {
           <h2 className="font-bold uppercase tracking-wide">DANAS NA OTOKU</h2>
         </div>
         
-        <button onClick={() => navigate(`/events/${todayEvent.id}`)} className="w-full bg-vis-yellow p-5 border-[3px] border-foreground shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm transition-all text-left">
+        <button onClick={() => navigate(`/events/${todayEvent.id}`)} className="w-full bg-vis-purple p-5 border-[3px] border-foreground shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm transition-all text-left">
           <div className="flex items-start gap-4">
             <div className="w-16 h-16 bg-foreground text-background flex items-center justify-center text-3xl border-[3px] border-foreground">
               🎉
