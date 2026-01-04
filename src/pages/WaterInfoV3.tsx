@@ -1,21 +1,23 @@
-import AppHeader from '@/components/layout/AppHeader';
-import { ThermometerSun, AlertTriangle, Phone, Clock, MapPin } from 'lucide-react';
+import ImageHeader from '@/components/layout/ImageHeader';
+import { ThermometerSun, AlertTriangle, Phone, Clock, MapPin, Droplets } from 'lucide-react';
 
 const WaterInfoV3 = () => {
+  // Using a placeholder - ideally would have a water-themed image
+  const waterImageUrl = "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800&h=400&fit=crop";
+
   return (
     <div className="min-h-screen bg-vis-blue">
-      <AppHeader />
-
-      {/* Header */}
-      <div className="px-5 pt-6 pb-4 text-primary-foreground">
-        <h1 className="text-3xl font-extrabold uppercase">
-          Sve o <span className="text-vis-cyan">vodi</span> 💧
-        </h1>
-        <p className="opacity-80 mt-1">Kvaliteta, dostupnost i savjeti</p>
-      </div>
+      <ImageHeader
+        image={waterImageUrl}
+        title="Sve o vodi"
+        subtitle="Kvaliteta, dostupnost i savjeti"
+        icon={<Droplets className="w-6 h-6 text-vis-blue" strokeWidth={2.5} />}
+        iconBg="bg-card"
+        iconShadow="hsl(var(--vis-cyan))"
+      />
 
       {/* Content card */}
-      <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-180px)] px-4 pt-6 pb-8">
+      <div className="bg-card border-x-[3px] border-foreground min-h-[calc(100vh-240px)] px-4 pt-6 pb-8">
         
         {/* Water Quality Section */}
         <section className="mb-6">

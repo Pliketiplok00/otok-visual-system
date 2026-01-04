@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import AppHeader from '@/components/layout/AppHeader';
-import { ArrowLeft, MapPin, Clock, Wine, Grape, ChevronRight } from 'lucide-react';
+import ImageHeader from '@/components/layout/ImageHeader';
+import { MapPin, Clock, Wine, Grape, ChevronRight } from 'lucide-react';
 import wineVineyardPhoto from '@/assets/wine-vineyard.jpg';
 import wineTastingPhoto from '@/assets/wine-tasting.jpg';
 import wineCellarPhoto from '@/assets/wine-cellar.jpg';
@@ -54,29 +54,17 @@ const WineRoutesV3 = () => {
 
   return (
     <div className="min-h-screen bg-vis-green">
-      <AppHeader />
-
-      {/* Header */}
-      <div className="px-5 pt-6 pb-4">
-        <button 
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-foreground mb-4 hover:opacity-70 transition-opacity"
-        >
-          <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
-          <span className="font-bold uppercase text-sm">Natrag</span>
-        </button>
-        
-        <div className="flex items-center gap-3 mb-2">
-          <Wine className="w-8 h-8 text-foreground" strokeWidth={2} />
-          <h1 className="text-3xl font-extrabold uppercase text-foreground">
-            Vinske Ceste
-          </h1>
-        </div>
-        <p className="text-foreground/80">Upoznajte viške vinarije i autohtone sorte</p>
-      </div>
+      <ImageHeader
+        image={wineVineyardPhoto}
+        title="Vinske Ceste"
+        subtitle="Upoznajte viške vinarije i autohtone sorte"
+        icon={<Wine className="w-6 h-6 text-vis-green" strokeWidth={2.5} />}
+        iconBg="bg-card"
+        iconShadow="hsl(var(--vis-yellow))"
+      />
 
       {/* Content */}
-      <div className="bg-card border-t-[3px] border-foreground min-h-[calc(100vh-200px)] px-4 pt-5 pb-8">
+      <div className="bg-card border-x-[3px] border-foreground min-h-[calc(100vh-240px)] px-4 pt-5 pb-8">
         
         {/* Intro */}
         <div 
