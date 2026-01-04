@@ -27,6 +27,7 @@ import WaterInfoV3 from "./pages/WaterInfoV3";
 import WasteRecyclingV3 from "./pages/WasteRecyclingV3";
 import VisitorInfoV3 from "./pages/VisitorInfoV3";
 import DirectoryV3 from "./pages/DirectoryV3";
+import WineRoutesV3 from "./pages/WineRoutesV3";
 import NotFoundV3 from "./pages/NotFoundV3";
 
 // Legacy screens (kept for reference)
@@ -81,6 +82,7 @@ const App = () => (
           <Route path="/waste" element={<WasteRecyclingV3 />} />
           <Route path="/visitor-info" element={<VisitorInfoV3 />} />
           <Route path="/directory" element={<DirectoryV3 />} />
+          <Route path="/wine-routes" element={<WineRoutesV3 />} />
           <Route path="/feedback" element={<HomeV3 />} />
           
           {/* 404 */}

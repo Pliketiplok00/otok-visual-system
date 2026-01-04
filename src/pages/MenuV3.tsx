@@ -12,7 +12,8 @@ import {
   MessageSquare, 
   Settings,
   ChevronRight,
-  Home
+  Home,
+  Wine
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -27,6 +28,7 @@ const menuItems: MenuItem[] = [
   { icon: Home, label: 'POČETNA', path: '/home', accent: true },
   { icon: Calendar, label: 'KALENDAR DOGAĐANJA', path: '/events' },
   { icon: Ship, label: 'VOZNI REDOVI', path: '/schedules' },
+  { icon: Wine, label: 'VINSKE CESTE', path: '/wine-routes' },
   { icon: Leaf, label: 'GEOPARK', path: '/geopark' },
   { icon: Droplets, label: 'SVE O VODI', path: '/water' },
   { icon: Trash2, label: 'SMEĆE I RECIKLAŽA', path: '/waste' },
