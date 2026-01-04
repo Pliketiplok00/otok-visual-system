@@ -3,7 +3,7 @@ import { ArrowLeft, Calendar, MapPin, CalendarRange, Building2 } from 'lucide-re
 import VisBadge from '@/components/ui/VisBadge';
 
 type Category = 'vis' | 'komiza' | 'kultura' | 'hitno' | 'opcenito';
-type Sender = 'Općina Vis' | 'Općina Komiža' | 'Općina Rukavac';
+type Sender = 'Općina Vis' | 'Općina Komiža' | 'Mjesni odbor Rukavac';
 
 interface Notification {
   id: number;
@@ -52,7 +52,7 @@ const notifications: Record<number, Notification> = {
     emoji: '♻️',
     validFrom: '1. lipnja 2026.',
     validTo: '30. rujna 2026.',
-    sender: 'Općina Rukavac',
+    sender: 'Mjesni odbor Rukavac',
   },
   4: {
     id: 4,
