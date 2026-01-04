@@ -66,8 +66,8 @@ const GeoparkAlt = () => {
         
         {/* Intro */}
         <div 
-          className="p-4 border-[3px] border-foreground bg-vis-green mb-6"
-          style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
+          className="p-4 border-[3px] border-foreground bg-vis-yellow mb-6"
+          style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
         >
           <p className="text-sm">
             Vis je mali otok s velikom bioraznolikošću: od mirisne makije i vinograda do ptica na liticama i bogatog podmorja. Posebno je zanimljivo da na Visu nema otrovnih zmija, pa je istraživanje staza opuštenije. A botanika je stvarno luda: na otoku je zabilježeno više od 870 biljnih vrsta, što ga čini jednim od najbogatijih botaničkih džepova Jadrana.
