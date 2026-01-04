@@ -11,15 +11,23 @@
 
 @layer base {
   :root {
-    /* Core palette - Mediterranean vibes */
-    --vis-yellow: 42 75% 65%;         /* Sandy Gold - warm beach tones */
-    --vis-blue: 200 55% 50%;          /* Mediterranean Azure */
-    --vis-cyan: 185 40% 55%;          /* Aegean Teal */
-    --vis-green: 160 35% 55%;         /* Olive Sage */
-    --vis-white: 45 30% 97%;          /* Warm Mediterranean White */
-    --vis-black: 210 25% 15%;         /* Deep Sea Navy */
-    --vis-emergency: 15 55% 50%;       /* Terracotta alert */
-    --vis-notice: 35 60% 55%;          /* Warm amber for community notices */
+    /* Core palette - Main tones */
+    --vis-yellow: 40 85% 60%;          /* Warm Golden Yellow */
+    --vis-blue: 200 60% 45%;           /* Mediterranean Blue */
+    --vis-cyan: 175 45% 50%;           /* Teal Cyan */
+    --vis-green: 155 40% 50%;          /* Fresh Green */
+    --vis-white: 45 30% 97%;           /* Warm White */
+    --vis-black: 220 30% 12%;          /* Deep Black */
+    
+    /* Accent colors */
+    --vis-reddish: 8 55% 55%;          /* Warm Reddish */
+    --vis-violet: 280 45% 50%;         /* Rich Violet */
+    --vis-orange: 25 80% 55%;          /* Vibrant Orange */
+    --vis-purple: 265 50% 45%;         /* Deep Purple */
+    --vis-deep-blue: 220 65% 35%;      /* Deep Blue */
+    
+    --vis-emergency: 8 55% 55%;        /* Reddish alert */
+    --vis-notice: 25 80% 55%;          /* Orange for community notices */
 
     /* Semantic tokens - High contrast */
     --background: 45 25% 95%;         /* Warm Mediterranean white */
