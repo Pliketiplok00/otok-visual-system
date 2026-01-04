@@ -115,24 +115,14 @@ const WineRouteDetailV3 = () => {
           </div>
         </section>
 
-        {/* Actions */}
-        <div className="space-y-3">
-          <button 
-            className="w-full flex items-center justify-center gap-2 p-4 border-[3px] border-foreground bg-vis-yellow hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-orange))' }}
-          >
-            <Navigation className="w-5 h-5" />
-            <span className="font-bold uppercase">Pokreni navigaciju</span>
-          </button>
-          
-          <a 
-            href="tel:+385021711060"
-            className="w-full flex items-center justify-center gap-2 p-4 border-[3px] border-foreground bg-card hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
-          >
-            <Phone className="w-5 h-5" />
-            <span className="font-bold uppercase">Rezerviraj turu</span>
-          </a>
+        {/* Notice */}
+        <div 
+          className="p-4 border-[3px] border-foreground bg-vis-yellow/20"
+          style={{ boxShadow: '3px 3px 0 hsl(var(--vis-orange))' }}
+        >
+          <p className="text-sm text-center">
+            <span className="font-bold uppercase">Napomena:</span> Savjetujemo provjeru radnih vremena vinarija prije posjeta, pogotovo van sezone.
+          </p>
         </div>
 
         {/* Decorative blocks */}
