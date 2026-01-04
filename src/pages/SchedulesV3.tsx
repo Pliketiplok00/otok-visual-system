@@ -23,7 +23,7 @@ const SchedulesV3 = () => {
         <div className="px-4 pb-4">
           <div className="bg-vis-yellow text-foreground px-4 py-3 border-[3px] border-foreground flex items-center gap-3" style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}>
             <AlertTriangle className="w-5 h-5 shrink-0" strokeWidth={2.5} />
-            <span className="text-sm font-semibold uppercase">Promjena voznog reda od 01.07.</span>
+            <span className="text-sm font-semibold uppercase">Izmjena na voznom redu trajektne linije 602 za 26.01.2025.</span>
           </div>
         </div>
       )}
