@@ -73,7 +73,10 @@ const HomeV3 = () => {
       <div className="px-4 mb-6">
         <div className="grid grid-cols-2 gap-4">
           {quickActions.map((action, index) => <button key={action.path} onClick={() => navigate(action.path)} className={`${action.bgColor} p-5 border-[3px] border-foreground flex flex-col items-start gap-3 hover:translate-x-[2px] hover:translate-y-[2px] transition-all ${action.bgColor === 'bg-vis-blue' ? 'text-background' : 'text-foreground'}`} style={{
-          boxShadow: index % 2 === 0 ? '6px 6px 0 hsl(var(--foreground))' : '6px 6px 0 hsl(var(--vis-yellow))'
+          boxShadow: index === 0 ? '6px 6px 0 hsl(var(--vis-orange))' : 
+                     index === 1 ? '6px 6px 0 hsl(var(--vis-purple))' : 
+                     index === 2 ? '6px 6px 0 hsl(var(--vis-violet))' : 
+                     '6px 6px 0 hsl(var(--vis-deep-blue))'
         }}>
               <action.icon className="w-10 h-10" strokeWidth={2} />
               <span className="font-bold text-xl tracking-tight">{action.label}</span>
@@ -116,7 +119,7 @@ const HomeV3 = () => {
       {/* Bottom action - Feedback */}
       <div className="px-4 pb-8">
         <button onClick={() => navigate('/feedback')} className="w-full bg-background border-[3px] border-foreground px-5 py-4 flex items-center gap-3 hover:bg-muted transition-colors" style={{
-        boxShadow: '6px 6px 0 hsl(var(--vis-cyan))'
+        boxShadow: '6px 6px 0 hsl(var(--vis-violet))'
       }}>
           <MessageSquare className="w-8 h-8" strokeWidth={2} />
           <div className="flex-1 text-left">

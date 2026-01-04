@@ -166,8 +166,10 @@ const DirectoryV3 = () => {
         {/* Decorative blocks */}
         <div className="flex justify-center gap-2 mt-8">
           <div className="w-3 h-3 bg-vis-blue border-2 border-foreground" />
-          <div className="w-3 h-3 bg-vis-cyan border-2 border-foreground" />
-          <div className="w-3 h-3 bg-vis-green border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-violet border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-orange border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-purple border-2 border-foreground" />
+          <div className="w-3 h-3 bg-vis-deep-blue border-2 border-foreground" />
           <div className="w-3 h-3 bg-vis-yellow border-2 border-foreground" />
         </div>
       </div>
