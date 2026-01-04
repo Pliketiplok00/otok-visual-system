@@ -1,4 +1,4 @@
-import AppHeader from '@/components/layout/AppHeader';
+import ImageHeader from '@/components/layout/ImageHeader';
 import { Recycle, Package, Leaf, MapPin, Calendar, Clock, Phone } from 'lucide-react';
 
 interface WasteCategory {
@@ -47,20 +47,22 @@ const collectionSchedule = [
 ];
 
 const WasteRecyclingV3 = () => {
+  // Using a placeholder - ideally would have a recycling-themed image
+  const wasteImageUrl = "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=800&h=400&fit=crop";
+
   return (
     <div className="min-h-screen bg-vis-green">
-      <AppHeader />
-
-      {/* Header */}
-      <div className="px-5 pt-6 pb-4 text-foreground">
-        <h1 className="text-3xl font-extrabold uppercase">
-          Smeće i <span className="text-vis-yellow">reciklaža</span> ♻️
-        </h1>
-        <p className="opacity-80 mt-1">Sortiranje, raspored i lokacije</p>
-      </div>
+      <ImageHeader
+        image={wasteImageUrl}
+        title="Smeće i reciklaža"
+        subtitle="Sortiranje, raspored i lokacije"
+        icon={<Recycle className="w-6 h-6 text-vis-green" strokeWidth={2.5} />}
+        iconBg="bg-card"
+        iconShadow="hsl(var(--vis-yellow))"
+      />
 
       {/* Content card */}
-      <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-180px)] px-4 pt-6 pb-8">
+      <div className="bg-card border-x-[3px] border-foreground min-h-[calc(100vh-240px)] px-4 pt-6 pb-8">
         
         {/* Waste Categories */}
         <section className="mb-6">
