@@ -29,7 +29,7 @@ const HomeV4 = () => {
     icon: Camera,
     label: 'CLICK&FIX',
     path: '/report',
-    bgColor: 'bg-vis-green'
+    bgColor: 'bg-vis-terracotta'
   }, {
     icon: Leaf,
     label: 'ZAŠTIĆENE VRSTE',
@@ -49,7 +49,7 @@ const HomeV4 = () => {
     icon: Droplets,
     label: 'VODA',
     path: '/water',
-    bgColor: 'bg-vis-violet'
+    bgColor: 'bg-vis-amber'
   }];
 
   return (
@@ -71,7 +71,7 @@ const HomeV4 = () => {
             <button
               key={action.path}
               onClick={() => navigate(action.path)}
-              className={`${action.bgColor} p-5 border-[3px] border-foreground flex flex-col items-center gap-3 hover:translate-x-[2px] hover:translate-y-[2px] transition-all ${action.bgColor === 'bg-vis-blue' ? 'text-background' : 'text-foreground'}`}
+              className={`${action.bgColor} p-5 border-[3px] border-foreground flex flex-col items-center justify-center gap-3 aspect-square hover:translate-x-[2px] hover:translate-y-[2px] transition-all ${action.bgColor === 'bg-vis-blue' || action.bgColor === 'bg-vis-terracotta' ? 'text-background' : 'text-foreground'}`}
               style={{
                 boxShadow: index === 0 ? '6px 6px 0 hsl(var(--vis-orange))' : 
                            index === 1 ? '6px 6px 0 hsl(var(--vis-purple))' : 
