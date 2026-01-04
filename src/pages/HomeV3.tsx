@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { Calendar, Ship, Camera, Droplets, ChevronRight, MapPin, Clock, Leaf, MessageSquare, AlertTriangle } from 'lucide-react';
+import { Calendar, Ship, Camera, Droplets, ChevronRight, MapPin, Clock, Leaf, MessageSquare, Droplet, Users } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface QuickAction {
@@ -31,16 +31,28 @@ const HomeV3 = () => {
     <div className="min-h-screen bg-background">
       <AppHeader />
 
-      {/* Emergency banner - brutal style */}
-      <div className="px-4 pt-4">
+      {/* Emergency banners - brutal style */}
+      <div className="px-4 pt-4 space-y-2">
         <button 
           onClick={() => navigate('/inbox')}
           className="w-full bg-vis-emergency text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
         >
-          <AlertTriangle className="w-6 h-6" strokeWidth={2.5} />
+          <Droplet className="w-6 h-6" strokeWidth={2.5} />
           <div className="flex-1 text-left">
             <p className="font-bold uppercase tracking-wide">PREKID VODOOPSKRBE</p>
             <p className="text-sm font-mono opacity-80">VIS · DANAS 10-14H</p>
+          </div>
+          <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
+        </button>
+
+        <button 
+          onClick={() => navigate('/inbox')}
+          className="w-full bg-vis-emergency text-background px-4 py-3 flex items-center gap-3 border-[3px] border-foreground shadow-brutal-sm hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+        >
+          <Users className="w-6 h-6" strokeWidth={2.5} />
+          <div className="flex-1 text-left">
+            <p className="font-bold uppercase tracking-wide">KOMIŽA: POZIV NA SUDJELOVANJE</p>
+            <p className="text-sm font-mono opacity-80">JAVNA RASPRAVA</p>
           </div>
           <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
         </button>
