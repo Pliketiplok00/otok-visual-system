@@ -71,14 +71,14 @@ const WaterInfoV3 = () => {
           <h2 className="font-bold text-lg mb-3 uppercase">💡 Savjeti za uštedu</h2>
           <div className="space-y-3">
             {[
-              { emoji: '🚿', tip: 'Tuširajte se kraće - svaka minuta štedi 10L vode', bg: 'bg-vis-cyan/15' },
-              { emoji: '🚰', tip: 'Zatvarajte slavinu dok perete zube', bg: 'bg-vis-green/15' },
-              { emoji: '🌿', tip: 'Zalijevajte vrt ujutro ili navečer', bg: 'bg-vis-yellow/15' },
-              { emoji: '🔧', tip: 'Prijavite curenje - jedna kap = 20L dnevno', bg: 'bg-vis-blue/15' },
+              { emoji: '🚿', tip: 'Tuširajte se kraće - svaka minuta štedi 10L vode' },
+              { emoji: '🚰', tip: 'Zatvarajte slavinu dok perete zube' },
+              { emoji: '🌿', tip: 'Zalijevajte vrt ujutro ili navečer' },
+              { emoji: '🔧', tip: 'Prijavite curenje - jedna kap = 20L dnevno' },
             ].map((item, i) => (
               <div 
                 key={i}
-                className={`flex items-center gap-3 p-3 border-[3px] border-foreground ${item.bg}`}
+                className="flex items-center gap-3 p-3 border-[3px] border-foreground bg-vis-yellow/15"
                 style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}
               >
                 <span className="text-xl">{item.emoji}</span>
