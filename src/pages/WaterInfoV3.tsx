@@ -19,28 +19,22 @@ const WaterInfoV3 = () => {
       {/* Content card */}
       <div className="bg-card border-x-[3px] border-foreground min-h-[calc(100vh-240px)] px-4 pt-6 pb-8">
         
-        {/* Water Quality Section */}
+        {/* Water Rights Section */}
         <section className="mb-6">
           <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
-            <ThermometerSun className="w-5 h-5 text-vis-blue" />
-            Kvaliteta vode
+            <AlertTriangle className="w-5 h-5 text-vis-yellow" />
+            Aktualno
           </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-cyan/10"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
+            className="p-4 border-[3px] border-foreground bg-vis-yellow/20"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-orange))' }}
           >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 bg-vis-green border-[3px] border-foreground flex items-center justify-center">
-                <span className="text-2xl">✅</span>
-              </div>
-              <div>
-                <p className="font-bold uppercase">Voda je pitka</p>
-                <p className="text-sm text-muted-foreground font-mono">Zadnja provjera: danas</p>
-              </div>
-            </div>
+            <p className="font-bold uppercase mb-2">Borba za samostalno vodouslužno područje</p>
             <p className="text-sm">
-              Voda na otoku Visu dolazi iz prirodnih izvora i redovito se kontrolira. 
-              Sigurna je za piće iz slavine u cijelom mjestu.
+              Grad Vis i Komiža vode dugogodišnju borbu za uspostavu samostalnog vodouslužnog područja. 
+              Lokalna samouprava traži neovisnost u upravljanju vodoopskrbom od nacionalnih struktura, 
+              s ciljem osiguranja kvalitetnije usluge i održivih cijena za otočane. Pregovori s državnim 
+              tijelima su u tijeku, a podrška građana ključna je za uspjeh ove inicijative.
             </p>
           </div>
         </section>
@@ -50,14 +44,14 @@ const WaterInfoV3 = () => {
           <h2 className="font-bold text-lg mb-3 uppercase">💡 Savjeti za uštedu</h2>
           <div className="space-y-3">
             {[
-              { emoji: '🚿', tip: 'Tuširajte se kraće - svaka minuta štedi 10L vode' },
-              { emoji: '🚰', tip: 'Zatvarajte slavinu dok perete zube' },
-              { emoji: '🌿', tip: 'Zalijevajte vrt ujutro ili navečer' },
-              { emoji: '🔧', tip: 'Prijavite curenje - jedna kap = 20L dnevno' },
+              { emoji: '🚿', tip: 'Tuširajte se kraće - svaka minuta štedi 10L vode', bg: 'bg-vis-cyan/15' },
+              { emoji: '🚰', tip: 'Zatvarajte slavinu dok perete zube', bg: 'bg-vis-green/15' },
+              { emoji: '🌿', tip: 'Zalijevajte vrt ujutro ili navečer', bg: 'bg-vis-yellow/15' },
+              { emoji: '🔧', tip: 'Prijavite curenje - jedna kap = 20L dnevno', bg: 'bg-vis-blue/15' },
             ].map((item, i) => (
               <div 
                 key={i}
-                className="flex items-center gap-3 p-3 border-[3px] border-foreground bg-card"
+                className={`flex items-center gap-3 p-3 border-[3px] border-foreground ${item.bg}`}
                 style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}
               >
                 <span className="text-xl">{item.emoji}</span>
