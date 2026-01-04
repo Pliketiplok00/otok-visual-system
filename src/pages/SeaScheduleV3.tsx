@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { Ship, ArrowRight, Clock, ExternalLink, ChevronLeft } from 'lucide-react';
-import { format, addDays, startOfToday } from 'date-fns';
+import { Ship, ArrowRight, Clock, ExternalLink, ChevronLeft, CalendarIcon } from 'lucide-react';
+import { format, startOfToday } from 'date-fns';
 import { hr } from 'date-fns/locale';
+import { Calendar } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface Departure {
   time: string;
@@ -32,12 +36,12 @@ const routes: Route[] = [
     departures: [
       { time: '05:30', vessel: 'Trajektna linija 602', duration: '2h 20min' },
       { time: '15:30', vessel: 'Trajektna linija 602', duration: '2h 20min' },
-      { time: '07:00', vessel: 'Krilo-Line', duration: '1h 15min' },
+      { time: '07:00', vessel: 'Katamaranska linija 9602', duration: '1h 15min' },
     ],
     returnDepartures: [
       { time: '09:00', vessel: 'Trajektna linija 602', duration: '2h 20min' },
       { time: '17:30', vessel: 'Trajektna linija 602', duration: '2h 20min' },
-      { time: '16:00', vessel: 'Krilo-Line', duration: '1h 15min' },
+      { time: '16:00', vessel: 'Katamaranska linija 9602', duration: '1h 15min' },
     ],
   },
   {
@@ -59,11 +63,10 @@ const routes: Route[] = [
 
 const SeaScheduleV3 = () => {
   const navigate = useNavigate();
-  const [selectedDate, setSelectedDate] = useState(startOfToday());
+  const [selectedDate, setSelectedDate] = useState<Date>(startOfToday());
   const [selectedRoute, setSelectedRoute] = useState(routes[0].id);
   const [direction, setDirection] = useState<'outbound' | 'return'>('outbound');
 
-  const dates = Array.from({ length: 7 }, (_, i) => addDays(startOfToday(), i));
   const currentRoute = routes.find(r => r.id === selectedRoute)!;
   const departures = direction === 'outbound' ? currentRoute.departures : currentRoute.returnDepartures;
 
@@ -90,23 +93,31 @@ const SeaScheduleV3 = () => {
       <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-200px)] px-4 pt-5 pb-8">
         
         {/* Date Picker */}
-        <div className="flex gap-2 overflow-x-auto pb-3 mb-4 -mx-4 px-4 scrollbar-hide">
-          {dates.map((date) => {
-            const isSelected = format(date, 'yyyy-MM-dd') === format(selectedDate, 'yyyy-MM-dd');
-            return (
-              <button
-                key={date.toISOString()}
-                onClick={() => setSelectedDate(date)}
-                className={`flex flex-col items-center px-4 py-2 border-[3px] border-foreground min-w-[60px] transition-all ${
-                  isSelected ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
-                }`}
-                style={{ boxShadow: isSelected ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
+        <div className="mb-4">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-left font-bold border-[3px] border-foreground h-12",
+                  !selectedDate && "text-muted-foreground"
+                )}
+                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
               >
-                <span className="text-xs uppercase font-mono">{format(date, 'EEE', { locale: hr })}</span>
-                <span className="text-lg font-bold">{format(date, 'd')}</span>
-              </button>
-            );
-          })}
+                <CalendarIcon className="mr-2 h-5 w-5" />
+                {selectedDate ? format(selectedDate, 'd. MMMM yyyy', { locale: hr }) : <span>Odaberi datum</span>}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0" align="start">
+              <Calendar
+                mode="single"
+                selected={selectedDate}
+                onSelect={(date) => date && setSelectedDate(date)}
+                initialFocus
+                className={cn("p-3 pointer-events-auto")}
+              />
+            </PopoverContent>
+          </Popover>
         </div>
 
         {/* Direction Toggle - moved above Route Selector */}
@@ -114,9 +125,9 @@ const SeaScheduleV3 = () => {
           <button
             onClick={() => setDirection('outbound')}
             className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
-              direction === 'outbound' ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
+              direction === 'outbound' ? 'bg-vis-orange text-foreground' : 'bg-card'
             }`}
-            style={{ boxShadow: direction === 'outbound' ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
+            style={{ boxShadow: direction === 'outbound' ? '2px 2px 0 hsl(var(--vis-yellow))' : 'none' }}
           >
             <ArrowRight className="w-4 h-4" />
             <span className="font-medium text-sm uppercase">Vis → Split</span>
@@ -124,9 +135,9 @@ const SeaScheduleV3 = () => {
           <button
             onClick={() => setDirection('return')}
             className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
-              direction === 'return' ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
+              direction === 'return' ? 'bg-vis-orange text-foreground' : 'bg-card'
             }`}
-            style={{ boxShadow: direction === 'return' ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
+            style={{ boxShadow: direction === 'return' ? '2px 2px 0 hsl(var(--vis-yellow))' : 'none' }}
           >
             <ArrowRight className="w-4 h-4 rotate-180" />
             <span className="font-medium text-sm uppercase">Split → Vis</span>
@@ -173,7 +184,7 @@ const SeaScheduleV3 = () => {
                 className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
                 style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
               >
-                <div className="w-16 h-16 bg-vis-blue border-[3px] border-foreground flex flex-col items-center justify-center text-primary-foreground">
+                <div className="w-16 h-16 bg-vis-green border-[3px] border-foreground flex flex-col items-center justify-center text-foreground">
                   <span className="text-xl font-bold">{dep.time.split(':')[0]}</span>
                   <span className="text-sm font-mono">:{dep.time.split(':')[1]}</span>
                 </div>
