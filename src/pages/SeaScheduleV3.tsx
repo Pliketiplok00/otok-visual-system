@@ -15,7 +15,9 @@ interface Route {
   name: string;
   from: string;
   to: string;
-  type: 'trajekt' | 'katamaran';
+  type: 'trajekt' | 'katamaran' | '';
+  iconBg: string;
+  iconText: string;
   departures: Departure[];
   returnDepartures: Departure[];
 }
@@ -27,6 +29,8 @@ const routes: Route[] = [
     from: 'Vis',
     to: 'Split',
     type: 'trajekt',
+    iconBg: 'bg-vis-blue',
+    iconText: 'text-primary-foreground',
     departures: [
       { time: '05:30', vessel: 'Trajektna linija 602', duration: '2h 20min' },
       { time: '15:30', vessel: 'Trajektna linija 602', duration: '2h 20min' },
@@ -44,6 +48,8 @@ const routes: Route[] = [
     from: 'Vis',
     to: 'Split',
     type: 'katamaran',
+    iconBg: 'bg-vis-cyan',
+    iconText: 'text-foreground',
     departures: [
       { time: '06:15', vessel: 'Linija 9602', duration: '1h 15min' },
       { time: '14:30', vessel: 'Linija 9602', duration: '1h 15min' },
@@ -58,7 +64,9 @@ const routes: Route[] = [
     name: 'Komiža-Biševo-Komiža',
     from: 'Komiža',
     to: 'Biševo',
-    type: 'katamaran',
+    type: '',
+    iconBg: 'bg-vis-green',
+    iconText: 'text-foreground',
     departures: [
       { time: '09:00', vessel: 'Biševo Line', duration: '20min' },
       { time: '11:00', vessel: 'Biševo Line', duration: '20min' },
@@ -113,12 +121,12 @@ const SeaScheduleV3 = () => {
                 className="w-full flex items-center gap-3 p-3 border-[3px] border-foreground transition-all bg-card hover:bg-vis-cyan/10"
                 style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
               >
-                <div className={`w-10 h-10 border-[3px] border-foreground flex items-center justify-center ${route.type === 'trajekt' ? 'bg-vis-blue text-primary-foreground' : 'bg-vis-cyan'}`}>
+                <div className={`w-10 h-10 border-[3px] border-foreground flex items-center justify-center ${route.iconBg} ${route.iconText}`}>
                   <Ship className="w-5 h-5" />
                 </div>
                 <div className="flex-1 text-left">
                   <p className="font-bold text-sm uppercase">{route.name}</p>
-                  <p className="text-xs text-muted-foreground capitalize font-mono">{route.type}</p>
+                  {route.type && <p className="text-xs text-muted-foreground capitalize font-mono">{route.type}</p>}
                 </div>
                 <ChevronRight className="w-5 h-5 text-muted-foreground" />
               </button>
@@ -132,13 +140,16 @@ const SeaScheduleV3 = () => {
             Današnji polasci
           </h2>
           <div className="space-y-3">
-            {routes[0].departures.map((dep, i) => (
+            {routes[0].departures.map((dep, i) => {
+              // First two departures match trajekt color (vis-blue), third matches katamaran (vis-cyan)
+              const timeBoxBg = i < 2 ? 'bg-vis-blue text-primary-foreground' : 'bg-vis-cyan text-foreground';
+              return (
               <div 
                 key={i}
                 className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
                 style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
               >
-                <div className="w-16 h-16 bg-vis-green border-[3px] border-foreground flex flex-col items-center justify-center text-foreground">
+                <div className={`w-16 h-16 border-[3px] border-foreground flex flex-col items-center justify-center ${timeBoxBg}`}>
                   <span className="text-xl font-bold">{dep.time.split(':')[0]}</span>
                   <span className="text-sm font-mono">:{dep.time.split(':')[1]}</span>
                 </div>
@@ -153,7 +164,8 @@ const SeaScheduleV3 = () => {
                   )}
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
         </section>
 
