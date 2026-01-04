@@ -20,7 +20,7 @@ const AppHeader = ({ unreadCount = 0 }: AppHeaderProps) => {
           <Menu className="w-6 h-6" strokeWidth={2.5} />
         </button>
 
-        <h1 className="font-bold text-lg tracking-tight uppercase">OTOK VIS</h1>
+        <h1 className="font-bold text-lg tracking-tight uppercase">MOJ VIS</h1>
 
         <button
           onClick={() => navigate('/inbox')}
