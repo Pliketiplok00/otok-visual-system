@@ -79,6 +79,7 @@ export default {
           "deep-blue": "hsl(var(--vis-deep-blue))",
           terracotta: "hsl(var(--vis-terracotta))",
           amber: "hsl(var(--vis-amber))",
+          "muted-orange": "hsl(var(--vis-muted-orange))",
           sky: "hsl(var(--vis-sky))",
           emergency: "hsl(var(--vis-emergency))",
           notice: "hsl(var(--vis-notice))",
