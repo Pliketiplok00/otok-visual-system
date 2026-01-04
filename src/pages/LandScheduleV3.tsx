@@ -29,20 +29,16 @@ const routes: Route[] = [
 
 const visToKomiza: Departure[] = [
   { time: '06:30', stops: ['Vis', 'Podselje', 'Podstražje', 'Komiža'] },
-  { time: '08:00', stops: ['Vis', 'Podselje', 'Podstražje', 'Komiža'], note: 'Školski dani' },
   { time: '11:30', stops: ['Vis', 'Podselje', 'Podstražje', 'Komiža'] },
   { time: '14:30', stops: ['Vis', 'Podselje', 'Podstražje', 'Komiža'] },
   { time: '17:00', stops: ['Vis', 'Podselje', 'Podstražje', 'Komiža'] },
-  { time: '19:30', stops: ['Vis', 'Podselje', 'Podstražje', 'Komiža'], note: 'Samo Pon-Sub' },
 ];
 
 const komizaToVis: Departure[] = [
   { time: '07:00', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'] },
-  { time: '08:30', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'], note: 'Školski dani' },
   { time: '12:00', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'] },
   { time: '15:00', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'] },
   { time: '17:30', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'] },
-  { time: '20:00', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'], note: 'Samo Pon-Sub' },
 ];
 
 const LandScheduleV3 = () => {
