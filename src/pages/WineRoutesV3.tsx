@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { ArrowLeft, MapPin, Clock, Wine, Grape, Star } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, Wine, Grape, ChevronRight } from 'lucide-react';
 import wineVineyardPhoto from '@/assets/wine-vineyard.jpg';
 import wineTastingPhoto from '@/assets/wine-tasting.jpg';
 import wineCellarPhoto from '@/assets/wine-cellar.jpg';
@@ -11,7 +11,6 @@ interface WineRoute {
   description: string;
   duration: string;
   stops: number;
-  rating: number;
   image: string;
   highlight: string;
 }
@@ -23,7 +22,6 @@ const wineRoutes: WineRoute[] = [
     description: 'Otkrijte tajne autohtone viške sorte Vugava kroz posjete obiteljskim vinarijama.',
     duration: '3-4 sata',
     stops: 4,
-    rating: 4.8,
     image: wineVineyardPhoto,
     highlight: 'Degustacija 6 vina'
   },
@@ -33,7 +31,6 @@ const wineRoutes: WineRoute[] = [
     description: 'Istražite tradiciju proizvodnje crvenih vina na sunčanim padinama otoka.',
     duration: '2-3 sata',
     stops: 3,
-    rating: 4.6,
     image: wineTastingPhoto,
     highlight: 'Pogled na more'
   },
@@ -43,7 +40,6 @@ const wineRoutes: WineRoute[] = [
     description: 'Autentični doživljaj viških konoba s tradicionalnom hranom i lokalnim vinima.',
     duration: '4-5 sati',
     stops: 5,
-    rating: 4.9,
     image: wineCellarPhoto,
     highlight: 'Večera uključena'
   },
@@ -51,6 +47,10 @@ const wineRoutes: WineRoute[] = [
 
 const WineRoutesV3 = () => {
   const navigate = useNavigate();
+
+  const handleRouteClick = (routeId: number) => {
+    navigate(`/wine-routes/${routeId}`);
+  };
 
   return (
     <div className="min-h-screen bg-vis-green">
@@ -99,6 +99,7 @@ const WineRoutesV3 = () => {
           {wineRoutes.map((route, index) => (
             <button
               key={route.id}
+              onClick={() => handleRouteClick(route.id)}
               className="w-full text-left border-[3px] border-foreground bg-card overflow-hidden hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
               style={{ 
                 boxShadow: index % 3 === 0 
@@ -121,10 +122,7 @@ const WineRoutesV3 = () => {
               <div className="p-4">
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-bold text-lg">{route.name}</h3>
-                  <div className="flex items-center gap-1 text-vis-yellow">
-                    <Star className="w-4 h-4 fill-current" />
-                    <span className="font-mono text-sm text-foreground">{route.rating}</span>
-                  </div>
+                  <ChevronRight className="w-5 h-5 text-muted-foreground" />
                 </div>
                 
                 <p className="text-sm text-muted-foreground mb-3">{route.description}</p>
