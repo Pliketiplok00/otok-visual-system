@@ -65,10 +65,12 @@ const MenuV3 = () => {
                 item.accent ? 'bg-vis-yellow' : 'bg-background'
               }`}
               style={{
-                boxShadow: index % 4 === 0 ? '4px 4px 0 hsl(var(--vis-yellow))' :
-                          index % 4 === 1 ? '4px 4px 0 hsl(var(--vis-blue))' :
-                          index % 4 === 2 ? '4px 4px 0 hsl(var(--vis-cyan))' :
-                          '4px 4px 0 hsl(var(--vis-green))'
+                boxShadow: index % 6 === 0 ? '4px 4px 0 hsl(var(--vis-yellow))' :
+                          index % 6 === 1 ? '4px 4px 0 hsl(var(--vis-blue))' :
+                          index % 6 === 2 ? '4px 4px 0 hsl(var(--vis-violet))' :
+                          index % 6 === 3 ? '4px 4px 0 hsl(var(--vis-orange))' :
+                          index % 6 === 4 ? '4px 4px 0 hsl(var(--vis-purple))' :
+                          '4px 4px 0 hsl(var(--vis-deep-blue))'
               }}
             >
               <item.icon className="w-6 h-6" strokeWidth={2.5} />
@@ -81,8 +83,10 @@ const MenuV3 = () => {
         {/* Decorative blocks at bottom */}
         <div className="flex justify-center gap-3 mt-8">
           <div className="w-4 h-4 bg-vis-blue border-2 border-foreground" />
-          <div className="w-4 h-4 bg-vis-cyan border-2 border-foreground" />
-          <div className="w-4 h-4 bg-vis-green border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-violet border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-orange border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-purple border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-deep-blue border-2 border-foreground" />
           <div className="w-4 h-4 bg-vis-yellow border-2 border-foreground" />
         </div>
       </div>
