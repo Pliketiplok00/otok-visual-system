@@ -13,7 +13,7 @@ const SchedulesV3 = () => {
       {/* Header */}
       <div className="px-5 pt-6 pb-4 text-primary-foreground">
         <h1 className="text-3xl font-extrabold mb-1 uppercase">
-          Vozni <span className="text-vis-cyan">redovi</span>
+          Vozni <span className="text-vis-yellow">redovi</span>
         </h1>
         <p className="opacity-80">Odaberite vrstu prijevoza</p>
       </div>
