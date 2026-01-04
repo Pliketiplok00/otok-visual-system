@@ -1,15 +1,31 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { Bus, MapPin, Clock, Phone, ChevronLeft, ArrowRight } from 'lucide-react';
-import { format, addDays, startOfToday } from 'date-fns';
-import { hr } from 'date-fns/locale';
+import { Bus, Clock, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Departure {
   time: string;
   stops: string[];
   note?: string;
 }
+
+interface Route {
+  id: string;
+  name: string;
+  iconBg: string;
+  iconText: string;
+  duration: string;
+}
+
+const routes: Route[] = [
+  {
+    id: 'vis-komiza',
+    name: 'Vis-Komiža-Vis',
+    iconBg: 'bg-vis-green',
+    iconText: 'text-foreground',
+    duration: '~25 min',
+  },
+];
 
 const visToKomiza: Departure[] = [
   { time: '06:30', stops: ['Vis', 'Podselje', 'Podstražje', 'Komiža'] },
@@ -31,10 +47,8 @@ const komizaToVis: Departure[] = [
 
 const LandScheduleV3 = () => {
   const navigate = useNavigate();
-  const [selectedDate, setSelectedDate] = useState(startOfToday());
   const [direction, setDirection] = useState<'toKomiza' | 'toVis'>('toKomiza');
 
-  const dates = Array.from({ length: 7 }, (_, i) => addDays(startOfToday(), i));
   const departures = direction === 'toKomiza' ? visToKomiza : komizaToVis;
 
   return (
@@ -58,79 +72,34 @@ const LandScheduleV3 = () => {
 
       {/* Content card */}
       <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-200px)] px-4 pt-5 pb-8">
-        
-        {/* Date Picker */}
-        <div className="flex gap-2 overflow-x-auto pb-3 mb-4 -mx-4 px-4 scrollbar-hide">
-          {dates.map((date) => {
-            const isSelected = format(date, 'yyyy-MM-dd') === format(selectedDate, 'yyyy-MM-dd');
-            return (
+
+        {/* Route Selector */}
+        <section className="mb-4">
+          <h2 className="font-bold text-sm mb-2 text-muted-foreground uppercase tracking-wide font-mono">Linija</h2>
+          <div className="space-y-2">
+            {routes.map((route) => (
               <button
-                key={date.toISOString()}
-                onClick={() => setSelectedDate(date)}
-                className={`flex flex-col items-center px-4 py-2 border-[3px] border-foreground min-w-[60px] transition-all ${
-                  isSelected ? 'bg-vis-green' : 'bg-card'
-                }`}
-                style={{ boxShadow: isSelected ? '2px 2px 0 hsl(var(--vis-yellow))' : 'none' }}
+                key={route.id}
+                className="w-full flex items-center gap-3 p-3 border-[3px] border-foreground transition-all bg-card hover:bg-vis-green/10"
+                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
               >
-                <span className="text-xs uppercase font-mono">{format(date, 'EEE', { locale: hr })}</span>
-                <span className="text-lg font-bold">{format(date, 'd')}</span>
+                <div className={`w-10 h-10 border-[3px] border-foreground flex items-center justify-center ${route.iconBg} ${route.iconText}`}>
+                  <Bus className="w-5 h-5" />
+                </div>
+                <div className="flex-1 text-left">
+                  <p className="font-bold text-sm uppercase">{route.name}</p>
+                  <p className="text-xs text-muted-foreground font-mono">{route.duration}</p>
+                </div>
+                <ChevronRight className="w-5 h-5 text-muted-foreground" />
               </button>
-            );
-          })}
-        </div>
-
-        {/* Direction Toggle */}
-        <div className="flex gap-2 mb-4">
-          <button
-            onClick={() => setDirection('toKomiza')}
-            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
-              direction === 'toKomiza' ? 'bg-vis-green' : 'bg-card'
-            }`}
-            style={{ boxShadow: direction === 'toKomiza' ? '2px 2px 0 hsl(var(--vis-yellow))' : 'none' }}
-          >
-            <ArrowRight className="w-4 h-4" />
-            <span className="font-medium text-sm uppercase">Vis → Komiža</span>
-          </button>
-          <button
-            onClick={() => setDirection('toVis')}
-            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
-              direction === 'toVis' ? 'bg-vis-green' : 'bg-card'
-            }`}
-            style={{ boxShadow: direction === 'toVis' ? '2px 2px 0 hsl(var(--vis-yellow))' : 'none' }}
-          >
-            <ArrowRight className="w-4 h-4 rotate-180" />
-            <span className="font-medium text-sm uppercase">Komiža → Vis</span>
-          </button>
-        </div>
-
-        {/* Route Info */}
-        <div 
-          className="p-4 border-[3px] border-foreground bg-vis-yellow/10 mb-4"
-          style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
-        >
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-vis-yellow border-[3px] border-foreground flex items-center justify-center">
-              <Bus className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="font-bold text-sm uppercase">Linija: {direction === 'toKomiza' ? 'Vis - Komiža' : 'Komiža - Vis'}</p>
-              <p className="text-xs text-muted-foreground font-mono">Trajanje: ~25 minuta</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2 mt-3 flex-wrap">
-            {(direction === 'toKomiza' ? visToKomiza[0] : komizaToVis[0]).stops.map((stop, i, arr) => (
-              <div key={stop} className="flex items-center gap-1">
-                <span className="text-xs font-medium uppercase">{stop}</span>
-                {i < arr.length - 1 && <ArrowRight className="w-3 h-3 text-muted-foreground" />}
-              </div>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Departures */}
         <section className="mb-6">
           <h2 className="font-bold text-sm mb-3 text-muted-foreground uppercase tracking-wide font-mono">
-            Polasci - {format(selectedDate, 'd. MMMM', { locale: hr })}
+            Današnji polasci
           </h2>
           <div className="space-y-3">
             {departures.map((dep, i) => (
@@ -139,7 +108,7 @@ const LandScheduleV3 = () => {
                 className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
                 style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
               >
-                <div className="w-14 h-14 bg-vis-green border-[3px] border-foreground flex flex-col items-center justify-center">
+                <div className="w-16 h-16 bg-vis-green border-[3px] border-foreground flex flex-col items-center justify-center text-foreground">
                   <span className="text-xl font-bold">{dep.time.split(':')[0]}</span>
                   <span className="text-sm font-mono">:{dep.time.split(':')[1]}</span>
                 </div>
