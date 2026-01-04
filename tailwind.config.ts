@@ -77,6 +77,8 @@ export default {
           orange: "hsl(var(--vis-orange))",
           purple: "hsl(var(--vis-purple))",
           "deep-blue": "hsl(var(--vis-deep-blue))",
+          terracotta: "hsl(var(--vis-terracotta))",
+          amber: "hsl(var(--vis-amber))",
           emergency: "hsl(var(--vis-emergency))",
           notice: "hsl(var(--vis-notice))",
         },
