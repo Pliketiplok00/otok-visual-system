@@ -4,7 +4,7 @@ import ColorBlock from '@/components/layout/ColorBlock';
 import VisCard from '@/components/ui/VisCard';
 import VisBadge from '@/components/ui/VisBadge';
 import EmergencyBanner from '@/components/EmergencyBanner';
-import { Calendar, Ship, Camera, MessageSquare, Droplets, ChevronRight } from 'lucide-react';
+import { Calendar, Ship, Camera, MessageSquare, Droplets, ChevronRight, Droplet, Users } from 'lucide-react';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -31,10 +31,18 @@ const Home = () => {
       <AppHeader unreadCount={3} />
 
       {hasEmergency && (
-        <EmergencyBanner 
-          message="Prekid vodoopskrbe u Visu danas 10-14h"
-          onClick={() => navigate('/inbox')}
-        />
+        <>
+          <EmergencyBanner 
+            message="Prekid vodoopskrbe u Visu danas 10-14h"
+            onClick={() => navigate('/inbox')}
+            icon={Droplet}
+          />
+          <EmergencyBanner 
+            message="KOMIŽA: poziv na sudjelovanje u raspravi"
+            onClick={() => navigate('/inbox')}
+            icon={Users}
+          />
+        </>
       )}
 
       {/* Today's Event */}
