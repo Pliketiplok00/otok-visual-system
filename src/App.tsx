@@ -9,6 +9,7 @@ import SplashV3 from "./pages/SplashV3";
 import LoginV3 from "./pages/LoginV3";
 import NotificationChannelsV3 from "./pages/NotificationChannelsV3";
 import HomeV3 from "./pages/HomeV3";
+import HomeV4 from "./pages/HomeV4";
 import MenuV3 from "./pages/MenuV3";
 import InboxV3 from "./pages/InboxV3";
 import SchedulesV3 from "./pages/SchedulesV3";
@@ -66,6 +67,7 @@ const App = () => (
           {/* Aliases for V3 */}
           <Route path="/v3" element={<SplashV3 />} />
           <Route path="/home-v3" element={<HomeV3 />} />
+          <Route path="/home-v4" element={<HomeV4 />} />
           
           {/* Legacy versions for comparison */}
           <Route path="/v1" element={<Splash />} />
