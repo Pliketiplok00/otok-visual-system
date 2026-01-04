@@ -48,8 +48,8 @@ const routes: Route[] = [
     from: 'Vis',
     to: 'Split',
     type: 'katamaran',
-    iconBg: 'bg-vis-cyan',
-    iconText: 'text-foreground',
+    iconBg: 'bg-vis-purple',
+    iconText: 'text-primary-foreground',
     departures: [
       { time: '06:15', vessel: 'Linija 9602', duration: '1h 15min' },
       { time: '14:30', vessel: 'Linija 9602', duration: '1h 15min' },
@@ -65,7 +65,7 @@ const routes: Route[] = [
     from: 'Komiža',
     to: 'Biševo',
     type: '',
-    iconBg: 'bg-vis-green',
+    iconBg: 'bg-vis-yellow',
     iconText: 'text-foreground',
     departures: [
       { time: '09:00', vessel: 'Biševo Line', duration: '20min' },
@@ -141,8 +141,8 @@ const SeaScheduleV3 = () => {
           </h2>
           <div className="space-y-3">
             {routes[0].departures.map((dep, i) => {
-              // First two departures match trajekt color (vis-blue), third matches katamaran (vis-cyan)
-              const timeBoxBg = i < 2 ? 'bg-vis-blue text-primary-foreground' : 'bg-vis-cyan text-foreground';
+              // First two departures match trajekt color (vis-blue), third matches katamaran (vis-purple)
+              const timeBoxBg = i < 2 ? 'bg-vis-blue text-primary-foreground' : 'bg-vis-purple text-primary-foreground';
               return (
               <div 
                 key={i}
