@@ -11,7 +11,6 @@ interface ImageHeaderProps {
   iconBg?: string;
   iconShadow?: string;
   backPath?: string;
-  backLabel?: string;
 }
 
 const ImageHeader = ({ 
@@ -21,25 +20,13 @@ const ImageHeader = ({
   icon,
   iconBg = 'bg-card',
   iconShadow = 'hsl(var(--vis-yellow))',
-  backPath,
-  backLabel = 'Natrag'
+  backPath
 }: ImageHeaderProps) => {
   const navigate = useNavigate();
 
   return (
     <>
       <AppHeader />
-      {backPath && (
-        <div className="bg-card border-b-[3px] border-foreground px-4 py-2">
-          <button 
-            onClick={() => navigate(backPath)}
-            className="flex items-center gap-2 text-sm font-bold uppercase hover:opacity-70 transition-opacity"
-          >
-            <ArrowLeft className="w-4 h-4" strokeWidth={2.5} />
-            {backLabel}
-          </button>
-        </div>
-      )}
       <div className="relative h-48 overflow-hidden border-b-[3px] border-foreground">
         <img 
           src={image} 
@@ -47,6 +34,18 @@ const ImageHeader = ({
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
+        
+        {/* Back button */}
+        {backPath && (
+          <button 
+            onClick={() => navigate(backPath)}
+            className="absolute top-4 left-4 flex items-center gap-2 text-primary-foreground hover:opacity-70 transition-opacity"
+          >
+            <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
+            <span className="font-bold uppercase text-sm">Natrag</span>
+          </button>
+        )}
+        
         <div className="absolute bottom-0 left-0 right-0 px-5 pb-4 text-primary-foreground">
           <div className="flex items-center gap-3">
             {icon && (
