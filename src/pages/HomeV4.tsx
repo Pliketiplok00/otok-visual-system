@@ -49,7 +49,7 @@ const HomeV4 = () => {
     icon: Droplets,
     label: 'VODA',
     path: '/water',
-    bgColor: 'bg-vis-amber'
+    bgColor: 'bg-vis-sky'
   }];
 
   return (
