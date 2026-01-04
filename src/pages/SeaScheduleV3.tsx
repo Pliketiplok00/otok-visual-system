@@ -25,47 +25,34 @@ interface Route {
 const routes: Route[] = [
   {
     id: 'split-vis-ferry',
-    name: 'Split - Vis',
-    from: 'Split',
-    to: 'Vis',
+    name: 'Vis-Split-Vis',
+    from: 'Vis',
+    to: 'Split',
     type: 'trajekt',
     departures: [
-      { time: '06:00', vessel: 'Petar Hektorović', duration: '2h 20min' },
-      { time: '14:30', vessel: 'Petar Hektorović', duration: '2h 20min' },
-      { time: '17:30', vessel: 'Petar Hektorović', duration: '2h 20min', note: 'Samo Pon-Pet' },
+      { time: '05:30', vessel: 'Trajektna linija 602', duration: '2h 20min' },
+      { time: '15:30', vessel: 'Trajektna linija 602', duration: '2h 20min' },
+      { time: '07:00', vessel: 'Krilo-Line', duration: '1h 15min' },
     ],
     returnDepartures: [
-      { time: '09:00', vessel: 'Petar Hektorović', duration: '2h 20min' },
-      { time: '17:30', vessel: 'Petar Hektorović', duration: '2h 20min' },
-      { time: '20:30', vessel: 'Petar Hektorović', duration: '2h 20min', note: 'Samo Pon-Pet' },
+      { time: '09:00', vessel: 'Trajektna linija 602', duration: '2h 20min' },
+      { time: '17:30', vessel: 'Trajektna linija 602', duration: '2h 20min' },
+      { time: '16:00', vessel: 'Krilo-Line', duration: '1h 15min' },
     ],
   },
   {
     id: 'split-vis-catamaran',
-    name: 'Split - Vis',
-    from: 'Split',
-    to: 'Vis',
+    name: 'Vis-Split-Vis',
+    from: 'Vis',
+    to: 'Split',
     type: 'katamaran',
     departures: [
-      { time: '08:00', vessel: 'Judita', duration: '1h 15min' },
-      { time: '16:00', vessel: 'Judita', duration: '1h 15min' },
+      { time: '06:15', vessel: 'Linija 9602', duration: '1h 15min' },
+      { time: '14:30', vessel: 'Linija 9602', duration: '1h 15min' },
     ],
     returnDepartures: [
-      { time: '06:15', vessel: 'Judita', duration: '1h 15min' },
-      { time: '14:30', vessel: 'Judita', duration: '1h 15min' },
-    ],
-  },
-  {
-    id: 'hvar-vis',
-    name: 'Hvar - Vis',
-    from: 'Hvar',
-    to: 'Vis',
-    type: 'katamaran',
-    departures: [
-      { time: '09:30', vessel: 'Judita', duration: '45min' },
-    ],
-    returnDepartures: [
-      { time: '14:00', vessel: 'Judita', duration: '45min' },
+      { time: '08:00', vessel: 'Linija 9602', duration: '1h 15min' },
+      { time: '16:00', vessel: 'Linija 9602', duration: '1h 15min' },
     ],
   },
 ];
@@ -122,6 +109,30 @@ const SeaScheduleV3 = () => {
           })}
         </div>
 
+        {/* Direction Toggle - moved above Route Selector */}
+        <div className="flex gap-2 mb-4">
+          <button
+            onClick={() => setDirection('outbound')}
+            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
+              direction === 'outbound' ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
+            }`}
+            style={{ boxShadow: direction === 'outbound' ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
+          >
+            <ArrowRight className="w-4 h-4" />
+            <span className="font-medium text-sm uppercase">Vis → Split</span>
+          </button>
+          <button
+            onClick={() => setDirection('return')}
+            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
+              direction === 'return' ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
+            }`}
+            style={{ boxShadow: direction === 'return' ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
+          >
+            <ArrowRight className="w-4 h-4 rotate-180" />
+            <span className="font-medium text-sm uppercase">Split → Vis</span>
+          </button>
+        </div>
+
         {/* Route Selector */}
         <section className="mb-4">
           <h2 className="font-bold text-sm mb-2 text-muted-foreground uppercase tracking-wide font-mono">Linija</h2>
@@ -139,7 +150,7 @@ const SeaScheduleV3 = () => {
                   <Ship className="w-5 h-5" />
                 </div>
                 <div className="flex-1 text-left">
-                  <p className="font-bold text-sm uppercase">{route.from} → {route.to}</p>
+                  <p className="font-bold text-sm uppercase">{route.name}</p>
                   <p className="text-xs text-muted-foreground capitalize font-mono">{route.type}</p>
                 </div>
                 {selectedRoute === route.id && (
@@ -150,34 +161,10 @@ const SeaScheduleV3 = () => {
           </div>
         </section>
 
-        {/* Direction Toggle */}
-        <div className="flex gap-2 mb-4">
-          <button
-            onClick={() => setDirection('outbound')}
-            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
-              direction === 'outbound' ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
-            }`}
-            style={{ boxShadow: direction === 'outbound' ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
-          >
-            <ArrowRight className="w-4 h-4" />
-            <span className="font-medium text-sm uppercase">{currentRoute.from} → {currentRoute.to}</span>
-          </button>
-          <button
-            onClick={() => setDirection('return')}
-            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
-              direction === 'return' ? 'bg-vis-blue text-primary-foreground' : 'bg-card'
-            }`}
-            style={{ boxShadow: direction === 'return' ? '2px 2px 0 hsl(var(--vis-cyan))' : 'none' }}
-          >
-            <ArrowRight className="w-4 h-4 rotate-180" />
-            <span className="font-medium text-sm uppercase">{currentRoute.to} → {currentRoute.from}</span>
-          </button>
-        </div>
-
         {/* Departures */}
         <section className="mb-6">
           <h2 className="font-bold text-sm mb-3 text-muted-foreground uppercase tracking-wide font-mono">
-            Polasci - {format(selectedDate, 'd. MMMM', { locale: hr })}
+            Današnji polasci
           </h2>
           <div className="space-y-3">
             {departures.map((dep, i) => (
@@ -205,17 +192,29 @@ const SeaScheduleV3 = () => {
           </div>
         </section>
 
-        {/* External Link */}
-        <a
-          href="https://www.jadrolinija.hr"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 p-4 border-[3px] border-foreground bg-vis-cyan/10 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
-          style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
-        >
-          <ExternalLink className="w-5 h-5" />
-          <span className="font-bold uppercase">Kupi kartu na Jadrolinija.hr</span>
-        </a>
+        {/* External Links */}
+        <div className="space-y-3">
+          <a
+            href="https://www.jadrolinija.hr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 p-4 border-[3px] border-foreground bg-vis-cyan/10 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+          >
+            <ExternalLink className="w-5 h-5" />
+            <span className="font-bold uppercase">Kupi kartu na Jadrolinija.hr</span>
+          </a>
+          <a
+            href="https://www.krilo.hr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 p-4 border-[3px] border-foreground bg-vis-cyan/10 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+          >
+            <ExternalLink className="w-5 h-5" />
+            <span className="font-bold uppercase">Kupi kartu na Krilo-line</span>
+          </a>
+        </div>
 
         {/* Decorative blocks */}
         <div className="flex justify-center gap-2 mt-8">
