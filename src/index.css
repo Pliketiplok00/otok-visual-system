@@ -6,49 +6,49 @@
 
 /* OTOK VIS APP - NEOBRUTALIST Design System
    Raw, bold, high-contrast design with harsh edges
-   Muted color palette: Terracotta, Warm Gold, Sage Green, Steel Blue
+   Mediterranean color palette: Azure Sea, Olive Sage, Sandy Gold, Warm White
 */
 
 @layer base {
   :root {
-    /* Core palette - Muted and sophisticated */
-    --vis-yellow: 38 93% 67%;         /* Warm Gold #F9B95C */
-    --vis-blue: 195 29% 53%;          /* Steel Blue #6398A9 */
-    --vis-cyan: 8 48% 67%;            /* Terracotta #D7897F */
-    --vis-green: 152 33% 68%;         /* Sage Green #96C7B3 */
-    --vis-white: 0 0% 100%;
-    --vis-black: 0 0% 0%;
-    --vis-emergency: 12 45% 45%;       /* Muted terracotta-red for urgent */
-    --vis-notice: 25 50% 55%;          /* Warm amber for community notices */
+    /* Core palette - Mediterranean vibes */
+    --vis-yellow: 42 75% 65%;         /* Sandy Gold - warm beach tones */
+    --vis-blue: 200 55% 50%;          /* Mediterranean Azure */
+    --vis-cyan: 185 40% 55%;          /* Aegean Teal */
+    --vis-green: 160 35% 55%;         /* Olive Sage */
+    --vis-white: 45 30% 97%;          /* Warm Mediterranean White */
+    --vis-black: 210 25% 15%;         /* Deep Sea Navy */
+    --vis-emergency: 15 55% 50%;       /* Terracotta alert */
+    --vis-notice: 35 60% 55%;          /* Warm amber for community notices */
 
     /* Semantic tokens - High contrast */
-    --background: 40 20% 96%;         /* Warm off-white */
-    --foreground: 0 0% 10%;           /* Near black */
+    --background: 45 25% 95%;         /* Warm Mediterranean white */
+    --foreground: 210 25% 15%;        /* Deep sea navy */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card: 45 30% 98%;
+    --card-foreground: 210 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover: 45 30% 98%;
+    --popover-foreground: 210 25% 15%;
 
-    --primary: 0 0% 10%;              /* Near black primary */
-    --primary-foreground: 0 0% 100%;
+    --primary: 210 25% 15%;           /* Deep sea navy primary */
+    --primary-foreground: 45 30% 97%;
 
-    --secondary: 38 93% 67%;          /* Warm Gold secondary */
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 42 75% 65%;          /* Sandy Gold secondary */
+    --secondary-foreground: 210 25% 15%;
 
-    --muted: 40 10% 92%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 45 15% 90%;
+    --muted-foreground: 210 15% 40%;
 
-    --accent: 195 29% 53%;            /* Steel Blue accent */
-    --accent-foreground: 0 0% 100%;
+    --accent: 200 55% 50%;            /* Mediterranean Azure accent */
+    --accent-foreground: 45 30% 97%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 15 55% 50%;
+    --destructive-foreground: 45 30% 97%;
 
-    --border: 0 0% 10%;               /* Near black borders */
-    --input: 0 0% 10%;
-    --ring: 0 0% 10%;
+    --border: 210 25% 15%;            /* Deep sea navy borders */
+    --input: 210 25% 15%;
+    --ring: 200 55% 50%;
 
     --radius: 0;                      /* No rounded corners - NEOBRUTALIST */
 
@@ -56,53 +56,53 @@
     --border-thick: 3px;
     --shadow-offset: 6px;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 0 0% 10%;
-    --sidebar-primary: 0 0% 10%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 38 93% 67%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 10%;
-    --sidebar-ring: 0 0% 10%;
+    --sidebar-background: 45 30% 98%;
+    --sidebar-foreground: 210 25% 15%;
+    --sidebar-primary: 210 25% 15%;
+    --sidebar-primary-foreground: 45 30% 97%;
+    --sidebar-accent: 42 75% 65%;
+    --sidebar-accent-foreground: 210 25% 15%;
+    --sidebar-border: 210 25% 15%;
+    --sidebar-ring: 200 55% 50%;
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 95%;
+    --background: 210 30% 10%;
+    --foreground: 45 25% 92%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 95%;
+    --card: 210 28% 14%;
+    --card-foreground: 45 25% 92%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 210 28% 14%;
+    --popover-foreground: 45 25% 92%;
 
-    --primary: 0 0% 95%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 45 25% 92%;
+    --primary-foreground: 210 30% 10%;
 
-    --secondary: 38 93% 67%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 42 65% 55%;
+    --secondary-foreground: 210 30% 10%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 210 20% 20%;
+    --muted-foreground: 45 15% 65%;
 
-    --accent: 152 33% 68%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 185 40% 50%;
+    --accent-foreground: 210 30% 10%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 15 50% 45%;
+    --destructive-foreground: 45 25% 92%;
 
-    --border: 0 0% 95%;
-    --input: 0 0% 95%;
-    --ring: 0 0% 95%;
+    --border: 45 20% 85%;
+    --input: 45 20% 85%;
+    --ring: 200 55% 50%;
 
-    --sidebar-background: 0 0% 8%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 0 0% 95%;
-    --sidebar-primary-foreground: 0 0% 10%;
-    --sidebar-accent: 38 93% 67%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 95%;
-    --sidebar-ring: 0 0% 95%;
+    --sidebar-background: 210 30% 10%;
+    --sidebar-foreground: 45 25% 92%;
+    --sidebar-primary: 45 25% 92%;
+    --sidebar-primary-foreground: 210 30% 10%;
+    --sidebar-accent: 42 65% 55%;
+    --sidebar-accent-foreground: 210 30% 10%;
+    --sidebar-border: 45 20% 85%;
+    --sidebar-ring: 200 55% 50%;
   }
 }
 
