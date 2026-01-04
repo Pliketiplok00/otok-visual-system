@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import VisBadge from '@/components/ui/VisBadge';
-import { ChevronRight, Bell, Info, Settings } from 'lucide-react';
+import { ChevronRight, Bell, Info, Settings, X } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 type Filter = 'all' | 'vis' | 'komiza' | 'general' | 'emergency';
 
@@ -66,6 +68,26 @@ const filters: { id: Filter; label: string; color: string }[] = [
 const InboxV3 = () => {
   const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState<Filter>('all');
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [subscriptions, setSubscriptions] = useState({
+    vis: true,
+    komiza: true,
+    kultura: true,
+    hitno: true,
+    opcenito: true,
+  });
+
+  const toggleSubscription = (key: keyof typeof subscriptions) => {
+    setSubscriptions(prev => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const subscriptionOptions = [
+    { id: 'vis' as const, label: 'Vis', color: 'bg-vis-blue' },
+    { id: 'komiza' as const, label: 'Komiža', color: 'bg-vis-green' },
+    { id: 'kultura' as const, label: 'Kultura', color: 'bg-vis-yellow' },
+    { id: 'hitno' as const, label: 'Hitno', color: 'bg-vis-emergency' },
+    { id: 'opcenito' as const, label: 'Općenito', color: 'bg-vis-cyan' },
+  ];
 
   const filteredNotifications = activeFilter === 'all' 
     ? mockNotifications 
@@ -97,7 +119,7 @@ const InboxV3 = () => {
             </div>
           </div>
           <button
-            onClick={() => navigate('/settings')}
+            onClick={() => setSettingsOpen(true)}
             className="w-10 h-10 bg-card border-[3px] border-foreground flex items-center justify-center hover:bg-muted transition-colors"
             style={{ boxShadow: '3px 3px 0 hsl(var(--vis-green))' }}
             aria-label="Postavke"
@@ -172,6 +194,32 @@ const InboxV3 = () => {
           )}
         </div>
       </div>
+
+      {/* Subscription Settings Dialog */}
+      <Dialog open={settingsOpen} onOpenChange={setSettingsOpen}>
+        <DialogContent className="border-[3px] border-foreground bg-card p-0 max-w-sm" style={{ boxShadow: '6px 6px 0 hsl(var(--foreground))' }}>
+          <DialogHeader className="p-4 border-b-[3px] border-foreground bg-vis-cyan">
+            <DialogTitle className="text-lg font-extrabold uppercase">Pretplati se na:</DialogTitle>
+          </DialogHeader>
+          <div className="p-4 space-y-3">
+            {subscriptionOptions.map((option) => (
+              <label
+                key={option.id}
+                className="flex items-center gap-3 p-3 border-[3px] border-foreground bg-card hover:bg-muted cursor-pointer transition-colors"
+                style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}
+              >
+                <Checkbox
+                  checked={subscriptions[option.id]}
+                  onCheckedChange={() => toggleSubscription(option.id)}
+                  className="w-6 h-6 border-[2px] border-foreground data-[state=checked]:bg-foreground"
+                />
+                <div className={`w-4 h-4 ${option.color} border-2 border-foreground`} />
+                <span className="font-bold">{option.label}</span>
+              </label>
+            ))}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
