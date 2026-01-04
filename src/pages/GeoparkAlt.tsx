@@ -53,28 +53,27 @@ const GeoparkAlt = () => {
           </p>
         </div>
 
-        {/* Category cards with illustrations */}
-        <div className="space-y-4 mb-8">
+        {/* Category cards - side by side */}
+        <div className="grid grid-cols-2 gap-3 mb-6">
           {categories.map(cat => (
-            <VisCard key={cat.path} onClick={() => navigate(cat.path)} className="relative overflow-hidden">
-              <div className="flex items-center gap-4 relative z-10">
-                <div 
-                  className="w-16 h-16 border-[3px] border-foreground overflow-hidden"
-                  style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
-                >
-                  <img 
-                    src={cat.image} 
-                    alt={cat.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-bold text-xl mb-1 uppercase">{cat.title}</h3>
-                  <p className="text-sm text-muted-foreground">{cat.description}</p>
-                </div>
-                <ChevronRight className="w-6 h-6 text-foreground" strokeWidth={2.5} />
+            <div 
+              key={cat.path} 
+              onClick={() => navigate(cat.path)} 
+              className="border-[3px] border-foreground bg-card cursor-pointer hover:translate-x-[2px] hover:-translate-y-[2px] transition-transform overflow-hidden"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+            >
+              <div className="aspect-[4/3] overflow-hidden border-b-[3px] border-foreground">
+                <img 
+                  src={cat.image} 
+                  alt={cat.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </VisCard>
+              <div className="p-3">
+                <h3 className="font-bold text-lg uppercase mb-1">{cat.title}</h3>
+                <p className="text-xs text-muted-foreground">{cat.description}</p>
+              </div>
+            </div>
           ))}
         </div>
 
