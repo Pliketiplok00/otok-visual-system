@@ -10,6 +10,10 @@ import concertPhoto from '@/assets/dalmatian-iris.jpg';
 import fishPhoto from '@/assets/bottlenose-dolphin.jpg';
 import exhibitionPhoto from '@/assets/eleonoras-falcon.jpg';
 import winePhoto from '@/assets/immortelle.jpg';
+// Wine festival photos
+import wineVineyardPhoto from '@/assets/wine-vineyard.jpg';
+import wineTastingPhoto from '@/assets/wine-tasting.jpg';
+import wineCellarPhoto from '@/assets/wine-cellar.jpg';
 
 interface Event {
   id: number;
@@ -115,8 +119,9 @@ const allEvents: Event[] = [
     organizer: 'Udruga vinara otoka Visa',
     attendees: 312,
     photos: [
-      { src: winePhoto, alt: 'Festival vina' },
-      { src: festivalPhoto, alt: 'Degustacija vina' },
+      { src: wineVineyardPhoto, alt: 'Vinograd na otoku Visu' },
+      { src: wineTastingPhoto, alt: 'Degustacija vina' },
+      { src: wineCellarPhoto, alt: 'Vinska konoba' },
     ]
   },
 ];
