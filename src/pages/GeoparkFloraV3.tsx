@@ -2,6 +2,11 @@ import { ArrowLeft, Leaf, Flower2, TreeDeciduous, Shrub, TreePine, ChevronRight 
 import { useNavigate } from "react-router-dom";
 
 import { LucideIcon } from "lucide-react";
+import alepskiBorImg from "@/assets/alepski-bor.jpg";
+import viskaKaduljaImg from "@/assets/viska-kadulja.jpg";
+import dalmatianIrisImg from "@/assets/dalmatian-iris.jpg";
+import wildRosemaryImg from "@/assets/wild-rosemary.jpg";
+import immortelleImg from "@/assets/immortelle.jpg";
 
 interface PlantData {
   name: string;
@@ -11,6 +16,7 @@ interface PlantData {
   icon: LucideIcon;
   color: string;
   detailPath?: string;
+  image?: string;
 }
 
 const endemicPlants: PlantData[] = [
@@ -21,7 +27,8 @@ const endemicPlants: PlantData[] = [
     habitat: "Coastal hillsides",
     icon: TreePine,
     color: "bg-[#96C7B3]",
-    detailPath: "/geopark/flora/alepski-bor"
+    detailPath: "/geopark/flora/alepski-bor",
+    image: alepskiBorImg
   },
   {
     name: "Viška Kadulja",
@@ -30,7 +37,8 @@ const endemicPlants: PlantData[] = [
     habitat: "Rocky limestone",
     icon: Leaf,
     color: "bg-[#D7897F]",
-    detailPath: "/geopark/flora/viska-kadulja"
+    detailPath: "/geopark/flora/viska-kadulja",
+    image: viskaKaduljaImg
   },
   {
     name: "Dalmatian Iris",
@@ -38,7 +46,8 @@ const endemicPlants: PlantData[] = [
     description: "Purple flowering plant endemic to the Dalmatian coast, blooms in late spring.",
     habitat: "Rocky slopes",
     icon: Flower2,
-    color: "bg-[#6398A9]"
+    color: "bg-[#6398A9]",
+    image: dalmatianIrisImg
   },
   {
     name: "Croatian Bellflower",
@@ -70,7 +79,8 @@ const endemicPlants: PlantData[] = [
     description: "Fragrant evergreen shrub with needle-like leaves and blue flowers.",
     habitat: "Rocky terrain",
     icon: Shrub,
-    color: "bg-[#6398A9]"
+    color: "bg-[#6398A9]",
+    image: wildRosemaryImg
   },
   {
     name: "Strawberry Tree",
@@ -86,7 +96,8 @@ const endemicPlants: PlantData[] = [
     description: "Yellow flowering plant known for its essential oil and medicinal properties.",
     habitat: "Dry grasslands",
     icon: Flower2,
-    color: "bg-[#F9B95C]"
+    color: "bg-[#F9B95C]",
+    image: immortelleImg
   },
   {
     name: "Croatian Knapweed",
@@ -159,6 +170,16 @@ const GeoparkFloraV3 = () => {
                 className={`border-3 border-foreground bg-card ${hasDetail ? 'cursor-pointer hover:translate-x-1 hover:-translate-y-1 transition-transform' : ''}`}
                 style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
               >
+                {/* Image */}
+                {plant.image && (
+                  <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
+                    <img 
+                      src={plant.image} 
+                      alt={plant.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className={`${plant.color} p-3 border-b-3 border-foreground flex items-center gap-3`}>
                   <div className="w-10 h-10 border-2 border-foreground bg-background flex items-center justify-center">
                     <IconComponent className="w-5 h-5" strokeWidth={2.5} />

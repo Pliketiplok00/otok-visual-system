@@ -1,7 +1,22 @@
 import { ArrowLeft, Bird, Fish, Bug, Rabbit } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { LucideIcon } from "lucide-react";
 
-const endemicAnimals = [
+import eleonorasFalconImg from "@/assets/eleonoras-falcon.jpg";
+import bottlenoseDolphinImg from "@/assets/bottlenose-dolphin.jpg";
+import hermannsTortoiseImg from "@/assets/hermanns-tortoise.jpg";
+
+interface AnimalData {
+  name: string;
+  latinName: string;
+  description: string;
+  habitat: string;
+  icon: LucideIcon;
+  color: string;
+  image?: string;
+}
+
+const endemicAnimals: AnimalData[] = [
   {
     name: "Vis Wall Lizard",
     latinName: "Podarcis siculus visensis",
@@ -16,7 +31,8 @@ const endemicAnimals = [
     description: "Migratory raptor nesting on coastal cliffs, feeds on smaller birds during migration.",
     habitat: "Sea cliffs",
     icon: Bird,
-    color: "bg-vis-blue"
+    color: "bg-vis-blue",
+    image: eleonorasFalconImg
   },
   {
     name: "Mediterranean Monk Seal",
@@ -48,7 +64,8 @@ const endemicAnimals = [
     description: "Small land tortoise found in maquis shrubland and olive groves.",
     habitat: "Shrubland",
     icon: Bug,
-    color: "bg-vis-blue"
+    color: "bg-vis-blue",
+    image: hermannsTortoiseImg
   },
   {
     name: "Mouflon",
@@ -64,7 +81,8 @@ const endemicAnimals = [
     description: "Playful marine mammal frequently seen in waters around Vis archipelago.",
     habitat: "Open sea",
     icon: Fish,
-    color: "bg-vis-yellow"
+    color: "bg-vis-yellow",
+    image: bottlenoseDolphinImg
   },
   {
     name: "Eurasian Eagle-Owl",
@@ -136,6 +154,16 @@ const GeoparkFaunaV3 = () => {
                 className="border-3 border-foreground bg-card"
                 style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
               >
+                {/* Image */}
+                {animal.image && (
+                  <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
+                    <img 
+                      src={animal.image} 
+                      alt={animal.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
                 <div className={`${animal.color} p-3 border-b-3 border-foreground flex items-center gap-3`}>
                   <div className="w-10 h-10 border-2 border-foreground bg-background flex items-center justify-center">
                     <IconComponent className="w-5 h-5" strokeWidth={2.5} />
