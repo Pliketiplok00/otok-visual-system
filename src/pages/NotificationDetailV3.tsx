@@ -172,7 +172,7 @@ const NotificationDetailV3 = () => {
         >
           <div className="flex items-center gap-2 mb-3">
             <CalendarRange className="w-5 h-5" strokeWidth={2.5} />
-            <span className="font-bold uppercase text-sm">Obavijest se odnosi na:</span>
+            <span className="font-bold uppercase text-sm">Obavijest se odnosi na dan/e:</span>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="flex-1 p-3 bg-card border-[2px] border-foreground">
