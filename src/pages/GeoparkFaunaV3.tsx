@@ -18,7 +18,6 @@ const GeoparkFaunaV3 = () => {
         iconBg="bg-vis-cyan"
         iconShadow="hsl(var(--foreground))"
         backPath="/geopark"
-        backLabel="Flora & Fauna"
       />
 
       <main className="p-4 pb-8">
