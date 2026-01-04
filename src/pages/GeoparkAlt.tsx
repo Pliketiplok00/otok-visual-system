@@ -115,7 +115,7 @@ const GeoparkAlt = () => {
           </div>
         </div>
 
-        {/* Illustrated info card - neobrutalist */}
+        {/* Geopark info card */}
         <div className="mt-8 bg-vis-blue/20 border-[3px] border-foreground p-4 relative overflow-hidden" style={{
           boxShadow: '6px 6px 0 hsl(var(--vis-blue))'
         }}>
@@ -123,9 +123,9 @@ const GeoparkAlt = () => {
             <Leaf className="w-24 h-24" strokeWidth={1.5} />
           </div>
           <div className="relative z-10">
-            <h3 className="font-bold text-foreground mb-2 uppercase">UNESCO Geopark kandidat</h3>
+            <h3 className="font-bold text-foreground mb-2 uppercase">Geopark viški arhipelag</h3>
             <p className="text-sm text-muted-foreground">
-              Otok Vis prepoznat je po iznimnoj geološkoj raznolikosti i endemskim vrstama.
+              Vis i okolni otočići čine UNESCO Global Geopark zbog iznimne geološke raznolikosti: vrlo starih stijena, krškog reljefa, morskih špilja i rijetkih vulkanskih otočića (Brusnik i Jabuka). Krajolik Visa je "učionica na otvorenom" — priča o nastanku Jadrana, pomicanju tla i oblikovanju obale.
             </p>
           </div>
         </div>
