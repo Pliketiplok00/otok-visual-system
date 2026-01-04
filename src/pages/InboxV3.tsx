@@ -202,21 +202,26 @@ const InboxV3 = () => {
             <DialogTitle className="text-lg font-extrabold uppercase">Pretplati se na:</DialogTitle>
           </DialogHeader>
           <div className="p-4 space-y-3">
-            {subscriptionOptions.map((option) => (
-              <label
-                key={option.id}
-                className="flex items-center gap-3 p-3 border-[3px] border-foreground bg-card hover:bg-muted cursor-pointer transition-colors"
-                style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}
-              >
-                <Checkbox
-                  checked={subscriptions[option.id]}
-                  onCheckedChange={() => toggleSubscription(option.id)}
-                  className="w-6 h-6 border-[2px] border-foreground data-[state=checked]:bg-foreground"
-                />
-                <div className={`w-4 h-4 ${option.color} border-2 border-foreground`} />
-                <span className="font-bold">{option.label}</span>
-              </label>
-            ))}
+            {subscriptionOptions.map((option) => {
+              const isHitno = option.id === 'hitno';
+              return (
+                <label
+                  key={option.id}
+                  className={`flex items-center gap-3 p-3 border-[3px] border-foreground bg-card transition-colors ${isHitno ? 'opacity-70' : 'hover:bg-muted cursor-pointer'}`}
+                  style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}
+                >
+                  <Checkbox
+                    checked={subscriptions[option.id]}
+                    onCheckedChange={() => !isHitno && toggleSubscription(option.id)}
+                    disabled={isHitno}
+                    className="w-6 h-6 border-[2px] border-foreground data-[state=checked]:bg-foreground"
+                  />
+                  <div className={`w-4 h-4 ${option.color} border-2 border-foreground`} />
+                  <span className="font-bold">{option.label}</span>
+                  {isHitno && <span className="text-xs text-muted-foreground ml-auto">(obavezno)</span>}
+                </label>
+              );
+            })}
           </div>
         </DialogContent>
       </Dialog>
