@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Check } from 'lucide-react';
 
-type Channel = 'vis' | 'komiza' | 'both' | 'emergency';
+type Channel = 'vis' | 'komiza' | 'both';
 
 const NotificationChannelsV3 = () => {
   const navigate = useNavigate();
@@ -18,7 +18,6 @@ const NotificationChannelsV3 = () => {
     { id: 'vis', label: 'Vis', description: 'Obavijesti za grad Vis', emoji: '🏝️', color: 'bg-vis-blue/10', shadow: 'hsl(var(--vis-blue))' },
     { id: 'komiza', label: 'Komiža', description: 'Obavijesti za Komižu', emoji: '⛵', color: 'bg-vis-green/10', shadow: 'hsl(var(--vis-green))' },
     { id: 'both', label: 'Oboje', description: 'Sve obavijesti za cijeli otok', emoji: '🌊', color: 'bg-vis-cyan/10', shadow: 'hsl(var(--vis-cyan))' },
-    { id: 'emergency', label: 'Samo hitne', description: 'Samo hitne i opće obavijesti', emoji: '🚨', color: 'bg-vis-yellow/10', shadow: 'hsl(var(--vis-yellow))' },
   ];
 
   return (
@@ -55,6 +54,21 @@ const NotificationChannelsV3 = () => {
               </div>
             </button>
           ))}
+
+          {/* Emergency option - always selected, disabled appearance */}
+          <div
+            className="w-full text-left p-4 border-[3px] border-foreground bg-vis-yellow/10 opacity-60 flex items-center gap-4"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
+          >
+            <div className="text-3xl">🚨</div>
+            <div className="flex-1">
+              <p className="font-bold text-lg uppercase">Hitne i servisne</p>
+              <p className="text-sm text-muted-foreground">Uvijek uključeno</p>
+            </div>
+            <div className="w-7 h-7 border-[3px] border-foreground flex items-center justify-center shrink-0 bg-vis-blue">
+              <Check className="w-4 h-4 text-primary-foreground" strokeWidth={3} />
+            </div>
+          </div>
         </div>
 
         {/* Continue button */}
