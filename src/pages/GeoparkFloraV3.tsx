@@ -1,223 +1,161 @@
-import { ArrowLeft, Leaf, Flower2, TreeDeciduous, Shrub, TreePine, ChevronRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Leaf, Sparkles, ShieldAlert } from "lucide-react";
 
-import { LucideIcon } from "lucide-react";
-import alepskiBorImg from "@/assets/alepski-bor.jpg";
-import viskaKaduljaImg from "@/assets/viska-kadulja.jpg";
+import ImageHeader from "@/components/layout/ImageHeader";
 import dalmatianIrisImg from "@/assets/dalmatian-iris.jpg";
 import wildRosemaryImg from "@/assets/wild-rosemary.jpg";
 import immortelleImg from "@/assets/immortelle.jpg";
 
-interface PlantData {
-  name: string;
-  latinName: string;
-  description: string;
-  habitat: string;
-  icon: LucideIcon;
-  color: string;
-  detailPath?: string;
-  image?: string;
-}
-
-const endemicPlants: PlantData[] = [
-  {
-    name: "Alepski Bor",
-    latinName: "Pinus halepensis",
-    description: "Mediterranean pine characteristic of coastal landscapes, well-adapted to hot dry summers.",
-    habitat: "Coastal hillsides",
-    icon: TreePine,
-    color: "bg-[#96C7B3]",
-    detailPath: "/geopark/flora/alepski-bor",
-    image: alepskiBorImg
-  },
-  {
-    name: "Viška Kadulja",
-    latinName: "Salvia officinalis var. vissiana",
-    description: "Endemic sage variety unique to Vis Island, prized for its exceptional aroma.",
-    habitat: "Rocky limestone",
-    icon: Leaf,
-    color: "bg-[#D7897F]",
-    detailPath: "/geopark/flora/viska-kadulja",
-    image: viskaKaduljaImg
-  },
-  {
-    name: "Dalmatian Iris",
-    latinName: "Iris pallida",
-    description: "Purple flowering plant endemic to the Dalmatian coast, blooms in late spring.",
-    habitat: "Rocky slopes",
-    icon: Flower2,
-    color: "bg-[#6398A9]",
-    image: dalmatianIrisImg
-  },
-  {
-    name: "Croatian Bellflower",
-    latinName: "Campanula portenschlagiana",
-    description: "Small purple bellflower growing in rock crevices and stone walls.",
-    habitat: "Limestone walls",
-    icon: Flower2,
-    color: "bg-[#D7897F]"
-  },
-  {
-    name: "Adriatic Sage",
-    latinName: "Salvia officinalis",
-    description: "Aromatic herb with grey-green leaves, used in traditional medicine.",
-    habitat: "Dry meadows",
-    icon: Leaf,
-    color: "bg-[#96C7B3]"
-  },
-  {
-    name: "Holm Oak",
-    latinName: "Quercus ilex",
-    description: "Evergreen oak tree characteristic of Mediterranean forests.",
-    habitat: "Coastal forests",
-    icon: TreeDeciduous,
-    color: "bg-[#F9B95C]"
-  },
-  {
-    name: "Wild Rosemary",
-    latinName: "Rosmarinus officinalis",
-    description: "Fragrant evergreen shrub with needle-like leaves and blue flowers.",
-    habitat: "Rocky terrain",
-    icon: Shrub,
-    color: "bg-[#6398A9]",
-    image: wildRosemaryImg
-  },
-  {
-    name: "Strawberry Tree",
-    latinName: "Arbutus unedo",
-    description: "Evergreen shrub producing red edible fruits in autumn.",
-    habitat: "Maquis shrubland",
-    icon: TreeDeciduous,
-    color: "bg-[#D7897F]"
-  },
-  {
-    name: "Immortelle",
-    latinName: "Helichrysum italicum",
-    description: "Yellow flowering plant known for its essential oil and medicinal properties.",
-    habitat: "Dry grasslands",
-    icon: Flower2,
-    color: "bg-[#F9B95C]",
-    image: immortelleImg
-  },
-  {
-    name: "Croatian Knapweed",
-    latinName: "Centaurea ragusina",
-    description: "Silver-leaved plant with yellow flowers, endemic to Dalmatian islands.",
-    habitat: "Coastal cliffs",
-    icon: Leaf,
-    color: "bg-[#96C7B3]"
-  }
-];
-
 const GeoparkFloraV3 = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-background border-b-3 border-foreground">
-        <div className="flex items-center justify-between p-4">
-          <button
-            onClick={() => navigate("/geopark")}
-            className="w-11 h-11 border-3 border-foreground bg-background flex items-center justify-center"
-            style={{ boxShadow: "3px 3px 0 hsl(var(--foreground))" }}
-          >
-            <ArrowLeft className="w-6 h-6" strokeWidth={2.5} />
-          </button>
-          <h1 className="font-mono text-lg uppercase tracking-wider font-bold">Flora</h1>
-          <div className="w-11 h-11" />
-        </div>
-      </header>
+      {/* Image Header */}
+      <ImageHeader
+        image={dalmatianIrisImg}
+        title="Flora"
+        subtitle="NATURA 2000"
+        icon={<Leaf className="w-6 h-6" strokeWidth={2.5} />}
+        iconBg="bg-vis-green"
+        iconShadow="hsl(var(--foreground))"
+      />
 
       <main className="p-4 pb-8">
-        {/* Hero Section */}
+        {/* Intro Section */}
         <div 
           className="border-3 border-foreground bg-vis-green p-6 mb-6"
           style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
         >
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-12 h-12 border-3 border-foreground bg-background flex items-center justify-center">
-              <Leaf className="w-6 h-6" strokeWidth={2.5} />
-            </div>
-            <div>
-              <h2 className="font-mono text-xl uppercase font-bold">Endemic Plants</h2>
-              <p className="font-mono text-sm opacity-80">VIS ISLAND GEOPARK</p>
-            </div>
-          </div>
+          <h2 className="font-mono text-xl uppercase font-bold mb-3">Flora otoka Visa</h2>
           <p className="font-sans text-sm leading-relaxed">
-            Discover the unique plant species that thrive on Vis Island's limestone terrain, 
-            Mediterranean climate, and isolated ecosystem.
+            Vis ima iznimno bogatu mediteransku floru s više od 870 zabilježenih biljnih vrsta. Zbog izolacije i raznolikih staništa, vegetacija se kreće od šuma crnike i makije do vinograda i maslinika. Dio vrsta i staništa je pod zaštitom u sklopu mreže Natura 2000, pa je Vis važan botanički "džep" bioraznolikosti.
           </p>
         </div>
 
-        {/* Plant Count */}
+        {/* Fun Facts Section */}
         <div 
-          className="border-3 border-foreground bg-vis-yellow p-4 mb-6 flex items-center justify-between"
-          style={{ boxShadow: "3px 3px 0 hsl(var(--foreground))" }}
+          className="border-3 border-foreground bg-vis-yellow p-4 mb-6"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
         >
-          <span className="font-mono uppercase font-bold">Species Listed</span>
-          <span className="font-mono text-2xl font-bold">{endemicPlants.length}</span>
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles className="w-5 h-5" strokeWidth={2.5} />
+            <h3 className="font-mono uppercase font-bold">Zanimljivosti</h3>
+          </div>
+          <div className="space-y-3">
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🌿</span>
+              <p className="text-sm"><span className="font-bold">Botanički "rekorder":</span> Na Visu je zabilježeno 872 biljnih vrsta, što je iznimno za otok te veličine.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🛡️</span>
+              <p className="text-sm"><span className="font-bold">Zaštićene vrste i staništa:</span> Viški arhipelag je dio Natura 2000 mreže, s naglaskom na očuvanje rijetkih staništa i ciljnih vrsta.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🍇</span>
+              <p className="text-sm"><span className="font-bold">Vugava kao lokalni potpis:</span> Vugava se smatra jednom od najpoznatijih autohtonih sorti otoka Visa, s vrlo dugom tradicijom uzgoja.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🌳</span>
+              <p className="text-sm"><span className="font-bold">Rogač – stara "energetska pločica":</span> Rogač je stoljećima bio važna hrana i "rezerva" na otoku; danas je i simbol održivosti jer traži malo vode.</p>
+            </div>
+          </div>
         </div>
 
-        {/* Plants List */}
-        <div className="space-y-4">
-          {endemicPlants.map((plant, index) => {
-            const IconComponent = plant.icon;
-            const hasDetail = !!plant.detailPath;
-            
-            const CardContent = (
-              <div
-                className={`border-3 border-foreground bg-card ${hasDetail ? 'cursor-pointer hover:translate-x-1 hover:-translate-y-1 transition-transform' : ''}`}
-                style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
-              >
-                {/* Image */}
-                {plant.image && (
-                  <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
-                    <img 
-                      src={plant.image} 
-                      alt={plant.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-                <div className={`${plant.color} p-3 border-b-3 border-foreground flex items-center gap-3`}>
-                  <div className="w-10 h-10 border-2 border-foreground bg-background flex items-center justify-center">
-                    <IconComponent className="w-5 h-5" strokeWidth={2.5} />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-mono uppercase font-bold text-sm">{plant.name}</h3>
-                    <p className="font-mono text-xs italic opacity-70">{plant.latinName}</p>
-                  </div>
-                  {hasDetail && (
-                    <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
-                  )}
-                </div>
-                <div className="p-4">
-                  <p className="font-sans text-sm mb-3">{plant.description}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs uppercase bg-muted px-2 py-1 border-2 border-foreground">
-                      {plant.habitat}
-                    </span>
-                    {hasDetail && (
-                      <span className="font-mono text-xs uppercase bg-[#F9B95C] px-2 py-1 border-2 border-foreground">
-                        View Details →
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            );
+        {/* Endangered Species Section */}
+        <div 
+          className="border-3 border-foreground bg-vis-coral p-4 mb-6"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
+            <h3 className="font-mono uppercase font-bold">Ugrožene i zaštićene vrste</h3>
+          </div>
+          <div className="space-y-2">
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🌸</span>
+              <p className="text-sm"><span className="font-bold">Dalmatinska perunika</span> – zaštićena vrsta s ljubičastim cvjetovima</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🌿</span>
+              <p className="text-sm"><span className="font-bold">Viška kadulja</span> – endemska podvrsta kadulje jedinstvena za otok</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">💛</span>
+              <p className="text-sm"><span className="font-bold">Smilje</span> – zaštićena aromatična biljka cijenjenog eteričnog ulja</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🌺</span>
+              <p className="text-sm"><span className="font-bold">Hrvatska zvončika</span> – endem dalmatinskih otoka</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🌱</span>
+              <p className="text-sm"><span className="font-bold">Primorski oman</span> – rijetka vrsta na obalnim liticama</p>
+            </div>
+          </div>
+        </div>
 
-            return hasDetail ? (
-              <div key={index} onClick={() => navigate(plant.detailPath!)}>
-                {CardContent}
-              </div>
-            ) : (
-              <div key={index}>
-                {CardContent}
-              </div>
-            );
-          })}
+        {/* Mediterranean Vegetation Section */}
+        <div 
+          className="border-3 border-foreground bg-card mb-4"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--vis-green))" }}
+        >
+          <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
+            <img 
+              src={wildRosemaryImg} 
+              alt="Divlji ružmarin"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-vis-green p-3 border-b-3 border-foreground">
+            <h3 className="font-mono uppercase font-bold">Mediteranska vegetacija i rijetke vrste</h3>
+          </div>
+          <div className="p-4">
+            <p className="font-sans text-sm leading-relaxed">
+              Vis je tipičan mediteranski otok, ali s iznadprosječnom raznolikošću biljaka. Prirodnu vegetaciju čine šume i šumarci crnike (Quercus ilex), guste makije (mirta, planika, lentiska) te borove šume u obnovi. Na kamenjaru dominiraju aromatične biljke poput ružmarina, kadulje i smilja, a u proljeće su polja i suhozidi puni samoniklog bilja.
+            </p>
+          </div>
+        </div>
+
+        {/* Islands and Endemic Section */}
+        <div 
+          className="border-3 border-foreground bg-card mb-4"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--vis-blue))" }}
+        >
+          <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
+            <img 
+              src={dalmatianIrisImg} 
+              alt="Dalmatinska perunika"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-vis-blue p-3 border-b-3 border-foreground">
+            <h3 className="font-mono uppercase font-bold text-primary-foreground">Otoci, hridi i endemi</h3>
+          </div>
+          <div className="p-4">
+            <p className="font-sans text-sm leading-relaxed">
+              Zanimljiv dio flore vezan je uz okolne otočiće i hridi gdje se, zbog izolacije, javljaju specifične kombinacije biljaka i mikro-staništa. Mreža Natura 2000 na području viškog arhipelaga usmjerena je na očuvanje vrijednih staništa i ciljnih vrsta, uključujući i određeni broj biljaka koje se posebno prate i štite.
+            </p>
+          </div>
+        </div>
+
+        {/* Culture and Agriculture Section */}
+        <div 
+          className="border-3 border-foreground bg-card mb-6"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--vis-yellow))" }}
+        >
+          <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
+            <img 
+              src={immortelleImg} 
+              alt="Smilje"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-vis-yellow p-3 border-b-3 border-foreground">
+            <h3 className="font-mono uppercase font-bold">Kultura uzgoja – vinova loza i rogač</h3>
+          </div>
+          <div className="p-4">
+            <p className="font-sans text-sm leading-relaxed">
+              Uz divlju floru, Vis oblikuje i poljoprivredni krajolik: vinogradi, maslinici i rogači. Posebno se ističe autohtona sorta grožđa vugava, povezana s dugom poviješću vinogradarstva na otoku. Na zapadnom dijelu otoka (oko Komiže) tradicija rogača je snažna, a lokalne sorte su dio identiteta krajolika. Očuvanje tradicionalne poljoprivrede pomaže i očuvanju biološke raznolikosti jer mozaik polja, putova i suhozida stvara mnogo rubnih staništa.
+            </p>
+          </div>
         </div>
 
         {/* Footer decoration */}
@@ -225,7 +163,7 @@ const GeoparkFloraV3 = () => {
           <div className="w-4 h-4 bg-vis-green border-2 border-foreground" />
           <div className="w-4 h-4 bg-vis-yellow border-2 border-foreground" />
           <div className="w-4 h-4 bg-vis-blue border-2 border-foreground" />
-          <div className="w-4 h-4 bg-vis-terracotta border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-coral border-2 border-foreground" />
         </div>
       </main>
     </div>
