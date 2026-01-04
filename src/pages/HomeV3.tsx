@@ -66,9 +66,7 @@ const HomeV3 = () => {
         <h1 className="text-5xl font-bold tracking-tighter">
           ​Pomalo
         </h1>
-        <p className="text-muted-foreground font-mono mt-1 uppercase tracking-wide">
-          Sve informacije za danas
-        </p>
+        <p className="text-muted-foreground font-mono mt-1 uppercase tracking-wide">​POZDRAV S VISA</p>
       </div>
 
       {/* Quick Actions Grid - Brutalist cards */}
