@@ -12,7 +12,7 @@
 @layer base {
   :root {
     /* Core palette - Main tones */
-    --vis-yellow: 45 70% 58%;          /* Soft Golden */
+    --vis-yellow: 253 33% 81%;         /* Soft Lavender */
     --vis-blue: 200 55% 48%;           /* Mediterranean Blue */
     --vis-cyan: 180 45% 45%;           /* Teal Cyan */
     --vis-green: 160 40% 45%;          /* Sea Green */
