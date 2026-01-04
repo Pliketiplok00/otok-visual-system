@@ -126,6 +126,37 @@ const SeaScheduleV3 = () => {
           </div>
         </section>
 
+        {/* Departures */}
+        <section className="mb-6">
+          <h2 className="font-bold text-sm mb-3 text-muted-foreground uppercase tracking-wide font-mono">
+            Današnji polasci
+          </h2>
+          <div className="space-y-3">
+            {routes[0].departures.map((dep, i) => (
+              <div 
+                key={i}
+                className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
+                style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
+              >
+                <div className="w-16 h-16 bg-vis-green border-[3px] border-foreground flex flex-col items-center justify-center text-foreground">
+                  <span className="text-xl font-bold">{dep.time.split(':')[0]}</span>
+                  <span className="text-sm font-mono">:{dep.time.split(':')[1]}</span>
+                </div>
+                <div className="flex-1">
+                  <p className="font-bold uppercase">{dep.vessel}</p>
+                  <div className="flex items-center gap-1 text-sm text-muted-foreground font-mono">
+                    <Clock className="w-3 h-3" />
+                    {dep.duration}
+                  </div>
+                  {dep.note && (
+                    <p className="text-xs text-vis-yellow mt-1 font-medium uppercase">{dep.note}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* External Links */}
         <div className="space-y-3 mt-8">
           <a
