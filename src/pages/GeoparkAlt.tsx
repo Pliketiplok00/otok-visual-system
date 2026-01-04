@@ -55,35 +55,31 @@ const GeoparkAlt = () => {
 
       <AppHeader />
 
-      {/* Hero section */}
-      <div className="px-6 pt-8 pb-6 text-foreground">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center" style={{
-          boxShadow: '4px 4px 0 hsl(var(--vis-yellow))'
-        }}>
-            <Leaf className="w-6 h-6 text-vis-green" strokeWidth={2.5} />
-          </div>
-          <div>
-            <h1 className="text-2xl font-extrabold uppercase tracking-tight">Geopark</h1>
-            <p className="text-sm opacity-80 mono">Prirodna baština otoka Visa</p>
+      {/* Photo Header */}
+      <div className="relative h-48 overflow-hidden border-b-[3px] border-foreground">
+        <img 
+          src={viskaKaduljaPhoto} 
+          alt="Geopark Vis"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-4 text-primary-foreground">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center" style={{
+              boxShadow: '4px 4px 0 hsl(var(--vis-yellow))'
+            }}>
+              <Leaf className="w-6 h-6 text-vis-green" strokeWidth={2.5} />
+            </div>
+            <div>
+              <h1 className="text-2xl font-extrabold uppercase tracking-tight">Geopark</h1>
+              <p className="text-sm opacity-90 mono">Prirodna baština otoka Visa</p>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Main content */}
-      <div className="flex-1 bg-card border-t-[3px] border-x-[3px] border-foreground px-5 pt-6 pb-8">
-        
-        {/* Featured Photo */}
-        <div 
-          className="h-40 overflow-hidden border-[3px] border-foreground mb-6"
-          style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
-        >
-          <img 
-            src={viskaKaduljaPhoto} 
-            alt="Viška kadulja"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="flex-1 bg-card border-x-[3px] border-foreground px-5 pt-6 pb-8">
 
         {/* Category cards with illustrations */}
         <div className="space-y-4 mb-8">
