@@ -1,98 +1,8 @@
-import { ArrowLeft, Bird, Fish, Bug, Rabbit } from "lucide-react";
+import { ArrowLeft, Bird, Fish, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { LucideIcon } from "lucide-react";
 
 import eleonorasFalconImg from "@/assets/eleonoras-falcon.jpg";
 import bottlenoseDolphinImg from "@/assets/bottlenose-dolphin.jpg";
-import hermannsTortoiseImg from "@/assets/hermanns-tortoise.jpg";
-
-interface AnimalData {
-  name: string;
-  latinName: string;
-  description: string;
-  habitat: string;
-  icon: LucideIcon;
-  color: string;
-  image?: string;
-}
-
-const endemicAnimals: AnimalData[] = [
-  {
-    name: "Vis Wall Lizard",
-    latinName: "Podarcis siculus visensis",
-    description: "Endemic subspecies of Italian wall lizard found only on Vis and surrounding islets.",
-    habitat: "Rocky walls",
-    icon: Bug,
-    color: "bg-vis-green"
-  },
-  {
-    name: "Eleonora's Falcon",
-    latinName: "Falco eleonorae",
-    description: "Migratory raptor nesting on coastal cliffs, feeds on smaller birds during migration.",
-    habitat: "Sea cliffs",
-    icon: Bird,
-    color: "bg-vis-blue",
-    image: eleonorasFalconImg
-  },
-  {
-    name: "Mediterranean Monk Seal",
-    latinName: "Monachus monachus",
-    description: "Critically endangered seal occasionally spotted in remote sea caves around the island.",
-    habitat: "Sea caves",
-    icon: Fish,
-    color: "bg-vis-terracotta"
-  },
-  {
-    name: "Adriatic Sturgeon",
-    latinName: "Acipenser naccarii",
-    description: "Ancient fish species found in deeper waters surrounding the island.",
-    habitat: "Deep waters",
-    icon: Fish,
-    color: "bg-vis-yellow"
-  },
-  {
-    name: "Shag",
-    latinName: "Gulosus aristotelis",
-    description: "Coastal diving bird with distinctive crest, common on rocky shorelines.",
-    habitat: "Rocky coast",
-    icon: Bird,
-    color: "bg-vis-green"
-  },
-  {
-    name: "Hermann's Tortoise",
-    latinName: "Testudo hermanni",
-    description: "Small land tortoise found in maquis shrubland and olive groves.",
-    habitat: "Shrubland",
-    icon: Bug,
-    color: "bg-vis-blue",
-    image: hermannsTortoiseImg
-  },
-  {
-    name: "Mouflon",
-    latinName: "Ovis gmelini musimon",
-    description: "Wild sheep introduced centuries ago, now roaming the island's interior hills.",
-    habitat: "Hill terrain",
-    icon: Rabbit,
-    color: "bg-vis-terracotta"
-  },
-  {
-    name: "Bottlenose Dolphin",
-    latinName: "Tursiops truncatus",
-    description: "Playful marine mammal frequently seen in waters around Vis archipelago.",
-    habitat: "Open sea",
-    icon: Fish,
-    color: "bg-vis-yellow",
-    image: bottlenoseDolphinImg
-  },
-  {
-    name: "Eurasian Eagle-Owl",
-    latinName: "Bubo bubo",
-    description: "Large nocturnal predator nesting in remote cliffs and abandoned military sites.",
-    habitat: "Cliffs & ruins",
-    icon: Bird,
-    color: "bg-vis-green"
-  }
-];
 
 const GeoparkFaunaV3 = () => {
   const navigate = useNavigate();
@@ -115,9 +25,9 @@ const GeoparkFaunaV3 = () => {
       </header>
 
       <main className="p-4 pb-8">
-        {/* Hero Section */}
+        {/* Intro Section */}
         <div 
-          className="border-3 border-foreground bg-vis-terracotta p-6 mb-6"
+          className="border-3 border-foreground bg-vis-cyan p-6 mb-6"
           style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
         >
           <div className="flex items-center gap-3 mb-3">
@@ -125,70 +35,106 @@ const GeoparkFaunaV3 = () => {
               <Bird className="w-6 h-6" strokeWidth={2.5} />
             </div>
             <div>
-              <h2 className="font-mono text-xl uppercase font-bold">Endemic Wildlife</h2>
-              <p className="font-mono text-sm opacity-80">VIS ISLAND GEOPARK</p>
+              <h2 className="font-mono text-xl uppercase font-bold">Fauna Visa</h2>
+              <p className="font-mono text-sm opacity-80">NATURA 2000</p>
             </div>
           </div>
           <p className="font-sans text-sm leading-relaxed">
-            Explore the diverse wildlife inhabiting Vis Island's varied ecosystems, 
-            from coastal cliffs to interior shrublands and surrounding waters.
+            Fauna Visa obuhvaća rijetke ptice na liticama, šišmiše u špiljama i tunelima te bogat morski svijet s dupinima i kornjačama. Zabilježeno je oko 126 vrsta ptica, a cijeli arhipelag je dio Natura 2000 mreže. Posebno su važni morski sisavci i pučinske ptice koje gnijezde na otočićima.
           </p>
         </div>
 
-        {/* Animal Count */}
+        {/* Birds Section */}
         <div 
-          className="border-3 border-foreground bg-vis-blue p-4 mb-6 flex items-center justify-between"
-          style={{ boxShadow: "3px 3px 0 hsl(var(--foreground))" }}
+          className="border-3 border-foreground bg-card mb-4"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--vis-blue))" }}
         >
-          <span className="font-mono uppercase font-bold">Species Listed</span>
-          <span className="font-mono text-2xl font-bold">{endemicAnimals.length}</span>
+          <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
+            <img 
+              src={eleonorasFalconImg} 
+              alt="Sokol Eleonore"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-vis-blue p-3 border-b-3 border-foreground">
+            <h3 className="font-mono uppercase font-bold text-primary-foreground">Ptice – Vis kao "zračna stanica" Jadrana</h3>
+          </div>
+          <div className="p-4">
+            <p className="font-sans text-sm leading-relaxed">
+              Viški arhipelag je važno područje za ptice, posebno one koje se gnijezde na nepristupačnim stijenama i hridima. Među najznačajnijima je sokol Eleonore, rijetka vrsta koja gnijezdi na dalmatinskim otocima te je predmet zaštite u Natura 2000 kontekstu. Tu su i morske ptice poput cjevonosnica (npr. gregula i kaukal) koje koriste otočiće kao mirna gnijezdilišta.
+            </p>
+          </div>
         </div>
 
-        {/* Animals List */}
-        <div className="space-y-4">
-          {endemicAnimals.map((animal, index) => {
-            const IconComponent = animal.icon;
-            return (
-              <div
-                key={index}
-                className="border-3 border-foreground bg-card"
-                style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
-              >
-                {/* Image */}
-                {animal.image && (
-                  <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
-                    <img 
-                      src={animal.image} 
-                      alt={animal.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                )}
-                <div className={`${animal.color} p-3 border-b-3 border-foreground flex items-center gap-3`}>
-                  <div className="w-10 h-10 border-2 border-foreground bg-background flex items-center justify-center">
-                    <IconComponent className="w-5 h-5" strokeWidth={2.5} />
-                  </div>
-                  <div>
-                    <h3 className="font-mono uppercase font-bold text-sm">{animal.name}</h3>
-                    <p className="font-mono text-xs italic opacity-70">{animal.latinName}</p>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <p className="font-sans text-sm mb-3">{animal.description}</p>
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs uppercase bg-muted px-2 py-1 border-2 border-foreground">
-                      {animal.habitat}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+        {/* Bats Section */}
+        <div 
+          className="border-3 border-foreground bg-card mb-4"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--vis-green))" }}
+        >
+          <div className="bg-vis-green p-3 border-b-3 border-foreground">
+            <h3 className="font-mono uppercase font-bold">Šišmiši i kopneni svijet</h3>
+          </div>
+          <div className="p-4">
+            <p className="font-sans text-sm leading-relaxed">
+              Zbog manjka velikih kopnenih sisavaca, šišmiši imaju veliku ulogu u ekosustavu (kontrola kukaca). Na Visu i u arhipelagu zabilježene su brojne vrste šišmiša, a pojedine su posebno zaštićene. Špilje, napušteni objekti i vojni tuneli važna su skloništa, pa je važno izbjegavati uznemiravanje.
+            </p>
+          </div>
+        </div>
+
+        {/* Marine Section */}
+        <div 
+          className="border-3 border-foreground bg-card mb-6"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--vis-cyan))" }}
+        >
+          <div className="aspect-[16/9] overflow-hidden border-b-3 border-foreground">
+            <img 
+              src={bottlenoseDolphinImg} 
+              alt="Dobri dupin"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="bg-vis-cyan p-3 border-b-3 border-foreground">
+            <h3 className="font-mono uppercase font-bold">More – dupini, kornjače i podmorje</h3>
+          </div>
+          <div className="p-4">
+            <p className="font-sans text-sm leading-relaxed">
+              Morsko područje oko Visa je dio zaštitnih zona za dobrog dupina. Procjenjuje se da se u viškome moru redovito zadržava stabilna skupina dupina, što govori o kvaliteti staništa. Povijesno je važna i priča o sredozemnoj medvjedici (monk seal) povezanoj sa špiljama na Biševu. Iako je danas rijetka, zaštita špilja i mirnih zona dio je strategija očuvanja. Podmorje je bogato ribama, beskralješnjacima i posidonijom, što je ključno za zdravlje cijelog sustava.
+            </p>
+          </div>
+        </div>
+
+        {/* Fun Facts Section */}
+        <div 
+          className="border-3 border-foreground bg-vis-yellow p-4 mb-6"
+          style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles className="w-5 h-5" strokeWidth={2.5} />
+            <h3 className="font-mono uppercase font-bold">Zanimljivosti</h3>
+          </div>
+          <div className="space-y-3">
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🐍</span>
+              <p className="text-sm"><span className="font-bold">Bez otrovnica:</span> Na Visu nema otrovnih zmija, što je rijetka i turistima često draga informacija.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🦅</span>
+              <p className="text-sm"><span className="font-bold">Sokol Eleonore:</span> Jedna od najkarizmatičnijih ptica viškog arhipelaga; gnijezdi kasno u sezoni i lovi u letu.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🐬</span>
+              <p className="text-sm"><span className="font-bold">Dupini "stanari":</span> Viško more je poznato kao područje redovitih susreta s dobrim dupinom.</p>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-lg">🦭</span>
+              <p className="text-sm"><span className="font-bold">Medvjeđa špilja na Biševu:</span> Špilja je dobila ime po sredozemnoj medvjedici; pristup i ponašanje posjetitelja bitni su za očuvanje staništa.</p>
+            </div>
+          </div>
         </div>
 
         {/* Footer decoration */}
         <div className="flex gap-2 mt-8 justify-center">
-          <div className="w-4 h-4 bg-vis-terracotta border-2 border-foreground" />
+          <div className="w-4 h-4 bg-vis-cyan border-2 border-foreground" />
           <div className="w-4 h-4 bg-vis-blue border-2 border-foreground" />
           <div className="w-4 h-4 bg-vis-green border-2 border-foreground" />
           <div className="w-4 h-4 bg-vis-yellow border-2 border-foreground" />
