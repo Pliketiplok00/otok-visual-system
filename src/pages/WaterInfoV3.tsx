@@ -36,7 +36,37 @@ const WaterInfoV3 = () => {
           </div>
         </section>
 
-        {/* Tips Section */}
+        {/* Water Sources Section */}
+        <section className="mb-6">
+          <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
+            <Droplets className="w-5 h-5 text-vis-cyan" />
+            Izvori i pitka voda
+          </h2>
+          <div 
+            className="p-4 border-[3px] border-foreground bg-vis-cyan/10"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
+          >
+            <p className="font-bold uppercase mb-2">Gdje je "život" otoka</p>
+            <p className="text-sm mb-4">
+              Vis je među rijetkim jadranskim otocima s vlastitim značajnijim podzemnim zalihama pitke vode. Voda dolazi iz krškog sustava i crpi se iz izvorišta i bušotina u unutrašnjosti otoka. Lokalna infrastruktura (vodovodna mreža) povezuje naselja, a kvaliteta se redovito kontrolira. Zbog ograničenih zaliha, štednja je važna posebno od lipnja do rujna.
+            </p>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2">
+                <span className="text-lg">💧</span>
+                <p className="text-sm"><span className="font-bold">Rijetkost u Jadranu:</span> Vis se često navodi kao otok s vlastitim sustavom pitke vode bez "pupčane vrpce" prema kopnu.</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-lg">🏺</span>
+                <p className="text-sm"><span className="font-bold">Štednja je dio kulture:</span> Gustirne i skupljanje kišnice nisu romantika — nego povijesna tehnologija preživljavanja.</p>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-lg">⚖️</span>
+                <p className="text-sm"><span className="font-bold">Voda = upravljanje:</span> Na otoku, voda nije samo komunalna usluga; ona je pitanje otpornosti i samoodređenja.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="mb-6">
           <h2 className="font-bold text-lg mb-3 uppercase">💡 Savjeti za uštedu</h2>
           <div className="space-y-3">
