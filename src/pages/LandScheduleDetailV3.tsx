@@ -1,45 +1,19 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { Bus, Clock, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Bus, ArrowRight, Clock, Phone, ChevronLeft, CalendarIcon } from 'lucide-react';
+import { format, startOfToday } from 'date-fns';
+import { hr } from 'date-fns/locale';
+import { Calendar } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 
 interface Departure {
   time: string;
   stops: string[];
   note?: string;
 }
-
-interface Route {
-  id: string;
-  name: string;
-  iconBg: string;
-  iconText: string;
-  duration: string;
-}
-
-const routes: Route[] = [
-  {
-    id: 'vis-komiza',
-    name: 'Vis-Komiža-Vis',
-    iconBg: 'bg-vis-green',
-    iconText: 'text-foreground',
-    duration: '~25 min',
-  },
-  {
-    id: 'komiza-podspile',
-    name: 'Komiža-Podšpilje-Žena Glava-M.Zemlje-Vis',
-    iconBg: 'bg-vis-blue',
-    iconText: 'text-primary-foreground',
-    duration: '~40 min',
-  },
-  {
-    id: 'komiza-rukavac',
-    name: 'Komiža-Rukavac-Vis',
-    iconBg: 'bg-vis-yellow',
-    iconText: 'text-foreground',
-    duration: '~30 min',
-  },
-];
 
 const visToKomiza: Departure[] = [
   { time: '06:30', stops: ['Vis', 'Podselje', 'Podstražje', 'Komiža'] },
@@ -55,16 +29,9 @@ const komizaToVis: Departure[] = [
   { time: '17:30', stops: ['Komiža', 'Podstražje', 'Podselje', 'Vis'] },
 ];
 
-const podspiljeDeparture: Departure = {
-  time: '08:00', stops: ['Komiža', 'Podšpilje', 'Žena Glava', 'M.Zemlje', 'Vis']
-};
-
-const rukavacDeparture: Departure = {
-  time: '09:30', stops: ['Komiža', 'Rukavac', 'Vis']
-};
-
-const LandScheduleV3 = () => {
+const LandScheduleDetailV3 = () => {
   const navigate = useNavigate();
+  const [selectedDate, setSelectedDate] = useState<Date>(startOfToday());
   const [direction, setDirection] = useState<'toKomiza' | 'toVis'>('toKomiza');
 
   const departures = direction === 'toKomiza' ? visToKomiza : komizaToVis;
@@ -76,44 +43,72 @@ const LandScheduleV3 = () => {
       {/* Header */}
       <div className="px-5 pt-6 pb-4 text-foreground">
         <button 
-          onClick={() => navigate('/schedules')}
+          onClick={() => navigate('/schedules/land')}
           className="flex items-center gap-1 text-sm opacity-80 mb-2 hover:opacity-100 uppercase"
         >
           <ChevronLeft className="w-4 h-4" />
           Natrag
         </button>
         <h1 className="text-3xl font-extrabold uppercase">
-          <span className="text-vis-yellow">Cestovni</span> promet 🚌
+          <span className="text-vis-yellow">Vis-Komiža-Vis</span> 🚌
         </h1>
-        <p className="opacity-80 mt-1">Autobus Vis - Komiža</p>
+        <p className="opacity-80 mt-1">Autobus</p>
       </div>
 
       {/* Content card */}
       <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-200px)] px-4 pt-5 pb-8">
-
-        {/* Route Selector */}
-        <section className="mb-4">
-          <h2 className="font-bold text-sm mb-2 text-muted-foreground uppercase tracking-wide font-mono">Linija</h2>
-          <div className="space-y-2">
-            {routes.map((route) => (
-              <button
-                key={route.id}
-                onClick={() => navigate(`/schedules/land/${route.id}`)}
-                className="w-full flex items-center gap-3 p-3 border-[3px] border-foreground transition-all bg-card hover:bg-vis-green/10"
+        
+        {/* Date Picker */}
+        <div className="mb-4">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-left font-bold border-[3px] border-foreground h-12",
+                  !selectedDate && "text-muted-foreground"
+                )}
                 style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
               >
-                <div className={`w-10 h-10 border-[3px] border-foreground flex items-center justify-center ${route.iconBg} ${route.iconText}`}>
-                  <Bus className="w-5 h-5" />
-                </div>
-                <div className="flex-1 text-left">
-                  <p className="font-bold text-sm uppercase">{route.name}</p>
-                  <p className="text-xs text-muted-foreground font-mono">{route.duration}</p>
-                </div>
-                <ChevronRight className="w-5 h-5 text-muted-foreground" />
-              </button>
-            ))}
-          </div>
-        </section>
+                <CalendarIcon className="mr-2 h-5 w-5" />
+                {selectedDate ? format(selectedDate, 'd. MMMM yyyy', { locale: hr }) : <span>Odaberi datum</span>}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0" align="start">
+              <Calendar
+                mode="single"
+                selected={selectedDate}
+                onSelect={(date) => date && setSelectedDate(date)}
+                initialFocus
+                className={cn("p-3 pointer-events-auto")}
+              />
+            </PopoverContent>
+          </Popover>
+        </div>
+
+        {/* Direction Toggle */}
+        <div className="flex gap-2 mb-6">
+          <button
+            onClick={() => setDirection('toKomiza')}
+            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
+              direction === 'toKomiza' ? 'bg-vis-yellow text-foreground' : 'bg-card'
+            }`}
+            style={{ boxShadow: direction === 'toKomiza' ? '2px 2px 0 hsl(var(--vis-orange))' : 'none' }}
+          >
+            <ArrowRight className="w-4 h-4" />
+            <span className="font-medium text-sm uppercase">Vis → Komiža</span>
+          </button>
+          <button
+            onClick={() => setDirection('toVis')}
+            className={`flex-1 flex items-center justify-center gap-2 p-3 border-[3px] border-foreground transition-all ${
+              direction === 'toVis' ? 'bg-vis-yellow text-foreground' : 'bg-card'
+            }`}
+            style={{ boxShadow: direction === 'toVis' ? '2px 2px 0 hsl(var(--vis-orange))' : 'none' }}
+          >
+            <ArrowRight className="w-4 h-4 rotate-180" />
+            <span className="font-medium text-sm uppercase">Komiža → Vis</span>
+          </button>
+        </div>
 
         {/* Departures */}
         <section className="mb-6">
@@ -143,42 +138,6 @@ const LandScheduleV3 = () => {
                 </div>
               </div>
             ))}
-            
-            {/* Podšpilje route departure */}
-            <div 
-              className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
-              style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
-            >
-              <div className="w-16 h-16 bg-vis-blue border-[3px] border-foreground flex flex-col items-center justify-center text-primary-foreground">
-                <span className="text-xl font-bold">{podspiljeDeparture.time.split(':')[0]}</span>
-                <span className="text-sm font-mono">:{podspiljeDeparture.time.split(':')[1]}</span>
-              </div>
-              <div className="flex-1">
-                <p className="font-bold uppercase">{podspiljeDeparture.stops[0]} → {podspiljeDeparture.stops[podspiljeDeparture.stops.length - 1]}</p>
-                <div className="flex items-center gap-1 text-sm text-muted-foreground font-mono">
-                  <Clock className="w-3 h-3" />
-                  ~40 min
-                </div>
-              </div>
-            </div>
-            
-            {/* Rukavac route departure */}
-            <div 
-              className="flex items-center gap-4 p-4 border-[3px] border-foreground bg-card"
-              style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
-            >
-              <div className="w-16 h-16 bg-vis-yellow border-[3px] border-foreground flex flex-col items-center justify-center text-foreground">
-                <span className="text-xl font-bold">{rukavacDeparture.time.split(':')[0]}</span>
-                <span className="text-sm font-mono">:{rukavacDeparture.time.split(':')[1]}</span>
-              </div>
-              <div className="flex-1">
-                <p className="font-bold uppercase">{rukavacDeparture.stops[0]} → {rukavacDeparture.stops[rukavacDeparture.stops.length - 1]}</p>
-                <div className="flex items-center gap-1 text-sm text-muted-foreground font-mono">
-                  <Clock className="w-3 h-3" />
-                  ~30 min
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -212,4 +171,4 @@ const LandScheduleV3 = () => {
   );
 };
 
-export default LandScheduleV3;
+export default LandScheduleDetailV3;
