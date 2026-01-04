@@ -1,8 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, MapPin, CalendarRange } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, CalendarRange, Building2 } from 'lucide-react';
 import VisBadge from '@/components/ui/VisBadge';
 
 type Category = 'vis' | 'komiza' | 'kultura' | 'hitno' | 'opcenito';
+type Sender = 'Općina Vis' | 'Općina Komiža' | 'Općina Rukavac';
 
 interface Notification {
   id: number;
@@ -14,6 +15,7 @@ interface Notification {
   location?: string;
   validFrom: string;
   validTo: string;
+  sender: Sender;
 }
 
 const notifications: Record<number, Notification> = {
@@ -27,6 +29,7 @@ const notifications: Record<number, Notification> = {
     location: 'Grad Vis',
     validFrom: '15. siječnja 2026.',
     validTo: '15. siječnja 2026.',
+    sender: 'Općina Vis',
   },
   2: {
     id: 2,
@@ -38,6 +41,7 @@ const notifications: Record<number, Notification> = {
     location: 'Luka Vis',
     validFrom: '15. lipnja 2026.',
     validTo: '15. rujna 2026.',
+    sender: 'Općina Vis',
   },
   3: {
     id: 3,
@@ -48,6 +52,7 @@ const notifications: Record<number, Notification> = {
     emoji: '♻️',
     validFrom: '1. lipnja 2026.',
     validTo: '30. rujna 2026.',
+    sender: 'Općina Rukavac',
   },
   4: {
     id: 4,
@@ -59,6 +64,7 @@ const notifications: Record<number, Notification> = {
     location: 'Trg Komiže',
     validFrom: '20. lipnja 2026.',
     validTo: '20. lipnja 2026.',
+    sender: 'Općina Komiža',
   },
   5: {
     id: 5,
@@ -70,6 +76,7 @@ const notifications: Record<number, Notification> = {
     location: 'Gradska galerija Vis',
     validFrom: '10. siječnja 2026.',
     validTo: '31. siječnja 2026.',
+    sender: 'Općina Vis',
   },
 };
 
@@ -156,6 +163,10 @@ const NotificationDetailV3 = () => {
               <span>{notification.location}</span>
             </div>
           )}
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Building2 className="w-4 h-4" />
+            <span>{notification.sender}</span>
+          </div>
         </div>
 
         <div 
