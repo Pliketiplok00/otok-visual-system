@@ -31,10 +31,7 @@ const WaterInfoV3 = () => {
           >
             <p className="font-bold uppercase mb-2">Borba za samostalno vodouslužno područje</p>
             <p className="text-sm">
-              Grad Vis i Komiža vode dugogodišnju borbu za uspostavu samostalnog vodouslužnog područja. 
-              Lokalna samouprava traži neovisnost u upravljanju vodoopskrbom od nacionalnih struktura, 
-              s ciljem osiguranja kvalitetnije usluge i održivih cijena za otočane. Pregovori s državnim 
-              tijelima su u tijeku, a podrška građana ključna je za uspjeh ove inicijative.
+              Voda je dio identiteta Visa još od antike. U novije vrijeme, pitanje upravljanja vodom postalo je i političko pitanje: nacionalne reforme koje spajaju male vodovode u veće sustave potaknule su otpor na Visu. Lokalna kampanja "Plan 42" traži da Vis ostane samostalno vodouslužno područje, uz argument da otok ima specifične uvjete, vlastite izvore i potrebu za brzom lokalnom reakcijom u krizama (suše, havarije).
             </p>
           </div>
         </section>
