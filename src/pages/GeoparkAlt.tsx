@@ -1,16 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import ImageHeader from '@/components/layout/ImageHeader';
 import VisCard from '@/components/ui/VisCard';
-import { Leaf, Flower2, ChevronRight, TreePine, Bird, Fish } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
+import { Leaf, ChevronRight, TreePine, Bird, Fish, Flower2 } from 'lucide-react';
 import viskaKaduljaPhoto from '@/assets/viska-kadulja.jpg';
+import dalmatianIrisImg from '@/assets/dalmatian-iris.jpg';
+import eleonorasFalconImg from '@/assets/eleonoras-falcon.jpg';
 
 interface GeoparkItem {
-  icon: LucideIcon;
   title: string;
   description: string;
-  count: number;
-  color: string;
+  image: string;
   path: string;
 }
 
@@ -18,18 +17,14 @@ const GeoparkAlt = () => {
   const navigate = useNavigate();
   
   const categories: GeoparkItem[] = [{
-    icon: Flower2,
     title: 'Flora',
     description: 'Endemske i zaštićene biljke otoka',
-    count: 127,
-    color: 'bg-vis-green',
+    image: dalmatianIrisImg,
     path: '/geopark/flora'
   }, {
-    icon: Bird,
     title: 'Fauna',
     description: 'Životinjski svijet kopna i mora',
-    count: 84,
-    color: 'bg-vis-cyan',
+    image: eleonorasFalconImg,
     path: '/geopark/fauna'
   }];
   
@@ -79,17 +74,19 @@ const GeoparkAlt = () => {
           {categories.map(cat => (
             <VisCard key={cat.path} onClick={() => navigate(cat.path)} className="relative overflow-hidden">
               <div className="flex items-center gap-4 relative z-10">
-                <div className={`w-16 h-16 ${cat.color} border-[3px] border-foreground flex items-center justify-center`} style={{
-                  boxShadow: '4px 4px 0 hsl(var(--foreground))'
-                }}>
-                  <cat.icon className="w-8 h-8" strokeWidth={2} />
+                <div 
+                  className="w-16 h-16 border-[3px] border-foreground overflow-hidden"
+                  style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+                >
+                  <img 
+                    src={cat.image} 
+                    alt={cat.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-bold text-xl mb-1 uppercase">{cat.title}</h3>
                   <p className="text-sm text-muted-foreground">{cat.description}</p>
-                  <span className="text-xs font-bold text-vis-blue mt-1 inline-block mono uppercase">
-                    {cat.count} vrsta
-                  </span>
                 </div>
                 <ChevronRight className="w-6 h-6 text-foreground" strokeWidth={2.5} />
               </div>
