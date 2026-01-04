@@ -3,6 +3,7 @@ import AppHeader from '@/components/layout/AppHeader';
 import VisCard from '@/components/ui/VisCard';
 import { Leaf, Flower2, Bug, ChevronRight, TreePine, Bird, Fish } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import viskaKaduljaPhoto from '@/assets/viska-kadulja.jpg';
 interface GeoparkItem {
   icon: LucideIcon;
   title: string;
@@ -71,6 +72,19 @@ const GeoparkAlt = () => {
 
       {/* Main content */}
       <div className="flex-1 bg-card border-t-[3px] border-x-[3px] border-foreground px-5 pt-6 pb-8">
+        
+        {/* Featured Photo */}
+        <div 
+          className="h-40 overflow-hidden border-[3px] border-foreground mb-6"
+          style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
+        >
+          <img 
+            src={viskaKaduljaPhoto} 
+            alt="Viška kadulja"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
         {/* Category cards with illustrations */}
         <div className="space-y-4 mb-8">
           {categories.map(cat => <VisCard key={cat.path} onClick={() => navigate(cat.path)} className="relative overflow-hidden">
