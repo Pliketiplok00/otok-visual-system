@@ -102,7 +102,7 @@ const SeaScheduleV3 = () => {
           Natrag
         </button>
         <h1 className="text-3xl font-extrabold uppercase">
-          <span className="text-vis-cyan">Pomorski</span> promet ⛴️
+          <span className="text-vis-yellow">Pomorski</span> promet ⛴️
         </h1>
         <p className="opacity-80 mt-1">Trajekti i katamarani</p>
       </div>

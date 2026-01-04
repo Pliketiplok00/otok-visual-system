@@ -48,7 +48,7 @@ const SeaScheduleDetailV3 = () => {
           Natrag
         </button>
         <h1 className="text-3xl font-extrabold uppercase">
-          <span className="text-vis-cyan">Vis-Split-Vis</span> ⛴️
+          <span className="text-vis-yellow">Vis-Split-Vis</span> ⛴️
         </h1>
         <p className="opacity-80 mt-1">Trajekt</p>
       </div>
