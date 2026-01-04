@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { Calendar, Ship, Camera, Droplets, ChevronRight, MapPin, Clock, Leaf, MessageSquare, Droplet, Users } from 'lucide-react';
+import { Calendar, Ship, Camera, ChevronRight, MapPin, Clock, Leaf, MessageSquare, Droplet, Users, Info } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 interface QuickAction {
   icon: LucideIcon;
@@ -18,24 +18,24 @@ const HomeV3 = () => {
   };
   const quickActions: QuickAction[] = [{
     icon: Ship,
-    label: 'TRAJEKTI',
+    label: 'RED PLOVIDBE',
     path: '/schedules',
     bgColor: 'bg-vis-blue'
   }, {
     icon: Camera,
-    label: 'PRIJAVI',
+    label: 'CLICK&FIX',
     path: '/report',
     bgColor: 'bg-vis-green'
   }, {
-    icon: Droplets,
-    label: 'VODA',
-    path: '/water',
-    bgColor: 'bg-vis-cyan'
-  }, {
     icon: Leaf,
-    label: 'GEOPARK',
+    label: 'ZAŠTIĆENE VRSTE',
     path: '/geopark',
     bgColor: 'bg-vis-yellow'
+  }, {
+    icon: Info,
+    label: 'VISITOR INFO',
+    path: '/visitor-info',
+    bgColor: 'bg-vis-cyan'
   }];
   return <div className="min-h-screen bg-background">
       <AppHeader />
