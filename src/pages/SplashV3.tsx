@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Anchor, Sun } from 'lucide-react';
+import { MapPin, Bell } from 'lucide-react';
 
 const SplashV3 = () => {
   const navigate = useNavigate();
@@ -18,26 +18,28 @@ const SplashV3 = () => {
           }}
         />
         
-        {/* Logo - Island anchor with sun */}
+        {/* Logo - Location pin with notification bell */}
         <div className="relative z-10 mb-8">
           <div className="w-36 h-36 bg-vis-yellow border-[4px] border-foreground flex items-center justify-center" style={{ boxShadow: '6px 6px 0 hsl(var(--foreground))' }}>
             <div className="relative">
-              <Anchor className="w-16 h-16 text-foreground" strokeWidth={2.5} />
-              <Sun className="w-8 h-8 text-vis-coral absolute -top-2 -right-4" strokeWidth={2.5} />
+              <MapPin className="w-16 h-16 text-foreground" strokeWidth={2.5} />
+              <div className="absolute -top-1 -right-3 w-8 h-8 bg-vis-coral border-2 border-foreground flex items-center justify-center">
+                <Bell className="w-4 h-4 text-foreground" strokeWidth={2.5} />
+              </div>
             </div>
           </div>
         </div>
 
         {/* Title - brutal typography */}
         <h1 className="relative z-10 text-center mb-6">
-          <span className="block text-xl font-bold tracking-widest mb-2 text-vis-yellow">DOBRODOŠLI NA</span>
+          <span className="block text-xl font-bold tracking-widest mb-2 text-vis-yellow">DOBRODOŠLI U</span>
           <span className="block text-5xl sm:text-6xl font-bold tracking-tighter text-background">
-            OTOK VIS
+            MOJ VIS
           </span>
         </h1>
 
         <p className="relative z-10 text-center text-base font-mono opacity-90 max-w-xs text-background/80">
-          SLUŽBENA APLIKACIJA ZA STANOVNIKE I POSJETITELJE
+          VAŠA OTOČNA ZAJEDNICA NA DLANU
         </p>
       </div>
 
