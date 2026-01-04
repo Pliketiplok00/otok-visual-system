@@ -1,5 +1,6 @@
 import ImageHeader from '@/components/layout/ImageHeader';
 import { ThermometerSun, AlertTriangle, Phone, Clock, MapPin, Droplets, ShowerHead, Droplet, Flower2, Wrench } from 'lucide-react';
+import waterSpringImg from '@/assets/water-spring.jpg';
 
 const WaterInfoV3 = () => {
   // Using a placeholder - ideally would have a water-themed image
@@ -65,13 +66,22 @@ const WaterInfoV3 = () => {
             Izvori i pitka voda
           </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-cyan/10 mb-3"
+            className="border-[3px] border-foreground bg-card overflow-hidden"
             style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
           >
-            <p className="font-bold uppercase mb-2">Gdje je "život" otoka</p>
-            <p className="text-sm">
-              Vis je među rijetkim jadranskim otocima s vlastitim značajnijim podzemnim zalihama pitke vode. Voda dolazi iz krškog sustava i crpi se iz izvorišta i bušotina u unutrašnjosti otoka. Lokalna infrastruktura (vodovodna mreža) povezuje naselja, a kvaliteta se redovito kontrolira. Zbog ograničenih zaliha, štednja je važna posebno od lipnja do rujna.
-            </p>
+            <div className="aspect-[16/9] overflow-hidden border-b-[3px] border-foreground">
+              <img 
+                src={waterSpringImg} 
+                alt="Izvor pitke vode"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-4">
+              <p className="font-bold uppercase mb-2">Gdje je "život" otoka</p>
+              <p className="text-sm">
+                Vis je među rijetkim jadranskim otocima s vlastitim značajnijim podzemnim zalihama pitke vode. Voda dolazi iz krškog sustava i crpi se iz izvorišta i bušotina u unutrašnjosti otoka. Lokalna infrastruktura (vodovodna mreža) povezuje naselja, a kvaliteta se redovito kontrolira. Zbog ograničenih zaliha, štednja je važna posebno od lipnja do rujna.
+              </p>
+            </div>
           </div>
         </section>
 
