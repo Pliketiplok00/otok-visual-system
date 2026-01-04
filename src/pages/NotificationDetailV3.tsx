@@ -67,7 +67,7 @@ const getCategoryStyles = (category: Category) => {
     case 'vis': return { bg: 'bg-vis-blue', shadow: 'hsl(var(--vis-blue))' };
     case 'komiza': return { bg: 'bg-vis-green', shadow: 'hsl(var(--vis-green))' };
     case 'kultura': return { bg: 'bg-vis-yellow', shadow: 'hsl(var(--vis-yellow))' };
-    default: return { bg: 'bg-vis-cyan', shadow: 'hsl(var(--vis-cyan))' };
+    default: return { bg: 'bg-vis-purple', shadow: 'hsl(var(--vis-purple))' };
   }
 };
 
