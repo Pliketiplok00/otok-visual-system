@@ -12,22 +12,22 @@
 @layer base {
   :root {
     /* Core palette - Main tones */
-    --vis-yellow: 40 85% 60%;          /* Warm Golden Yellow */
-    --vis-blue: 200 60% 45%;           /* Mediterranean Blue */
-    --vis-cyan: 175 45% 50%;           /* Teal Cyan */
-    --vis-green: 155 40% 50%;          /* Fresh Green */
-    --vis-white: 45 30% 97%;           /* Warm White */
-    --vis-black: 220 30% 12%;          /* Deep Black */
+    --vis-yellow: 45 70% 58%;          /* Soft Golden */
+    --vis-blue: 200 55% 48%;           /* Mediterranean Blue */
+    --vis-cyan: 180 45% 45%;           /* Teal Cyan */
+    --vis-green: 160 40% 45%;          /* Sea Green */
+    --vis-white: 180 20% 97%;          /* Cool White */
+    --vis-black: 210 30% 12%;          /* Deep Navy */
     
-    /* Accent colors */
-    --vis-reddish: 8 55% 55%;          /* Warm Reddish */
-    --vis-violet: 280 45% 50%;         /* Rich Violet */
-    --vis-orange: 25 80% 55%;          /* Vibrant Orange */
-    --vis-purple: 265 50% 45%;         /* Deep Purple */
-    --vis-deep-blue: 220 65% 35%;      /* Deep Blue */
+    /* Accent colors - bluish/greenish */
+    --vis-reddish: 195 50% 40%;        /* Steel Blue */
+    --vis-violet: 220 50% 50%;         /* Ocean Blue */
+    --vis-orange: 175 45% 42%;         /* Seafoam */
+    --vis-purple: 205 55% 42%;         /* Deep Sky Blue */
+    --vis-deep-blue: 215 60% 35%;      /* Navy Blue */
     
-    --vis-emergency: 8 55% 55%;        /* Reddish alert */
-    --vis-notice: 25 80% 55%;          /* Orange for community notices */
+    --vis-emergency: 0 55% 50%;        /* Red alert */
+    --vis-notice: 35 70% 55%;          /* Amber for notices */
 
     /* Semantic tokens - High contrast */
     --background: 45 25% 95%;         /* Warm Mediterranean white */
