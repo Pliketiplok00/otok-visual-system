@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageHeader from '@/components/layout/ImageHeader';
 import VisCard from '@/components/ui/VisCard';
-import { Leaf, ChevronRight, ShieldAlert } from 'lucide-react';
+import { Leaf, ChevronRight, ShieldAlert, Search } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 import viskaKaduljaPhoto from '@/assets/viska-kadulja.jpg';
 import dalmatianIrisImg from '@/assets/dalmatian-iris.jpg';
 import eleonorasFalconImg from '@/assets/eleonoras-falcon.jpg';
@@ -17,6 +19,7 @@ interface GeoparkItem {
 
 const GeoparkAlt = () => {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
   
   const categories: GeoparkItem[] = [{
     title: 'Flora',
@@ -45,6 +48,19 @@ const GeoparkAlt = () => {
       {/* Main content */}
       <div className="flex-1 bg-card border-x-[3px] border-foreground px-5 pt-6 pb-8">
         
+        {/* Search field */}
+        <div className="relative mb-4">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" strokeWidth={2.5} />
+          <Input
+            type="text"
+            placeholder="Pretraži floru i faunu..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="pl-11 h-12 border-[3px] border-foreground bg-card text-base rounded-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-foreground"
+            style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}
+          />
+        </div>
+
         {/* Intro */}
         <div 
           className="p-4 border-[3px] border-foreground bg-vis-yellow mb-6"
