@@ -67,12 +67,12 @@ const MenuV3 = () => {
                 item.accent ? 'bg-vis-blue' : 'bg-background'
               }`}
               style={{
-                boxShadow: index % 6 === 0 ? '4px 4px 0 hsl(var(--vis-yellow))' :
+                boxShadow: index % 6 === 0 ? '4px 4px 0 hsl(var(--vis-deep-blue))' :
                           index % 6 === 1 ? '4px 4px 0 hsl(var(--vis-blue))' :
                           index % 6 === 2 ? '4px 4px 0 hsl(var(--vis-violet))' :
                           index % 6 === 3 ? '4px 4px 0 hsl(var(--vis-orange))' :
                           index % 6 === 4 ? '4px 4px 0 hsl(var(--vis-purple))' :
-                          '4px 4px 0 hsl(var(--vis-deep-blue))'
+                          '4px 4px 0 hsl(var(--vis-yellow))'
               }}
             >
               <item.icon className="w-6 h-6" strokeWidth={2.5} />
