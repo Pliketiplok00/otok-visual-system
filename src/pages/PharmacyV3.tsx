@@ -35,8 +35,8 @@ const PharmacyV3 = () => {
     <div className="min-h-screen bg-vis-green">
       <ImageHeader
         image={pharmacyImageUrl}
-        title="Ljekarne"
-        subtitle="Ljekarne na otoku Visu"
+        title="Dom zdravlja"
+        subtitle="Zdravstvo i ljekarne na otoku"
         icon={<Cross className="w-6 h-6 text-vis-green" strokeWidth={2.5} />}
         iconBg="bg-card"
         iconShadow="hsl(var(--vis-cyan))"
@@ -46,6 +46,48 @@ const PharmacyV3 = () => {
       {/* Content card */}
       <div className="bg-card border-x-[3px] border-foreground min-h-[calc(100vh-240px)] px-4 pt-6 pb-8">
         
+        {/* Health Center */}
+        <section className="mb-6">
+          <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
+            <Cross className="w-5 h-5 text-vis-blue" />
+            Dom zdravlja
+          </h2>
+          <div 
+            className="p-4 border-[3px] border-foreground bg-card"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-12 h-12 bg-vis-blue border-[3px] border-foreground flex items-center justify-center shrink-0 text-primary-foreground">
+                <span className="text-2xl">🏥</span>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold uppercase">Dom zdravlja Vis</h3>
+                <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1">
+                  <MapPin className="w-4 h-4" />
+                  <span>Vladimira Nazora 3, Vis</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-3 space-y-2">
+              <div className="flex items-center gap-2 text-sm font-mono">
+                <Clock className="w-4 h-4 text-vis-blue" />
+                <span>Pon-Pet: 07:00 - 20:00</span>
+              </div>
+              <p className="text-sm text-muted-foreground">Opća medicina, hitna pomoć, laboratorij</p>
+            </div>
+
+            <a 
+              href="tel:021711010"
+              className="mt-3 flex items-center gap-2 p-2 bg-vis-cyan border-[3px] border-foreground hover:translate-x-[2px] hover:translate-y-[2px] transition-transform w-fit"
+              style={{ boxShadow: '2px 2px 0 hsl(var(--foreground))' }}
+            >
+              <Phone className="w-4 h-4" />
+              <span className="font-bold font-mono">021 711 010</span>
+            </a>
+          </div>
+        </section>
+
         {/* Pharmacies */}
         <section className="mb-6">
           <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">

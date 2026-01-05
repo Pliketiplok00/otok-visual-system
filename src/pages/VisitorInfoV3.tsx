@@ -13,7 +13,7 @@ const essentialInfo: InfoCard[] = [
   { emoji: '🏖️', title: 'Plaže', description: 'Stiniva, Srebrna, Zaglav, Smokova', link: '/beaches' },
   { emoji: '🐾', title: 'Veterinarska', description: 'Veterinarske usluge', link: '/vet' },
   { emoji: '🏦', title: 'Banke', description: 'Vis centar, Komiža centar', link: '/banks' },
-  { emoji: '💊', title: 'Ljekarna', description: 'Vis: 021 711 080', link: '/pharmacy' },
+  { emoji: '🏥', title: 'Dom zdravlja', description: 'Zdravstvo i ljekarne', link: '/pharmacy' },
 ];
 
 const emergencyNumbers = [
