@@ -134,7 +134,7 @@ const EventDetailV3 = () => {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case 'vis': return 'hsl(var(--vis-blue))';
+      case 'vis': return 'hsl(var(--vis-yellow))';
       case 'komiza': return 'hsl(var(--vis-green))';
       default: return 'hsl(var(--vis-cyan))';
     }
