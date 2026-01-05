@@ -65,19 +65,16 @@ const HomeV3 = () => {
       {/* Welcome - brutal typography */}
       <div className="px-5 pt-8 pb-4">
         <h1 className="text-5xl font-bold tracking-tighter">
-          ​Pomalo
+          ​Pozdrav s Visa  
         </h1>
-        <p className="text-muted-foreground font-mono mt-1 uppercase tracking-wide">​POZDRAV S VISA</p>
+        <p className="text-muted-foreground font-mono mt-1 uppercase tracking-wide">ima svega, al'... pomalo</p>
       </div>
 
       {/* Quick Actions Grid - Brutalist cards */}
       <div className="px-4 mb-6">
         <div className="grid grid-cols-2 gap-4">
           {quickActions.map((action, index) => <button key={action.path} onClick={() => navigate(action.path)} className={`${action.bgColor} p-5 border-[3px] border-foreground flex flex-col items-center gap-3 hover:translate-x-[2px] hover:translate-y-[2px] transition-all ${action.bgColor === 'bg-vis-blue' ? 'text-background' : 'text-foreground'}`} style={{
-          boxShadow: index === 0 ? '6px 6px 0 hsl(var(--vis-orange))' : 
-                     index === 1 ? '6px 6px 0 hsl(var(--vis-purple))' : 
-                     index === 2 ? '6px 6px 0 hsl(var(--vis-violet))' : 
-                     '6px 6px 0 hsl(var(--vis-deep-blue))'
+          boxShadow: index === 0 ? '6px 6px 0 hsl(var(--vis-orange))' : index === 1 ? '6px 6px 0 hsl(var(--vis-purple))' : index === 2 ? '6px 6px 0 hsl(var(--vis-violet))' : '6px 6px 0 hsl(var(--vis-deep-blue))'
         }}>
               <action.icon className="w-10 h-10" strokeWidth={2} />
               <span className="font-bold text-xl tracking-tight">{action.label}</span>
@@ -94,7 +91,9 @@ const HomeV3 = () => {
         
         <button onClick={() => navigate(`/events/${todayEvent.id}`)} className="w-full bg-vis-purple p-5 border-[3px] border-foreground shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm transition-all text-left">
           <div className="flex items-start gap-4">
-            <div className="w-20 h-20 border-[3px] border-foreground overflow-hidden shrink-0" style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}>
+            <div className="w-20 h-20 border-[3px] border-foreground overflow-hidden shrink-0" style={{
+            boxShadow: '3px 3px 0 hsl(var(--foreground))'
+          }}>
               <img src={summerFestivalPhoto} alt="Ljetna fešta" className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 min-w-0">
