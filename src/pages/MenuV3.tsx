@@ -35,7 +35,7 @@ const menuItems: MenuItem[] = [
   { icon: Info, label: 'VISITOR INFO', path: '/visitor-info' },
   { icon: Phone, label: 'IMENIK / KONTAKTI', path: '/directory' },
   { icon: Camera, label: 'SLIKAJ & POPRAVI', path: '/report' },
-  { icon: MessageSquare, label: 'IMATE PRIJEDLOG / UKLJUČI SE', path: '/feedback' },
+  { icon: MessageSquare, label: 'UKLJUČI SE', path: '/feedback' },
   { icon: Settings, label: 'POSTAVKE', path: '/settings' },
 ];
 
