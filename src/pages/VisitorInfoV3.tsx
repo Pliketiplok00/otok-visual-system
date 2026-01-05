@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { Info, Phone, Cross, Car, ExternalLink } from 'lucide-react';
+import { Info, Phone, Cross, Car, ExternalLink, Mountain, Anchor } from 'lucide-react';
 
 interface InfoCard {
   emoji: string;
@@ -14,6 +14,11 @@ const essentialInfo: InfoCard[] = [
   { emoji: '🐾', title: 'Veterinarska', description: 'Veterinarske usluge', link: '/vet' },
   { emoji: '🏦', title: 'Banke', description: 'Vis centar, Komiža centar', link: '/banks' },
   { emoji: '🏥', title: 'Dom zdravlja', description: 'Zdravstvo i ljekarne', link: '/pharmacy' },
+];
+
+const safetyInfo: InfoCard[] = [
+  { emoji: '🥾', title: 'Planinarenje', description: 'Staze i sigurnost', link: '/hiking' },
+  { emoji: '⛵', title: 'Plovidba', description: 'More i vjetrovi', link: '/sailing' },
 ];
 
 const emergencyNumbers = [
@@ -72,6 +77,28 @@ const VisitorInfoV3 = () => {
                 to={item.link}
                 className="p-3 border-[3px] border-foreground bg-card hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
                 style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
+              >
+                <span className="text-2xl">{item.emoji}</span>
+                <p className="font-bold text-sm mt-1 uppercase">{item.title}</p>
+                <p className="text-xs text-muted-foreground font-mono">{item.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Safety Section */}
+        <section className="mb-6">
+          <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
+            <Mountain className="w-5 h-5 text-vis-green" />
+            Aktivnosti i sigurnost
+          </h2>
+          <div className="grid grid-cols-2 gap-3">
+            {safetyInfo.map((item, i) => (
+              <Link 
+                key={i}
+                to={item.link}
+                className="p-3 border-[3px] border-foreground bg-card hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
+                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-green))' }}
               >
                 <span className="text-2xl">{item.emoji}</span>
                 <p className="font-bold text-sm mt-1 uppercase">{item.title}</p>
