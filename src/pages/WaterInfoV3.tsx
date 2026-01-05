@@ -27,7 +27,7 @@ const WaterInfoV3 = () => {
             Aktualno
           </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-coral/30"
+            className="p-4 border-[3px] border-foreground bg-vis-coral/50"
             style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
           >
             <p className="font-bold uppercase mb-2">Borba za samostalno vodouslužno područje</p>
