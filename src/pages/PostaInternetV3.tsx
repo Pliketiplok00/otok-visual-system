@@ -151,18 +151,6 @@ const PostaInternetV3 = () => {
           </div>
         </section>
 
-        {/* Mobile coverage info */}
-        <div 
-          className="p-4 border-[3px] border-foreground"
-          style={{ backgroundColor: 'hsl(var(--vis-green) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
-        >
-          <p className="font-bold uppercase mb-2">📱 Mobilna mreža</p>
-          <p className="text-sm">
-            Svi hrvatski operateri (A1, T-Com, Tele2) imaju dobru pokrivenost na otoku. 
-            4G signal dostupan u većini naselja, ponegdje samo 3G u zabačenijim područjima.
-          </p>
-        </div>
-
         {/* Decorative blocks */}
         <div className="flex justify-center gap-2 mt-8">
           <div className="w-3 h-3 bg-vis-blue border-2 border-foreground" />
