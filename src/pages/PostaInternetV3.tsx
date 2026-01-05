@@ -1,5 +1,5 @@
 import ImageHeader from '@/components/layout/ImageHeader';
-import { Mail, MapPin, Clock, Phone, Wifi } from 'lucide-react';
+import { Mail, MapPin, Clock, Phone, Package } from 'lucide-react';
 
 interface PostOffice {
   name: string;
@@ -26,10 +26,28 @@ const postOffices: PostOffice[] = [
   },
 ];
 
-const wifiLocations = [
-  { name: 'Riva Vis', type: 'Besplatni javni WiFi', speed: 'Srednja brzina' },
-  { name: 'Riva Komiža', type: 'Besplatni javni WiFi', speed: 'Srednja brzina' },
-  { name: 'Kafići i restorani', type: 'WiFi za goste', speed: 'Varijabilno' },
+interface Paketomat {
+  provider: string;
+  address: string;
+  color: string;
+}
+
+const paketomati: Paketomat[] = [
+  {
+    provider: 'HP Paketomat',
+    address: 'Obala sv. Jurja 25, Vis (ispred pošte)',
+    color: 'hsl(var(--vis-yellow))',
+  },
+  {
+    provider: 'GLS Paketomat',
+    address: 'Ul. Vladimira Nazora 3, Vis',
+    color: 'hsl(var(--vis-cyan))',
+  },
+  {
+    provider: 'BOXNOW',
+    address: 'Trg 30. svibnja 1992., Komiža',
+    color: 'hsl(var(--vis-green))',
+  },
 ];
 
 const PostaInternetV3 = () => {
@@ -39,8 +57,8 @@ const PostaInternetV3 = () => {
     <div className="min-h-screen bg-vis-yellow">
       <ImageHeader
         image={postImageUrl}
-        title="Pošta & Internet"
-        subtitle="Poštanske usluge i WiFi na otoku"
+        title="Pošta"
+        subtitle="Poštanske i kurirske usluge na otoku"
         icon={<Mail className="w-6 h-6 text-vis-yellow" strokeWidth={2.5} />}
         iconBg="bg-card"
         iconShadow="hsl(var(--vis-green))"
@@ -96,25 +114,37 @@ const PostaInternetV3 = () => {
           </div>
         </section>
 
-        {/* WiFi */}
+        {/* Courier Services & Parcel Lockers */}
         <section className="mb-6">
           <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
-            <Wifi className="w-5 h-5 text-vis-blue" />
-            Internet & WiFi
+            <Package className="w-5 h-5 text-vis-blue" />
+            Kurirske dostave i paketomati
           </h2>
+          
+          <div 
+            className="p-4 border-[3px] border-foreground bg-card mb-4"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
+          >
+            <p className="text-sm leading-relaxed">
+              Na otoku Visu rade sve standardne kurirske službe (DPD, GLS, Overseas Express, DHL, HP Express). 
+              Dostava na adresu je dostupna u svim naseljima. Za preuzimanje paketa izvan radnog vremena 
+              možete koristiti paketomata na sljedećim lokacijama:
+            </p>
+          </div>
+
           <div className="space-y-2">
-            {wifiLocations.map((wifi, i) => (
+            {paketomati.map((paketomat, i) => (
               <div 
                 key={i}
                 className="flex items-center gap-3 p-3 border-[3px] border-foreground bg-card"
-                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
+                style={{ boxShadow: `3px 3px 0 ${paketomat.color}` }}
               >
                 <div className="w-10 h-10 bg-vis-blue border-[3px] border-foreground flex items-center justify-center shrink-0 text-primary-foreground">
-                  <Wifi className="w-5 h-5" />
+                  <Package className="w-5 h-5" />
                 </div>
                 <div className="flex-1">
-                  <p className="font-bold text-sm uppercase">{wifi.name}</p>
-                  <p className="text-xs text-muted-foreground font-mono">{wifi.type} • {wifi.speed}</p>
+                  <p className="font-bold text-sm uppercase">{paketomat.provider}</p>
+                  <p className="text-xs text-muted-foreground font-mono">{paketomat.address}</p>
                 </div>
               </div>
             ))}
