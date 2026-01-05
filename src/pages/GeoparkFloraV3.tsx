@@ -1,6 +1,7 @@
 import { Leaf, Sparkles, ShieldAlert } from "lucide-react";
 
 import ImageHeader from "@/components/layout/ImageHeader";
+import alepskiBorImg from "@/assets/alepski-bor.jpg";
 import dalmatianIrisImg from "@/assets/dalmatian-iris.jpg";
 import wildRosemaryImg from "@/assets/wild-rosemary.jpg";
 import immortelleImg from "@/assets/immortelle.jpg";
@@ -11,7 +12,7 @@ const GeoparkFloraV3 = () => {
     <div className="min-h-screen bg-background">
       {/* Image Header */}
       <ImageHeader
-        image={dalmatianIrisImg}
+        image={alepskiBorImg}
         title="Flora"
         subtitle="NATURA 2000"
         icon={<Leaf className="w-6 h-6" strokeWidth={2.5} />}
