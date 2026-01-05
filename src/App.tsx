@@ -43,6 +43,15 @@ import FeedbackV3 from "./pages/FeedbackV3";
 import NotFoundV3 from "./pages/NotFoundV3";
 import StyleGuideV3 from "./pages/StyleGuideV3";
 
+// Template Pages
+import TemplatesIndex from "./pages/templates/TemplatesIndex";
+import TemplateA_SimpleHeader from "./pages/templates/TemplateA_SimpleHeader";
+import TemplateB_ImageHeader from "./pages/templates/TemplateB_ImageHeader";
+import TemplateC_ListWithSearch from "./pages/templates/TemplateC_ListWithSearch";
+import TemplateD_Form from "./pages/templates/TemplateD_Form";
+import TemplateE_Detail from "./pages/templates/TemplateE_Detail";
+import TemplateF_Grid from "./pages/templates/TemplateF_Grid";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -97,6 +106,15 @@ const App = () => (
           <Route path="/wine-routes/:id" element={<WineRouteDetailV3 />} />
           <Route path="/feedback" element={<FeedbackV3 />} />
           <Route path="/style-guide" element={<StyleGuideV3 />} />
+          
+          {/* Template pages */}
+          <Route path="/templates" element={<TemplatesIndex />} />
+          <Route path="/templates/simple" element={<TemplateA_SimpleHeader />} />
+          <Route path="/templates/image" element={<TemplateB_ImageHeader />} />
+          <Route path="/templates/list" element={<TemplateC_ListWithSearch />} />
+          <Route path="/templates/form" element={<TemplateD_Form />} />
+          <Route path="/templates/detail" element={<TemplateE_Detail />} />
+          <Route path="/templates/grid" element={<TemplateF_Grid />} />
           
           {/* 404 */}
           <Route path="*" element={<NotFoundV3 />} />

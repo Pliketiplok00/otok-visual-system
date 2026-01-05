@@ -14,7 +14,8 @@ import {
   ChevronRight,
   Home,
   Wine,
-  Palette
+  Palette,
+  LayoutTemplate
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -39,6 +40,7 @@ const menuItems: MenuItem[] = [
   { icon: MessageSquare, label: 'UKLJUČI SE', path: '/feedback' },
   { icon: Settings, label: 'POSTAVKE', path: '/settings' },
   { icon: Palette, label: 'STYLE GUIDE', path: '/style-guide' },
+  { icon: LayoutTemplate, label: 'PAGE TEMPLATES', path: '/templates' },
 ];
 
 const MenuV3 = () => {
