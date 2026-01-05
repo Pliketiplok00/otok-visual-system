@@ -57,27 +57,6 @@ const HikingSafetyV3 = () => {
           </div>
         </section>
 
-        {/* Safety Tips */}
-        <section className="mb-6">
-          <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
-            <AlertTriangle className="w-5 h-5 text-vis-yellow" />
-            Sigurnosni savjeti
-          </h2>
-          <div 
-            className="p-4 border-[3px] border-foreground"
-            style={{ backgroundColor: 'hsl(var(--vis-yellow) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
-          >
-            <ul className="space-y-2">
-              {safetyTips.map((tip, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm">
-                  <span>{tip.icon}</span>
-                  <span>{tip.tip}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
         {/* Important Notices */}
         <section className="mb-6">
           <div 
@@ -99,6 +78,27 @@ const HikingSafetyV3 = () => {
               Vis je dom rijetkim i zaštićenim biljnim vrstama. Molimo vas da ne berete biljke, 
               ne ostavljate otpad i držite se označenih staza. Pomozite nam očuvati ovaj dragocjeni ekosustav.
             </p>
+          </div>
+        </section>
+
+        {/* Safety Tips */}
+        <section className="mb-6">
+          <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
+            <AlertTriangle className="w-5 h-5 text-vis-yellow" />
+            Sigurnosni savjeti
+          </h2>
+          <div 
+            className="p-4 border-[3px] border-foreground"
+            style={{ backgroundColor: 'hsl(var(--vis-yellow) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+          >
+            <ul className="space-y-2">
+              {safetyTips.map((tip, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm">
+                  <span>{tip.icon}</span>
+                  <span>{tip.tip}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
