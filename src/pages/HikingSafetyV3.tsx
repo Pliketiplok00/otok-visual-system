@@ -57,22 +57,12 @@ const HikingSafetyV3 = () => {
           </div>
         </section>
 
-        {/* Important Notices */}
+        {/* Respect Nature Notice */}
         <section className="mb-6">
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-terracotta/20"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-terracotta))' }}
+            className="p-4 border-[3px] border-foreground bg-vis-green/20"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
           >
-            <h3 className="font-bold uppercase text-sm mb-2 flex items-center gap-2">
-              📵 Mobilna mreža
-            </h3>
-            <p className="text-sm leading-relaxed mb-4">
-              Na pojedinim dijelovima otoka, osobito u uvalama i na plažama poput Stinive, Stončice 
-              ili Smokove, nema mobilnog signala. Prije polaska obavezno preuzmite offline karte, 
-              obavijestite nekoga o planiranoj ruti i očekivanom vremenu povratka. Budite spremni 
-              na to da nećete moći uspostaviti kontakt dok ne izađete iz uvale.
-            </p>
-            
             <h3 className="font-bold uppercase text-sm mb-2 flex items-center gap-2">
               🌿 Poštujte prirodu
             </h3>
@@ -101,6 +91,24 @@ const HikingSafetyV3 = () => {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* Mobile Network Notice */}
+        <section className="mb-6">
+          <div 
+            className="p-4 border-[3px] border-foreground bg-vis-terracotta/20"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-terracotta))' }}
+          >
+            <h3 className="font-bold uppercase text-sm mb-2 flex items-center gap-2">
+              📵 Mobilna mreža
+            </h3>
+            <p className="text-sm leading-relaxed">
+              Na pojedinim dijelovima otoka, osobito u uvalama i na plažama poput Stinive, Stončice 
+              ili Smokove, nema mobilnog signala. Prije polaska obavezno preuzmite offline karte, 
+              obavijestite nekoga o planiranoj ruti i očekivanom vremenu povratka. Budite spremni 
+              na to da nećete moći uspostaviti kontakt dok ne izađete iz uvale.
+            </p>
           </div>
         </section>
 
