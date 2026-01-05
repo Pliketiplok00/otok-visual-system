@@ -44,7 +44,7 @@ const allEvents: Event[] = [
     emoji: '🎉',
     description: 'Tradicionalna ljetna fešta na glavnom trgu grada Visa. Program uključuje nastupe lokalnih klapa, glazbu uživo, tradicionalnu hranu i piće. Posebna atrakcija večeri bit će vatromet iznad luke.',
     organizer: 'Turistička zajednica Vis',
-    attendees: 234,
+    attendees: 1000,
     photos: [
       { src: summerFestivalPhoto, alt: 'Ljetna fešta na trgu' },
       { src: winePhoto, alt: 'Tradicionalna hrana i piće' },
@@ -250,7 +250,7 @@ const EventDetailV3 = () => {
           </div>
           {event.attendees && (
             <div className="p-4 border-[3px] border-foreground bg-card">
-              <p className="text-xs uppercase text-muted-foreground font-semibold mb-1">Zainteresiranih</p>
+              <p className="text-xs uppercase text-muted-foreground font-semibold mb-1">Kapacitet</p>
               <div className="flex items-center gap-2">
                 <Users className="w-4 h-4 text-vis-blue" />
                 <span className="font-bold font-mono">{event.attendees}</span>
