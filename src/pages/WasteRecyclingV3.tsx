@@ -27,7 +27,7 @@ const wasteCategories: WasteCategory[] = [
   {
     icon: <span className="text-2xl">🍾</span>,
     label: 'Staklo',
-    color: 'bg-vis-green',
+    color: 'bg-vis-terracotta',
     shadowColor: 'hsl(var(--vis-yellow))',
     items: ['Boce', 'Staklenke', 'Staklena ambalaža'],
   },
@@ -128,22 +128,41 @@ const WasteRecyclingV3 = () => {
             <MapPin className="w-5 h-5 text-vis-yellow" />
             Reciklažno dvorište
           </h2>
-          <div 
-            className="p-4 border-[3px] border-foreground"
-            style={{ backgroundColor: 'hsl(var(--vis-yellow) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
-          >
-            <p className="font-bold uppercase">Reciklažno dvorište Vis</p>
-            <p className="text-sm text-muted-foreground mt-1">
-              Put Mula 1, 21480 Vis
-            </p>
-            <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1 font-mono">
-              <Clock className="w-4 h-4" />
-              <span>Pon-Pet: 07:00 - 15:00, Sub: 08:00 - 12:00</span>
+          <div className="space-y-3">
+            <div 
+              className="p-4 border-[3px] border-foreground"
+              style={{ backgroundColor: 'hsl(var(--vis-yellow) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+            >
+              <p className="font-bold uppercase">Reciklažno dvorište Vis</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Put Mula 1, 21480 Vis
+              </p>
+              <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1 font-mono">
+                <Clock className="w-4 h-4" />
+                <span>Pon-Pet: 07:00 - 15:00, Sub: 08:00 - 12:00</span>
+              </div>
+              <p className="text-sm mt-3">
+                Ovdje možete besplatno odložiti: glomazni otpad, elektronički otpad, 
+                baterije, ulja, boje i lakove.
+              </p>
             </div>
-            <p className="text-sm mt-3">
-              Ovdje možete besplatno odložiti: glomazni otpad, elektronički otpad, 
-              baterije, ulja, boje i lakove.
-            </p>
+            <div 
+              className="p-4 border-[3px] border-foreground"
+              style={{ backgroundColor: 'hsl(var(--vis-cyan) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
+            >
+              <p className="font-bold uppercase">Reciklažno dvorište Komiža</p>
+              <p className="text-sm text-muted-foreground mt-1">
+                Ribarska ulica bb, 21485 Komiža
+              </p>
+              <div className="flex items-center gap-1 text-sm text-muted-foreground mt-1 font-mono">
+                <Clock className="w-4 h-4" />
+                <span>Pon-Pet: 08:00 - 14:00, Sub: 08:00 - 12:00</span>
+              </div>
+              <p className="text-sm mt-3">
+                Ovdje možete besplatno odložiti: glomazni otpad, elektronički otpad, 
+                baterije, ulja, boje i lakove.
+              </p>
+            </div>
           </div>
         </section>
 
