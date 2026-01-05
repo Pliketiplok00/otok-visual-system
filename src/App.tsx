@@ -33,6 +33,8 @@ import PostaInternetV3 from "./pages/PostaInternetV3";
 import BanksV3 from "./pages/BanksV3";
 import PharmacyV3 from "./pages/PharmacyV3";
 import VetClinicV3 from "./pages/VetClinicV3";
+import HikingSafetyV3 from "./pages/HikingSafetyV3";
+import SailingSafetyV3 from "./pages/SailingSafetyV3";
 import DirectoryV3 from "./pages/DirectoryV3";
 import WineRoutesV3 from "./pages/WineRoutesV3";
 import WineRouteDetailV3 from "./pages/WineRouteDetailV3";
@@ -99,6 +101,8 @@ const App = () => (
           <Route path="/banks" element={<BanksV3 />} />
           <Route path="/pharmacy" element={<PharmacyV3 />} />
           <Route path="/vet" element={<VetClinicV3 />} />
+          <Route path="/hiking" element={<HikingSafetyV3 />} />
+          <Route path="/sailing" element={<SailingSafetyV3 />} />
           <Route path="/directory" element={<DirectoryV3 />} />
           <Route path="/wine-routes" element={<WineRoutesV3 />} />
           <Route path="/wine-routes/:id" element={<WineRouteDetailV3 />} />
