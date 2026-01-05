@@ -5,7 +5,7 @@ import { ImageCarousel } from '@/components/ui/ImageCarousel';
 import { ChevronLeft, MapPin, Clock, Calendar, Users, Share2, Bell } from 'lucide-react';
 
 // Event photos
-import festivalPhoto from '@/assets/wild-rosemary.jpg';
+import summerFestivalPhoto from '@/assets/summer-festival.jpg';
 import concertPhoto from '@/assets/dalmatian-iris.jpg';
 import fishPhoto from '@/assets/bottlenose-dolphin.jpg';
 import exhibitionPhoto from '@/assets/eleonoras-falcon.jpg';
@@ -46,7 +46,7 @@ const allEvents: Event[] = [
     organizer: 'Turistička zajednica Vis',
     attendees: 234,
     photos: [
-      { src: festivalPhoto, alt: 'Ljetna fešta na trgu' },
+      { src: summerFestivalPhoto, alt: 'Ljetna fešta na trgu' },
       { src: winePhoto, alt: 'Tradicionalna hrana i piće' },
     ]
   },
@@ -65,7 +65,7 @@ const allEvents: Event[] = [
     attendees: 156,
     photos: [
       { src: concertPhoto, alt: 'Koncert klape' },
-      { src: festivalPhoto, alt: 'Riva Komiža' },
+      { src: summerFestivalPhoto, alt: 'Riva Komiža' },
     ]
   },
   { 
@@ -83,7 +83,7 @@ const allEvents: Event[] = [
     attendees: 89,
     photos: [
       { src: fishPhoto, alt: 'Ribarska večer' },
-      { src: festivalPhoto, alt: 'Luka Vis' },
+      { src: summerFestivalPhoto, alt: 'Luka Vis' },
     ]
   },
   { 
