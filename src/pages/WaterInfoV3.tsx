@@ -73,10 +73,11 @@ const WaterInfoV3 = () => {
             style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}
           >
             <div className="aspect-[16/9] overflow-hidden border-b-[3px] border-foreground">
-              <img 
-                src={waterSpringImg} 
-                alt="Izvor pitke vode"
-                className="w-full h-full object-cover"
+              <iframe 
+                src="https://www.openstreetmap.org/export/embed.html?bbox=16.0%2C43.0%2C16.3%2C43.15&layer=mapnik"
+                className="w-full h-full border-0"
+                title="Karta otoka Visa"
+                loading="lazy"
               />
             </div>
             <div className="p-4">
