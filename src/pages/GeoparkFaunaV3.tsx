@@ -62,34 +62,61 @@ const GeoparkFaunaV3 = () => {
         </div>
 
         {/* Endangered Species Section */}
-        <div 
-          className="border-3 border-foreground bg-vis-coral p-4 mb-6"
-          style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
-        >
-          <div className="flex items-center gap-2 mb-3">
-            <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
-            <h3 className="font-mono uppercase font-bold">Ugrožene i zaštićene vrste</h3>
+        <div className="flex items-center gap-2 mb-3">
+          <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
+          <h3 className="font-mono uppercase font-bold">Zaštićene životinjske vrste</h3>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          <div 
+            className="border-3 border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
+              <img src={eleonorasFalconImg} alt="Sokol Eleonore" className="w-full h-full object-cover" />
+            </div>
+            <div className="p-3 bg-vis-coral">
+              <h4 className="font-mono font-bold text-sm">Sokol Eleonore</h4>
+              <p className="text-xs text-muted-foreground">Strogo zaštićena, gnijezdi na liticama</p>
+            </div>
           </div>
-          <div className="space-y-2">
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🦅</span>
-              <p className="text-sm"><span className="font-bold">Sokol Eleonore</span> – strogo zaštićena vrsta, gnijezdi na liticama</p>
+
+          <div 
+            className="border-3 border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
+              <img src={bottlenoseDolphinImg} alt="Dobri dupin" className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🐬</span>
-              <p className="text-sm"><span className="font-bold">Dobri dupin</span> – zaštićen Natura 2000 mrežom</p>
+            <div className="p-3 bg-vis-cyan">
+              <h4 className="font-mono font-bold text-sm">Dobri dupin</h4>
+              <p className="text-xs text-muted-foreground">Zaštićen Natura 2000 mrežom</p>
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🦭</span>
-              <p className="text-sm"><span className="font-bold">Sredozemna medvjedica</span> – kritično ugrožena, povijesno prisutna</p>
+          </div>
+
+          <div 
+            className="border-3 border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
+              <img src={mediterraneanBatImg} alt="Šišmiši" className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🐢</span>
-              <p className="text-sm"><span className="font-bold">Glavata želva</span> – povremeno viđena u okolnim vodama</p>
+            <div className="p-3 bg-vis-yellow">
+              <h4 className="font-mono font-bold text-sm">Vrste šišmiša</h4>
+              <p className="text-xs text-muted-foreground">Obitavaju u špiljama i tunelima</p>
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🦇</span>
-              <p className="text-sm"><span className="font-bold">Vrste šišmiša</span> – zaštićene, obitavaju u špiljama i tunelima</p>
+          </div>
+
+          <div 
+            className="border-3 border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
+              <img src={eleonorasFalconCliffImg} alt="Glavata želva" className="w-full h-full object-cover" />
+            </div>
+            <div className="p-3 bg-vis-green">
+              <h4 className="font-mono font-bold text-sm">Glavata želva</h4>
+              <p className="text-xs text-muted-foreground">Povremeno viđena u vodama</p>
             </div>
           </div>
         </div>

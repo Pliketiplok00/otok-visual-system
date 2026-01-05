@@ -5,6 +5,8 @@ import { Leaf, ChevronRight, ShieldAlert } from 'lucide-react';
 import viskaKaduljaPhoto from '@/assets/viska-kadulja.jpg';
 import dalmatianIrisImg from '@/assets/dalmatian-iris.jpg';
 import eleonorasFalconImg from '@/assets/eleonoras-falcon.jpg';
+import bottlenoseDolphinImg from '@/assets/bottlenose-dolphin.jpg';
+import mediterraneanBatImg from '@/assets/mediterranean-bat.jpg';
 
 interface GeoparkItem {
   title: string;
@@ -77,31 +79,63 @@ const GeoparkAlt = () => {
           ))}
         </div>
 
-        {/* Strictly Protected Species */}
-        <div 
-          className="border-[3px] border-foreground bg-vis-coral p-4"
-          style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
-        >
-          <div className="flex items-center gap-2 mb-3">
-            <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
-            <h3 className="font-bold uppercase">Strogo zaštićene vrste</h3>
+        {/* Strictly Protected Species Header */}
+        <div className="flex items-center gap-2 mb-3">
+          <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
+          <h3 className="font-bold uppercase">Strogo zaštićene vrste</h3>
+        </div>
+
+        {/* Protected Species Grid */}
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          <div 
+            className="border-[3px] border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-[3px] border-foreground">
+              <img src={eleonorasFalconImg} alt="Sokol Eleonore" className="w-full h-full object-cover" />
+            </div>
+            <div className="p-3 bg-vis-coral">
+              <h4 className="font-bold text-sm">Sokol Eleonore</h4>
+              <p className="text-xs text-muted-foreground">Rijetka ptica grabljivica</p>
+            </div>
           </div>
-          <div className="space-y-2">
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🦅</span>
-              <p className="text-sm"><span className="font-bold">Sokol Eleonore</span> – rijetka ptica grabljivica</p>
+
+          <div 
+            className="border-[3px] border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-[3px] border-foreground">
+              <img src={bottlenoseDolphinImg} alt="Dobri dupin" className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🐬</span>
-              <p className="text-sm"><span className="font-bold">Dobri dupin</span> – zaštićen Natura 2000</p>
+            <div className="p-3 bg-vis-cyan">
+              <h4 className="font-bold text-sm">Dobri dupin</h4>
+              <p className="text-xs text-muted-foreground">Zaštićen Natura 2000</p>
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🌸</span>
-              <p className="text-sm"><span className="font-bold">Dalmatinska perunika</span> – endemska biljka</p>
+          </div>
+
+          <div 
+            className="border-[3px] border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-[3px] border-foreground">
+              <img src={dalmatianIrisImg} alt="Dalmatinska perunika" className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🦇</span>
-              <p className="text-sm"><span className="font-bold">Šišmiši</span> – obitavaju u špiljama i tunelima</p>
+            <div className="p-3 bg-vis-green">
+              <h4 className="font-bold text-sm">Dalmatinska perunika</h4>
+              <p className="text-xs text-muted-foreground">Endemska biljka</p>
+            </div>
+          </div>
+
+          <div 
+            className="border-[3px] border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-[3px] border-foreground">
+              <img src={mediterraneanBatImg} alt="Šišmiši" className="w-full h-full object-cover" />
+            </div>
+            <div className="p-3 bg-vis-yellow">
+              <h4 className="font-bold text-sm">Šišmiši</h4>
+              <p className="text-xs text-muted-foreground">Obitavaju u špiljama</p>
             </div>
           </div>
         </div>
