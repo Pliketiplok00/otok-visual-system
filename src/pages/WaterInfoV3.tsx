@@ -95,8 +95,8 @@ const WaterInfoV3 = () => {
             Vodene zanimljivosti Visa
           </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-green/10"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
+            className="p-4 border-[3px] border-foreground"
+            style={{ backgroundColor: 'hsl(var(--vis-green) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}
           >
             <div className="space-y-3">
               <div className="flex items-start gap-2">
@@ -122,8 +122,8 @@ const WaterInfoV3 = () => {
             Planirani radovi
           </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-yellow/10"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+            className="p-4 border-[3px] border-foreground"
+            style={{ backgroundColor: 'hsl(var(--vis-yellow) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
           >
             <p className="font-bold uppercase">Nema planiranih radova</p>
             <p className="text-sm text-muted-foreground mt-1">
@@ -160,8 +160,8 @@ const WaterInfoV3 = () => {
             Lokacija ureda
           </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-green/10"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
+            className="p-4 border-[3px] border-foreground"
+            style={{ backgroundColor: 'hsl(var(--vis-green) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-yellow))' }}
           >
             <p className="font-bold uppercase">Komunalno poduzeće Vis</p>
             <p className="text-sm text-muted-foreground mt-1">

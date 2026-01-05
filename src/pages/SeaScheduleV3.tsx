@@ -118,8 +118,10 @@ const SeaScheduleV3 = () => {
               <button
                 key={route.id}
                 onClick={() => handleRouteSelect(route.id)}
-                className="w-full flex items-center gap-3 p-3 border-[3px] border-foreground transition-all bg-card hover:bg-vis-cyan/10"
+                className="w-full flex items-center gap-3 p-3 border-[3px] border-foreground transition-all bg-card hover:opacity-90"
                 style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'hsl(var(--vis-cyan) / 0.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = ''}
               >
                 <div className={`w-10 h-10 border-[3px] border-foreground flex items-center justify-center ${route.iconBg} ${route.iconText}`}>
                   <Ship className="w-5 h-5" />
@@ -175,8 +177,8 @@ const SeaScheduleV3 = () => {
             href="https://www.jadrolinija.hr"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 p-4 border-[3px] border-foreground bg-vis-cyan/10 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+            className="flex items-center justify-center gap-2 p-4 border-[3px] border-foreground hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
+            style={{ backgroundColor: 'hsl(var(--vis-cyan) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
           >
             <ExternalLink className="w-5 h-5" />
             <span className="font-bold uppercase">Kupi kartu na Jadrolinija.hr</span>
@@ -185,8 +187,8 @@ const SeaScheduleV3 = () => {
             href="https://www.krilo.hr"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 p-4 border-[3px] border-foreground bg-vis-cyan/10 hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+            className="flex items-center justify-center gap-2 p-4 border-[3px] border-foreground hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
+            style={{ backgroundColor: 'hsl(var(--vis-cyan) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
           >
             <ExternalLink className="w-5 h-5" />
             <span className="font-bold uppercase">Kupi kartu na Krilo-line</span>

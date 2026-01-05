@@ -43,7 +43,7 @@ const SettingsV3 = () => {
       <div className="bg-card border-t-[3px] border-x-[3px] border-foreground min-h-[calc(100vh-200px)] px-5 pt-6 pb-8">
         <div className="space-y-6">
           {/* Language */}
-          <div className="p-4 border-[3px] border-foreground bg-vis-blue/5" style={{ boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}>
+          <div className="p-4 border-[3px] border-foreground" style={{ backgroundColor: 'hsl(var(--vis-blue) / 0.05)', boxShadow: '4px 4px 0 hsl(var(--vis-blue))' }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-vis-blue border-[3px] border-foreground flex items-center justify-center">
                 <Globe className="w-5 h-5 text-primary-foreground" strokeWidth={2} />
@@ -77,7 +77,7 @@ const SettingsV3 = () => {
           </div>
 
           {/* Notifications toggle */}
-          <div className="p-4 border-[3px] border-foreground bg-vis-green/5" style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}>
+          <div className="p-4 border-[3px] border-foreground" style={{ backgroundColor: 'hsl(var(--vis-green) / 0.05)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-vis-green border-[3px] border-foreground flex items-center justify-center">
@@ -102,7 +102,7 @@ const SettingsV3 = () => {
           </div>
 
           {/* Channel selection */}
-          <div className="p-4 border-[3px] border-foreground bg-vis-cyan/5" style={{ boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}>
+          <div className="p-4 border-[3px] border-foreground" style={{ backgroundColor: 'hsl(var(--vis-cyan) / 0.05)', boxShadow: '4px 4px 0 hsl(var(--vis-cyan))' }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-vis-cyan border-[3px] border-foreground flex items-center justify-center">
                 <MapPin className="w-5 h-5" strokeWidth={2} />

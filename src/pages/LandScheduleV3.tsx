@@ -99,8 +99,10 @@ const LandScheduleV3 = () => {
               <button
                 key={route.id}
                 onClick={() => navigate(`/schedules/land/${route.id}`)}
-                className="w-full flex items-center gap-3 p-3 border-[3px] border-foreground transition-all bg-card hover:bg-vis-green/10"
+                className="w-full flex items-center gap-3 p-3 border-[3px] border-foreground transition-all bg-card hover:opacity-90"
                 style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'hsl(var(--vis-green) / 0.1)'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = ''}
               >
                 <div className={`w-10 h-10 border-[3px] border-foreground flex items-center justify-center ${route.iconBg} ${route.iconText}`}>
                   <Bus className="w-5 h-5" />
