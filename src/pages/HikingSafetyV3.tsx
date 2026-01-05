@@ -1,5 +1,5 @@
 import ImageHeader from '@/components/layout/ImageHeader';
-import { Mountain, AlertTriangle, Phone, Sun, Droplets, Wind, ThermometerSun } from 'lucide-react';
+import { Mountain, AlertTriangle, Phone } from 'lucide-react';
 
 const hikingTrails = [
   { name: 'Hum (587m)', difficulty: 'Srednje', duration: '2-3 sata', description: 'Najviši vrh otoka, spektakularan pogled' },
@@ -41,43 +41,6 @@ const HikingSafetyV3 = () => {
       {/* Content card */}
       <div className="bg-card border-x-[3px] border-foreground min-h-[calc(100vh-240px)] px-4 pt-6 pb-8">
         
-        {/* Weather Overview */}
-        <section className="mb-6">
-          <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
-            <Sun className="w-5 h-5 text-vis-yellow" />
-            Vremenske prilike
-          </h2>
-          <div className="grid grid-cols-3 gap-2">
-            <div 
-              className="p-3 border-[3px] border-foreground bg-card text-center"
-              style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}
-            >
-              <ThermometerSun className="w-6 h-6 mx-auto text-vis-yellow" />
-              <p className="text-xs font-bold mt-1 uppercase">Ljeto</p>
-              <p className="text-lg font-mono font-bold">25-35°C</p>
-            </div>
-            <div 
-              className="p-3 border-[3px] border-foreground bg-card text-center"
-              style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
-            >
-              <Droplets className="w-6 h-6 mx-auto text-vis-cyan" />
-              <p className="text-xs font-bold mt-1 uppercase">Vlaga</p>
-              <p className="text-lg font-mono font-bold">60-80%</p>
-            </div>
-            <div 
-              className="p-3 border-[3px] border-foreground bg-card text-center"
-              style={{ boxShadow: '3px 3px 0 hsl(var(--vis-green))' }}
-            >
-              <Wind className="w-6 h-6 mx-auto text-vis-green" />
-              <p className="text-xs font-bold mt-1 uppercase">Vjetar</p>
-              <p className="text-lg font-mono font-bold">Bura/Jugo</p>
-            </div>
-          </div>
-          <p className="text-sm text-muted-foreground mt-2 font-mono">
-            ⚠️ Ljeti izbjegavajte planinarenje 11-16h zbog ekstremne vrućine
-          </p>
-        </section>
-
         {/* Hiking Trails */}
         <section className="mb-6">
           <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
