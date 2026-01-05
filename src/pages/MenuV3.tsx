@@ -13,7 +13,8 @@ import {
   Settings,
   ChevronRight,
   Home,
-  Wine
+  Wine,
+  Palette
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -37,6 +38,7 @@ const menuItems: MenuItem[] = [
   { icon: Camera, label: 'SLIKAJ & POPRAVI', path: '/report' },
   { icon: MessageSquare, label: 'UKLJUČI SE', path: '/feedback' },
   { icon: Settings, label: 'POSTAVKE', path: '/settings' },
+  { icon: Palette, label: 'STYLE GUIDE', path: '/style-guide' },
 ];
 
 const MenuV3 = () => {
