@@ -92,19 +92,29 @@ const VisitorInfoV3 = () => {
             <Mountain className="w-5 h-5 text-vis-green" />
             Aktivnosti i sigurnost
           </h2>
-          <div className="grid grid-cols-2 gap-3">
-            {safetyInfo.map((item, i) => (
-              <Link 
-                key={i}
-                to={item.link}
-                className="p-3 border-[3px] border-foreground bg-card hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
-                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-green))' }}
-              >
-                <span className="text-2xl">{item.emoji}</span>
-                <p className="font-bold text-sm mt-1 uppercase">{item.title}</p>
-                <p className="text-xs text-muted-foreground font-mono">{item.description}</p>
-              </Link>
-            ))}
+          <div className="flex gap-3">
+            <Link 
+              to="/hiking"
+              className="flex-1 p-4 border-[3px] border-foreground bg-vis-green hover:translate-x-[2px] hover:translate-y-[2px] transition-transform flex flex-col items-center text-center"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+            >
+              <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center mb-2">
+                <Mountain className="w-6 h-6 text-vis-green" />
+              </div>
+              <p className="font-bold text-sm uppercase">Planinarenje</p>
+              <p className="text-xs opacity-80 font-mono mt-1">Staze i sigurnost</p>
+            </Link>
+            <Link 
+              to="/sailing"
+              className="flex-1 p-4 border-[3px] border-foreground bg-vis-blue text-primary-foreground hover:translate-x-[2px] hover:translate-y-[2px] transition-transform flex flex-col items-center text-center"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+            >
+              <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center mb-2">
+                <Anchor className="w-6 h-6 text-vis-blue" />
+              </div>
+              <p className="font-bold text-sm uppercase">Plovidba</p>
+              <p className="text-xs opacity-80 font-mono mt-1">More i vjetrovi</p>
+            </Link>
           </div>
         </section>
 
