@@ -94,7 +94,7 @@ const HomeV3 = () => {
         
         <button onClick={() => navigate(`/events/${todayEvent.id}`)} className="w-full bg-vis-purple p-5 border-[3px] border-foreground shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm transition-all text-left">
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 border-[3px] border-foreground overflow-hidden">
+            <div className="w-20 h-20 border-[3px] border-foreground overflow-hidden shrink-0" style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}>
               <img src={summerFestivalPhoto} alt="Ljetna fešta" className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 min-w-0">
