@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // V3 Screens (Illustrated/Playful)
-
+import SplashV3 from "./pages/SplashV3";
 import LoginV3 from "./pages/LoginV3";
 import NotificationChannelsV3 from "./pages/NotificationChannelsV3";
 import HomeV3 from "./pages/HomeV3";
@@ -52,8 +52,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          {/* Main App Flow */}
-          <Route path="/" element={<LoginV3 />} />
+          {/* Main V3 App Flow */}
+          <Route path="/" element={<SplashV3 />} />
           <Route path="/login" element={<LoginV3 />} />
           <Route path="/channels" element={<NotificationChannelsV3 />} />
           <Route path="/home" element={<HomeV3 />} />
@@ -72,7 +72,7 @@ const App = () => (
           <Route path="/geopark/fauna" element={<GeoparkFaunaV3 />} />
           
           {/* Aliases */}
-          <Route path="/v3" element={<LoginV3 />} />
+          <Route path="/v3" element={<SplashV3 />} />
           <Route path="/home-v3" element={<HomeV3 />} />
           <Route path="/home-v4" element={<HomeV4 />} />
           
