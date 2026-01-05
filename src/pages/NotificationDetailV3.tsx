@@ -131,13 +131,12 @@ const NotificationDetailV3 = () => {
         <div className="flex items-center gap-3 max-w-screen-md mx-auto">
           <button
             onClick={() => navigate('/inbox')}
-            className="min-w-touch min-h-touch flex items-center justify-center border-[3px] border-foreground bg-card hover:bg-muted transition-colors"
-            style={{ boxShadow: '3px 3px 0 hsl(var(--vis-yellow))' }}
+            className="flex items-center gap-2 hover:opacity-70 transition-opacity"
             aria-label="Natrag"
           >
-            <ArrowLeft className="w-6 h-6" strokeWidth={2.5} />
+            <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
+            <span className="font-bold uppercase text-sm">Natrag</span>
           </button>
-          <h1 className="font-bold text-lg tracking-tight uppercase">Obavijest</h1>
         </div>
       </header>
 

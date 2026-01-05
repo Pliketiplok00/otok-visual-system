@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
-import { Bus, Clock, Phone, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Bus, Clock, Phone, ArrowLeft, ChevronRight } from 'lucide-react';
 
 interface Departure {
   time: string;
@@ -77,10 +77,10 @@ const LandScheduleV3 = () => {
       <div className="px-5 pt-6 pb-4 text-foreground">
         <button 
           onClick={() => navigate('/schedules')}
-          className="flex items-center gap-1 text-sm opacity-80 mb-2 hover:opacity-100 uppercase"
+          className="flex items-center gap-2 text-foreground hover:opacity-70 transition-opacity mb-2"
         >
-          <ChevronLeft className="w-4 h-4" />
-          Natrag
+          <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
+          <span className="font-bold uppercase text-sm">Natrag</span>
         </button>
         <h1 className="text-3xl font-extrabold uppercase">
           <span className="text-vis-yellow">Cestovni</span> promet 🚌

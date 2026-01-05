@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import VisBadge from '@/components/ui/VisBadge';
 import { ImageCarousel } from '@/components/ui/ImageCarousel';
-import { ChevronLeft, MapPin, Clock, Calendar, Users, Share2, Bell } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, Calendar, Users, Share2, Bell } from 'lucide-react';
 
 // Event photos
 import summerFestivalPhoto from '@/assets/summer-festival.jpg';
@@ -147,10 +147,10 @@ const EventDetailV3 = () => {
         <div className="p-5">
           <button
             onClick={() => navigate('/events')}
-            className="flex items-center gap-2 text-muted-foreground mb-6 font-semibold hover:text-foreground transition-colors"
+            className="flex items-center gap-2 text-foreground mb-6 hover:opacity-70 transition-opacity"
           >
-            <ChevronLeft className="w-5 h-5" />
-            NATRAG
+            <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
+            <span className="font-bold uppercase text-sm">Natrag</span>
           </button>
           <div className="p-6 border-[3px] border-foreground text-center" style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}>
             <p className="text-xl font-bold mb-2">DOGAĐAJ NIJE PRONAĐEN</p>
@@ -169,10 +169,10 @@ const EventDetailV3 = () => {
       <div className="px-5 pt-4">
         <button
           onClick={() => navigate('/events')}
-          className="flex items-center gap-2 text-muted-foreground mb-4 font-semibold hover:text-foreground transition-colors"
+          className="flex items-center gap-2 text-foreground mb-4 hover:opacity-70 transition-opacity"
         >
-          <ChevronLeft className="w-5 h-5" />
-          NATRAG
+          <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
+          <span className="font-bold uppercase text-sm">Natrag</span>
         </button>
       </div>
 
