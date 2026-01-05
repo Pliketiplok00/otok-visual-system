@@ -46,8 +46,8 @@ const VisitorInfoV3 = () => {
         {/* Welcome */}
         <section className="mb-6">
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-yellow/10"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+            className="p-4 border-[3px] border-foreground"
+            style={{ backgroundColor: 'hsl(var(--vis-yellow) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
           >
             <p className="text-lg font-bold mb-2 uppercase">🌊 Dobrodošli!</p>
             <p className="text-sm">

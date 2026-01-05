@@ -129,8 +129,8 @@ const WasteRecyclingV3 = () => {
             Reciklažno dvorište
           </h2>
           <div 
-            className="p-4 border-[3px] border-foreground bg-vis-yellow/10"
-            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
+            className="p-4 border-[3px] border-foreground"
+            style={{ backgroundColor: 'hsl(var(--vis-yellow) / 0.1)', boxShadow: '4px 4px 0 hsl(var(--vis-green))' }}
           >
             <p className="font-bold uppercase">Reciklažno dvorište Vis</p>
             <p className="text-sm text-muted-foreground mt-1">
