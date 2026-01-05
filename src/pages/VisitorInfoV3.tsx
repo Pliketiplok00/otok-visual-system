@@ -10,7 +10,7 @@ interface InfoCard {
 }
 
 const essentialInfo: InfoCard[] = [
-  { emoji: '🏖️', title: 'Plaže', description: 'Stiniva, Srebrna, Zaglav, Smokova', link: '/beaches' },
+  { emoji: '📮', title: 'Pošta & Internet', description: 'Poštanski uredi i WiFi', link: '/posta' },
   { emoji: '🐾', title: 'Veterinarska', description: 'Veterinarske usluge', link: '/vet' },
   { emoji: '🏦', title: 'Banke', description: 'Vis centar, Komiža centar', link: '/banks' },
   { emoji: '🏥', title: 'Dom zdravlja', description: 'Zdravstvo i ljekarne', link: '/pharmacy' },

@@ -29,7 +29,7 @@ import FloraDetailViskaKadulja from "./pages/FloraDetailViskaKadulja";
 import WaterInfoV3 from "./pages/WaterInfoV3";
 import WasteRecyclingV3 from "./pages/WasteRecyclingV3";
 import VisitorInfoV3 from "./pages/VisitorInfoV3";
-import BeachesV3 from "./pages/BeachesV3";
+import PostaInternetV3 from "./pages/PostaInternetV3";
 import BanksV3 from "./pages/BanksV3";
 import PharmacyV3 from "./pages/PharmacyV3";
 import VetClinicV3 from "./pages/VetClinicV3";
@@ -95,7 +95,7 @@ const App = () => (
           <Route path="/water" element={<WaterInfoV3 />} />
           <Route path="/waste" element={<WasteRecyclingV3 />} />
           <Route path="/visitor-info" element={<VisitorInfoV3 />} />
-          <Route path="/beaches" element={<BeachesV3 />} />
+          <Route path="/posta" element={<PostaInternetV3 />} />
           <Route path="/banks" element={<BanksV3 />} />
           <Route path="/pharmacy" element={<PharmacyV3 />} />
           <Route path="/vet" element={<VetClinicV3 />} />
