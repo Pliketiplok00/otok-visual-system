@@ -29,7 +29,7 @@ const WaterInfoV3 = () => {
           <div 
             className="p-4 border-[3px] border-foreground"
             style={{ 
-              backgroundColor: 'hsl(var(--vis-coral) / 0.25)',
+              backgroundColor: 'hsl(var(--vis-terracotta) / 0.25)',
               boxShadow: '4px 4px 0 hsl(var(--foreground))',
             }}
           >
@@ -48,7 +48,7 @@ const WaterInfoV3 = () => {
               { icon: ShowerHead, tip: 'Tuširajte se kraće', color: 'bg-vis-cyan', shadow: 'hsl(var(--vis-blue))' },
               { icon: Droplet, tip: 'Zatvarajte slavinu', color: 'bg-vis-green', shadow: 'hsl(var(--vis-yellow))' },
               { icon: Flower2, tip: 'Zalijevajte navečer', color: 'bg-vis-yellow', shadow: 'hsl(var(--vis-orange))' },
-              { icon: Wrench, tip: 'Prijavite curenje', color: 'bg-vis-coral', shadow: 'hsl(var(--vis-violet))' },
+              { icon: Wrench, tip: 'Prijavite curenje', color: 'bg-vis-terracotta', shadow: 'hsl(var(--vis-violet))' },
             ].map((item, i) => (
               <div 
                 key={i}
