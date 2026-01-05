@@ -41,6 +41,7 @@ import WineRouteDetailV3 from "./pages/WineRouteDetailV3";
 import NotificationDetailV3 from "./pages/NotificationDetailV3";
 import FeedbackV3 from "./pages/FeedbackV3";
 import NotFoundV3 from "./pages/NotFoundV3";
+import StyleGuideV3 from "./pages/StyleGuideV3";
 
 // Legacy screens (kept for reference)
 import Splash from "./pages/Splash";
@@ -107,6 +108,7 @@ const App = () => (
           <Route path="/wine-routes" element={<WineRoutesV3 />} />
           <Route path="/wine-routes/:id" element={<WineRouteDetailV3 />} />
           <Route path="/feedback" element={<FeedbackV3 />} />
+          <Route path="/style-guide" element={<StyleGuideV3 />} />
           
           {/* 404 */}
           <Route path="*" element={<NotFoundV3 />} />
