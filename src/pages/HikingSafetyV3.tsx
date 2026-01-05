@@ -64,11 +64,13 @@ const HikingSafetyV3 = () => {
             style={{ boxShadow: '4px 4px 0 hsl(var(--vis-terracotta))' }}
           >
             <h3 className="font-bold uppercase text-sm mb-2 flex items-center gap-2">
-              📵 Mobilni signal
+              📵 Mobilna mreža
             </h3>
             <p className="text-sm leading-relaxed mb-4">
-              Na mnogim dijelovima otoka nema mobilnog signala. Prije polaska obavezno preuzmite 
-              offline karte i obavijestite nekoga o planiranoj ruti i očekivanom vremenu povratka.
+              Na pojedinim dijelovima otoka, osobito u uvalama i na plažama poput Stinive, Stončice 
+              ili Smokove, nema mobilnog signala. Prije polaska obavezno preuzmite offline karte, 
+              obavijestite nekoga o planiranoj ruti i očekivanom vremenu povratka. Budite spremni 
+              na to da nećete moći uspostaviti kontakt dok ne izađete iz uvale.
             </p>
             
             <h3 className="font-bold uppercase text-sm mb-2 flex items-center gap-2">
