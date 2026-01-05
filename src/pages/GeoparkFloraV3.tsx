@@ -4,6 +4,7 @@ import ImageHeader from "@/components/layout/ImageHeader";
 import dalmatianIrisImg from "@/assets/dalmatian-iris.jpg";
 import wildRosemaryImg from "@/assets/wild-rosemary.jpg";
 import immortelleImg from "@/assets/immortelle.jpg";
+import viskaKaduljaImg from "@/assets/viska-kadulja.jpg";
 
 const GeoparkFloraV3 = () => {
   return (
@@ -61,34 +62,61 @@ const GeoparkFloraV3 = () => {
         </div>
 
         {/* Endangered Species Section */}
-        <div 
-          className="border-3 border-foreground bg-vis-coral p-4 mb-6"
-          style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
-        >
-          <div className="flex items-center gap-2 mb-3">
-            <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
-            <h3 className="font-mono uppercase font-bold">Ugrožene i zaštićene vrste</h3>
+        <div className="flex items-center gap-2 mb-3">
+          <ShieldAlert className="w-5 h-5" strokeWidth={2.5} />
+          <h3 className="font-mono uppercase font-bold">Zaštićene biljne vrste</h3>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          <div 
+            className="border-3 border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
+              <img src={dalmatianIrisImg} alt="Dalmatinska perunika" className="w-full h-full object-cover" />
+            </div>
+            <div className="p-3 bg-vis-coral">
+              <h4 className="font-mono font-bold text-sm">Dalmatinska perunika</h4>
+              <p className="text-xs text-muted-foreground">Zaštićena vrsta s ljubičastim cvjetovima</p>
+            </div>
           </div>
-          <div className="space-y-2">
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🌸</span>
-              <p className="text-sm"><span className="font-bold">Dalmatinska perunika</span> – zaštićena vrsta s ljubičastim cvjetovima</p>
+
+          <div 
+            className="border-3 border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
+              <img src={viskaKaduljaImg} alt="Viška kadulja" className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🌿</span>
-              <p className="text-sm"><span className="font-bold">Viška kadulja</span> – endemska podvrsta kadulje jedinstvena za otok</p>
+            <div className="p-3 bg-vis-green">
+              <h4 className="font-mono font-bold text-sm">Viška kadulja</h4>
+              <p className="text-xs text-muted-foreground">Endemska podvrsta kadulje</p>
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">💛</span>
-              <p className="text-sm"><span className="font-bold">Smilje</span> – zaštićena aromatična biljka cijenjenog eteričnog ulja</p>
+          </div>
+
+          <div 
+            className="border-3 border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
+              <img src={immortelleImg} alt="Smilje" className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🌺</span>
-              <p className="text-sm"><span className="font-bold">Hrvatska zvončika</span> – endem dalmatinskih otoka</p>
+            <div className="p-3 bg-vis-yellow">
+              <h4 className="font-mono font-bold text-sm">Smilje</h4>
+              <p className="text-xs text-muted-foreground">Cijenjenog eteričnog ulja</p>
             </div>
-            <div className="flex items-start gap-2">
-              <span className="text-lg">🌱</span>
-              <p className="text-sm"><span className="font-bold">Primorski oman</span> – rijetka vrsta na obalnim liticama</p>
+          </div>
+
+          <div 
+            className="border-3 border-foreground bg-card overflow-hidden"
+            style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+          >
+            <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
+              <img src={wildRosemaryImg} alt="Divlji ružmarin" className="w-full h-full object-cover" />
+            </div>
+            <div className="p-3 bg-vis-blue">
+              <h4 className="font-mono font-bold text-sm text-primary-foreground">Divlji ružmarin</h4>
+              <p className="text-xs text-primary-foreground/70">Aromatična mediteranska biljka</p>
             </div>
           </div>
         </div>
