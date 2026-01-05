@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import VisBadge from '@/components/ui/VisBadge';
 import { ChevronLeft, ChevronRight, MapPin, Clock, Calendar } from 'lucide-react';
+import summerFestivalPhoto from '@/assets/summer-festival.jpg';
+import wineTastingPhoto from '@/assets/wine-tasting.jpg';
+import wineVineyardPhoto from '@/assets/wine-vineyard.jpg';
 
 interface Event {
   id: number;
@@ -10,22 +13,22 @@ interface Event {
   time: string;
   location: string;
   category: 'vis' | 'komiza' | 'general';
-  emoji: string;
+  image: string;
 }
 
 const mockEvents: Record<number, Event[]> = {
   15: [
-    { id: 1, title: 'Ljetna fešta u Visu', time: '20:00', location: 'Trg sv. Jurja', category: 'vis', emoji: '🎉' },
+    { id: 1, title: 'Ljetna fešta u Visu', time: '20:00', location: 'Trg sv. Jurja', category: 'vis', image: summerFestivalPhoto },
   ],
   18: [
-    { id: 2, title: 'Koncert klape Komiža', time: '21:00', location: 'Riva Komiža', category: 'komiza', emoji: '🎵' },
+    { id: 2, title: 'Koncert klape Komiža', time: '21:00', location: 'Riva Komiža', category: 'komiza', image: summerFestivalPhoto },
   ],
   20: [
-    { id: 3, title: 'Ribarska večer', time: '19:00', location: 'Luka Vis', category: 'vis', emoji: '🐟' },
-    { id: 4, title: 'Izložba fotografija', time: '18:00', location: 'Galerija Vis', category: 'general', emoji: '📸' },
+    { id: 3, title: 'Ribarska večer', time: '19:00', location: 'Luka Vis', category: 'vis', image: wineTastingPhoto },
+    { id: 4, title: 'Izložba fotografija', time: '18:00', location: 'Galerija Vis', category: 'general', image: wineVineyardPhoto },
   ],
   25: [
-    { id: 5, title: 'Festival vina', time: '17:00', location: 'Stari Grad', category: 'vis', emoji: '🍷' },
+    { id: 5, title: 'Festival vina', time: '17:00', location: 'Stari Grad', category: 'vis', image: wineTastingPhoto },
   ],
 };
 
@@ -154,7 +157,12 @@ const EventsCalendarV3 = () => {
                 style={{ boxShadow: `4px 4px 0 ${getCategoryColor(event.category)}` }}
               >
                 <div className="flex items-start gap-3">
-                  <div className="text-2xl">{event.emoji}</div>
+                  <div 
+                    className="w-16 h-16 border-[3px] border-foreground overflow-hidden shrink-0"
+                    style={{ boxShadow: '3px 3px 0 hsl(var(--foreground))' }}
+                  >
+                    <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
+                  </div>
                   <div className="flex-1">
                     <VisBadge variant={event.category} className="mb-2">{event.category}</VisBadge>
                     <h4 className="font-bold mb-2">{event.title}</h4>
