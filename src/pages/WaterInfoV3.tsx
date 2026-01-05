@@ -29,7 +29,7 @@ const WaterInfoV3 = () => {
           <div 
             className="p-4 border-[3px] border-foreground"
             style={{ 
-              backgroundColor: 'hsl(var(--vis-terracotta) / 0.25)',
+              backgroundColor: 'hsl(var(--vis-blue) / 0.25)',
               boxShadow: '4px 4px 0 hsl(var(--foreground))',
             }}
           >
