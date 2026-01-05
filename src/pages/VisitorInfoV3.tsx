@@ -95,7 +95,7 @@ const VisitorInfoV3 = () => {
           <div className="flex gap-3">
             <Link 
               to="/hiking"
-              className="flex-1 p-4 border-[3px] border-foreground bg-vis-green hover:translate-x-[2px] hover:translate-y-[2px] transition-transform flex flex-col items-center text-center"
+              className="flex-1 p-4 border-[3px] border-foreground bg-vis-yellow hover:translate-x-[2px] hover:translate-y-[2px] transition-transform flex flex-col items-center text-center"
               style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
             >
               <div className="w-12 h-12 bg-card border-[3px] border-foreground flex items-center justify-center mb-2">
