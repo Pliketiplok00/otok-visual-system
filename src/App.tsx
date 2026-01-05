@@ -43,12 +43,6 @@ import FeedbackV3 from "./pages/FeedbackV3";
 import NotFoundV3 from "./pages/NotFoundV3";
 import StyleGuideV3 from "./pages/StyleGuideV3";
 
-// Legacy screens (kept for reference)
-import Splash from "./pages/Splash";
-import Home from "./pages/Home";
-import SplashAlt from "./pages/SplashAlt";
-import HomeAlt from "./pages/HomeAlt";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -77,16 +71,10 @@ const App = () => (
           <Route path="/geopark/flora/viska-kadulja" element={<FloraDetailViskaKadulja />} />
           <Route path="/geopark/fauna" element={<GeoparkFaunaV3 />} />
           
-          {/* Aliases for V3 */}
+          {/* Aliases */}
           <Route path="/v3" element={<SplashV3 />} />
           <Route path="/home-v3" element={<HomeV3 />} />
           <Route path="/home-v4" element={<HomeV4 />} />
-          
-          {/* Legacy versions for comparison */}
-          <Route path="/v1" element={<Splash />} />
-          <Route path="/home-v1" element={<Home />} />
-          <Route path="/v2" element={<SplashAlt />} />
-          <Route path="/home-v2" element={<HomeAlt />} />
           
           {/* Schedule sub-routes */}
           <Route path="/schedules/sea" element={<SeaScheduleV3 />} />
