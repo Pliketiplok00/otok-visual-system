@@ -80,6 +80,7 @@ const BeachesV3 = () => {
         icon={<Waves className="w-6 h-6 text-vis-cyan" strokeWidth={2.5} />}
         iconBg="bg-card"
         iconShadow="hsl(var(--vis-blue))"
+        backPath="/visitor-info"
       />
 
       {/* Content card */}

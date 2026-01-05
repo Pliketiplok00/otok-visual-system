@@ -51,6 +51,7 @@ const BanksV3 = () => {
         icon={<Landmark className="w-6 h-6 text-vis-green" strokeWidth={2.5} />}
         iconBg="bg-card"
         iconShadow="hsl(var(--vis-yellow))"
+        backPath="/visitor-info"
       />
 
       {/* Content card */}

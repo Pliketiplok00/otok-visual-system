@@ -40,6 +40,7 @@ const PharmacyV3 = () => {
         icon={<Cross className="w-6 h-6 text-vis-green" strokeWidth={2.5} />}
         iconBg="bg-card"
         iconShadow="hsl(var(--vis-cyan))"
+        backPath="/visitor-info"
       />
 
       {/* Content card */}

@@ -39,6 +39,7 @@ const VetClinicV3 = () => {
         icon={<Heart className="w-6 h-6 text-vis-terracotta" strokeWidth={2.5} />}
         iconBg="bg-card"
         iconShadow="hsl(var(--vis-yellow))"
+        backPath="/visitor-info"
       />
 
       {/* Content card */}
