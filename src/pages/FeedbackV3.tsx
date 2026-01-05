@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Send, Lightbulb, MessageSquare, AlertCircle, Heart, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import AppHeader from '@/components/layout/AppHeader';
 import { z } from 'zod';
 
 type FeedbackType = 'idea' | 'suggestion' | 'critique' | 'praise';
@@ -84,7 +83,11 @@ const FeedbackV3 = () => {
   if (success) {
     return (
       <div className="min-h-screen bg-vis-blue flex flex-col">
-        <AppHeader />
+        <header className="sticky top-0 z-50 w-full bg-card border-b-[3px] border-foreground px-4 py-3">
+          <div className="flex items-center gap-3 max-w-screen-md mx-auto">
+            <span className="font-bold uppercase text-sm">Imate prijedlog?</span>
+          </div>
+        </header>
         
         <div className="flex-1 flex items-center justify-center px-6">
           <div className="text-center animate-fade-in">

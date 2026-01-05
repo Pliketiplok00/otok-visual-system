@@ -1,7 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Calendar, MapPin, CalendarRange, Building2 } from 'lucide-react';
+import { ArrowLeft, Calendar, MapPin, CalendarRange, Building2 } from 'lucide-react';
 import VisBadge from '@/components/ui/VisBadge';
-import AppHeader from '@/components/layout/AppHeader';
 
 type Category = 'vis' | 'komiza' | 'kultura' | 'hitno' | 'opcenito';
 type Sender = 'Općina Vis' | 'Općina Komiža' | 'Mjesni odbor Rukavac';
@@ -127,7 +126,19 @@ const NotificationDetailV3 = () => {
 
   return (
     <div className={`min-h-screen ${styles.bg}`}>
-      <AppHeader />
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full bg-card border-b-[3px] border-foreground px-4 py-3">
+        <div className="flex items-center gap-3 max-w-screen-md mx-auto">
+          <button
+            onClick={() => navigate('/inbox')}
+            className="flex items-center gap-2 hover:opacity-70 transition-opacity"
+            aria-label="Natrag"
+          >
+            <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
+            <span className="font-bold uppercase text-sm">Natrag</span>
+          </button>
+        </div>
+      </header>
 
       {/* Content */}
       <div className="px-5 pt-6 pb-4">
