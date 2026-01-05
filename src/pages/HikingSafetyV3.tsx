@@ -1,13 +1,6 @@
 import ImageHeader from '@/components/layout/ImageHeader';
 import { Mountain, AlertTriangle, Phone } from 'lucide-react';
 
-const hikingTrails = [
-  { name: 'Hum (587m)', difficulty: 'Srednje', duration: '2-3 sata', description: 'Najviši vrh otoka, spektakularan pogled' },
-  { name: 'Tito\'s Cave', difficulty: 'Lagano', duration: '1 sat', description: 'Povijesna špilja iz II. sv. rata' },
-  { name: 'Stiniva uvala', difficulty: 'Srednje', duration: '30 min', description: 'Strmi spust do plaže' },
-  { name: 'Komiža - Vis', difficulty: 'Teže', duration: '4-5 sati', description: 'Priobalna staza preko brda' },
-];
-
 const safetyTips = [
   { icon: '💧', tip: 'Nosite najmanje 2L vode po osobi' },
   { icon: '🧢', tip: 'Zaštitite se od sunca - kapa i krema' },
@@ -41,32 +34,26 @@ const HikingSafetyV3 = () => {
       {/* Content card */}
       <div className="bg-card border-x-[3px] border-foreground min-h-[calc(100vh-240px)] px-4 pt-6 pb-8">
         
-        {/* Hiking Trails */}
+        {/* About Hiking on Vis */}
         <section className="mb-6">
           <h2 className="font-bold text-lg mb-3 flex items-center gap-2 uppercase">
             <Mountain className="w-5 h-5 text-vis-green" />
-            Planinarske staze
+            Staze i razgledavanje
           </h2>
-          <div className="space-y-3">
-            {hikingTrails.map((trail, i) => (
-              <div 
-                key={i}
-                className="p-3 border-[3px] border-foreground bg-card"
-                style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="font-bold uppercase">{trail.name}</h3>
-                  <span className={`px-2 py-0.5 text-xs font-bold border-2 border-foreground ${
-                    trail.difficulty === 'Lagano' ? 'bg-vis-green' : 
-                    trail.difficulty === 'Srednje' ? 'bg-vis-yellow' : 'bg-vis-terracotta'
-                  }`}>
-                    {trail.difficulty}
-                  </span>
-                </div>
-                <p className="text-sm text-muted-foreground mt-1">{trail.description}</p>
-                <p className="text-xs font-mono mt-1">🕐 {trail.duration}</p>
-              </div>
-            ))}
+          <div 
+            className="p-4 border-[3px] border-foreground bg-card"
+            style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
+          >
+            <p className="text-sm leading-relaxed mb-3">
+              Otok Vis obiluje markiranim planinarskim stazama koje vas vode kroz netaknutu sredozemnu prirodu. 
+              Od vrha Hum s pogledom na cijeli arhipelag, preko povijesnih vojnih tunela i skrivenih uvala, 
+              do slikovitih primorskih šetnica — svaki put nudi jedinstveni doživljaj.
+            </p>
+            <p className="text-sm leading-relaxed">
+              Posjetite vidikovce iznad Komiže, istražite ostatke antičkih naselja, 
+              ili se spustite do nekih od najljepših plaža Jadrana. Lokalne turističke karte 
+              dostupne su u info centrima u Visu i Komiži.
+            </p>
           </div>
         </section>
 
@@ -88,6 +75,30 @@ const HikingSafetyV3 = () => {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        {/* Important Notices */}
+        <section className="mb-6">
+          <div 
+            className="p-4 border-[3px] border-foreground bg-vis-terracotta/20"
+            style={{ boxShadow: '4px 4px 0 hsl(var(--vis-terracotta))' }}
+          >
+            <h3 className="font-bold uppercase text-sm mb-2 flex items-center gap-2">
+              📵 Mobilni signal
+            </h3>
+            <p className="text-sm leading-relaxed mb-4">
+              Na mnogim dijelovima otoka nema mobilnog signala. Prije polaska obavezno preuzmite 
+              offline karte i obavijestite nekoga o planiranoj ruti i očekivanom vremenu povratka.
+            </p>
+            
+            <h3 className="font-bold uppercase text-sm mb-2 flex items-center gap-2">
+              🌿 Poštujte prirodu
+            </h3>
+            <p className="text-sm leading-relaxed">
+              Vis je dom rijetkim i zaštićenim biljnim vrstama. Molimo vas da ne berete biljke, 
+              ne ostavljate otpad i držite se označenih staza. Pomozite nam očuvati ovaj dragocjeni ekosustav.
+            </p>
           </div>
         </section>
 
