@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, Send, Lightbulb, MessageSquare, AlertCircle, Heart } from 'lucide-react';
+import { ArrowLeft, Send, Lightbulb, MessageSquare, AlertCircle, Heart, Check } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { z } from 'zod';
 
@@ -41,6 +41,7 @@ const FeedbackV3 = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -75,14 +76,40 @@ const FeedbackV3 = () => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
-    toast({
-      title: 'Hvala na vašem doprinosu!',
-      description: 'Vaša poruka je uspješno poslana. Odgovorit ćemo vam u najkraćem roku.',
-    });
-
-    setFormData({ name: '', email: '', subject: '', message: '' });
     setIsSubmitting(false);
+    setSuccess(true);
   };
+
+  if (success) {
+    return (
+      <div className="min-h-screen bg-vis-blue flex flex-col">
+        <header className="sticky top-0 z-50 w-full bg-card border-b-[3px] border-foreground px-4 py-3">
+          <div className="flex items-center gap-3 max-w-screen-md mx-auto">
+            <span className="font-bold uppercase text-sm">Imate prijedlog?</span>
+          </div>
+        </header>
+        
+        <div className="flex-1 flex items-center justify-center px-6">
+          <div className="text-center animate-fade-in">
+            <div className="w-24 h-24 mx-auto mb-6 bg-card border-[3px] border-foreground flex items-center justify-center rotate-3" style={{ boxShadow: '6px 6px 0 hsl(var(--vis-yellow))' }}>
+              <Check className="w-12 h-12 text-vis-blue" strokeWidth={2.5} />
+            </div>
+            <h1 className="text-3xl font-extrabold mb-2 uppercase text-card">
+              Poruka <span className="text-vis-yellow">poslana!</span>
+            </h1>
+            <p className="text-lg opacity-90 mb-8 text-card">Hvala na vašem doprinosu. 🙏</p>
+            <button
+              onClick={() => navigate('/home-v3')}
+              className="px-8 py-4 border-[3px] border-foreground bg-card font-bold text-lg hover:translate-x-[2px] hover:translate-y-[2px] transition-all uppercase"
+              style={{ boxShadow: '4px 4px 0 hsl(var(--foreground))' }}
+            >
+              Povratak na početnu
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-vis-blue">
