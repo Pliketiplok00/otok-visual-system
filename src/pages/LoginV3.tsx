@@ -44,10 +44,10 @@ const LoginV3 = () => {
       <div className="px-5 pt-6">
         <button
           onClick={() => step === 'otp' ? setStep('email') : navigate('/v3')}
-          className="flex items-center gap-2 text-primary-foreground font-semibold opacity-90 hover:opacity-100"
+          className="flex items-center gap-2 text-primary-foreground hover:opacity-70 transition-opacity"
         >
           <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
-          <span className="uppercase">Natrag</span>
+          <span className="font-bold uppercase text-sm">Natrag</span>
         </button>
       </div>
 
