@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import { Calendar, Ship, Camera, ChevronRight, MapPin, Clock, Leaf, MessageSquare, Droplet, Users, Info } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import summerFestivalPhoto from '@/assets/summer-festival.jpg';
 interface QuickAction {
   icon: LucideIcon;
   label: string;
@@ -93,8 +94,8 @@ const HomeV3 = () => {
         
         <button onClick={() => navigate(`/events/${todayEvent.id}`)} className="w-full bg-vis-purple p-5 border-[3px] border-foreground shadow-brutal hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-brutal-sm transition-all text-left">
           <div className="flex items-start gap-4">
-            <div className="w-16 h-16 bg-foreground text-background flex items-center justify-center text-3xl border-[3px] border-foreground">
-              🎉
+            <div className="w-16 h-16 border-[3px] border-foreground overflow-hidden">
+              <img src={summerFestivalPhoto} alt="Ljetna fešta" className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 min-w-0">
               <span className="inline-block bg-foreground text-background px-2 py-0.5 text-xs font-bold uppercase tracking-wider mb-2">
