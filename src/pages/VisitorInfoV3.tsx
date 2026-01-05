@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import AppHeader from '@/components/layout/AppHeader';
 import { Info, Phone, Cross, Car, ExternalLink } from 'lucide-react';
 
@@ -5,14 +6,14 @@ interface InfoCard {
   emoji: string;
   title: string;
   description: string;
-  link?: string;
+  link: string;
 }
 
 const essentialInfo: InfoCard[] = [
-  { emoji: '🏖️', title: 'Plaže', description: 'Stiniva, Srebrna, Zaglav, Smokova' },
-  { emoji: '🍽️', title: 'Restorani', description: '20+ lokalnih konoba i restorana' },
-  { emoji: '🏧', title: 'Bankomati', description: 'Vis centar, Komiža centar' },
-  { emoji: '💊', title: 'Ljekarna', description: 'Vis: 021 711 080' },
+  { emoji: '🏖️', title: 'Plaže', description: 'Stiniva, Srebrna, Zaglav, Smokova', link: '/beaches' },
+  { emoji: '🐾', title: 'Veterinarska', description: 'Veterinarske usluge', link: '/vet' },
+  { emoji: '🏦', title: 'Banke', description: 'Vis centar, Komiža centar', link: '/banks' },
+  { emoji: '💊', title: 'Ljekarna', description: 'Vis: 021 711 080', link: '/pharmacy' },
 ];
 
 const emergencyNumbers = [
@@ -66,15 +67,16 @@ const VisitorInfoV3 = () => {
           </h2>
           <div className="grid grid-cols-2 gap-3">
             {essentialInfo.map((item, i) => (
-              <div 
+              <Link 
                 key={i}
-                className="p-3 border-[3px] border-foreground bg-card"
+                to={item.link}
+                className="p-3 border-[3px] border-foreground bg-card hover:translate-x-[2px] hover:translate-y-[2px] transition-transform"
                 style={{ boxShadow: '3px 3px 0 hsl(var(--vis-cyan))' }}
               >
                 <span className="text-2xl">{item.emoji}</span>
                 <p className="font-bold text-sm mt-1 uppercase">{item.title}</p>
                 <p className="text-xs text-muted-foreground font-mono">{item.description}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </section>

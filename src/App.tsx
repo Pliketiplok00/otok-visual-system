@@ -29,6 +29,10 @@ import FloraDetailViskaKadulja from "./pages/FloraDetailViskaKadulja";
 import WaterInfoV3 from "./pages/WaterInfoV3";
 import WasteRecyclingV3 from "./pages/WasteRecyclingV3";
 import VisitorInfoV3 from "./pages/VisitorInfoV3";
+import BeachesV3 from "./pages/BeachesV3";
+import BanksV3 from "./pages/BanksV3";
+import PharmacyV3 from "./pages/PharmacyV3";
+import VetClinicV3 from "./pages/VetClinicV3";
 import DirectoryV3 from "./pages/DirectoryV3";
 import WineRoutesV3 from "./pages/WineRoutesV3";
 import WineRouteDetailV3 from "./pages/WineRouteDetailV3";
@@ -91,6 +95,10 @@ const App = () => (
           <Route path="/water" element={<WaterInfoV3 />} />
           <Route path="/waste" element={<WasteRecyclingV3 />} />
           <Route path="/visitor-info" element={<VisitorInfoV3 />} />
+          <Route path="/beaches" element={<BeachesV3 />} />
+          <Route path="/banks" element={<BanksV3 />} />
+          <Route path="/pharmacy" element={<PharmacyV3 />} />
+          <Route path="/vet" element={<VetClinicV3 />} />
           <Route path="/directory" element={<DirectoryV3 />} />
           <Route path="/wine-routes" element={<WineRoutesV3 />} />
           <Route path="/wine-routes/:id" element={<WineRouteDetailV3 />} />
