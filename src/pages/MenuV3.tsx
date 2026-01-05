@@ -64,7 +64,7 @@ const MenuV3 = () => {
               key={item.path}
               onClick={() => navigate(item.path)}
               className={`w-full flex items-center gap-4 p-4 border-[3px] border-foreground hover:translate-x-[2px] hover:translate-y-[2px] transition-all group ${
-                item.accent ? 'bg-vis-yellow' : 'bg-background'
+                item.accent ? 'bg-vis-blue' : 'bg-background'
               }`}
               style={{
                 boxShadow: index % 6 === 0 ? '4px 4px 0 hsl(var(--vis-yellow))' :
