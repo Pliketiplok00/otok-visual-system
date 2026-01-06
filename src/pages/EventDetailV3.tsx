@@ -165,22 +165,26 @@ const EventDetailV3 = () => {
     <div className="min-h-screen bg-background">
       <AppHeader />
 
-      {/* Photo Gallery with overlayed back button */}
-      {event.photos && event.photos.length > 0 && (
-        <div className="relative">
-          <ImageCarousel 
-            images={event.photos} 
-            badgeText={event.category}
-            badgeColor={getCategoryColor(event.category)}
-          />
+      {/* Back button header */}
+      <header className="bg-background border-b-3 border-foreground">
+        <div className="flex items-center p-4">
           <button
             onClick={() => navigate('/events')}
-            className="absolute top-4 left-4 z-10 flex items-center gap-2 text-primary-foreground hover:opacity-70 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-70 transition-opacity"
           >
             <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
             <span className="font-bold uppercase text-sm">Natrag</span>
           </button>
         </div>
+      </header>
+
+      {/* Photo Gallery */}
+      {event.photos && event.photos.length > 0 && (
+        <ImageCarousel 
+          images={event.photos} 
+          badgeText={event.category}
+          badgeColor={getCategoryColor(event.category)}
+        />
       )}
 
       {/* Hero section */}
