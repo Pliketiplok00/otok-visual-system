@@ -14,7 +14,12 @@ import {
   FileText, 
   Info, 
   Grid,
-  Palette
+  Palette,
+  Menu,
+  Bell,
+  Sliders,
+  Sparkles,
+  MousePointerClick
 } from 'lucide-react';
 
 interface Template {
@@ -77,10 +82,55 @@ const templates: Template[] = [
     id: 'f',
     path: '/templates/grid',
     title: 'Template F: Grid Page',
-    description: 'Home pages, selection screens, menus',
+    description: 'Home pages, selection screens, dashboard grids',
     icon: <Grid className="w-5 h-5" />,
     color: 'bg-vis-amber',
     shadowColor: 'hsl(var(--vis-orange))',
+  },
+  {
+    id: 'g',
+    path: '/templates/menu',
+    title: 'Template G: Menu Page',
+    description: 'Main navigation, category selection, hub pages',
+    icon: <Menu className="w-5 h-5" />,
+    color: 'bg-vis-deep-blue',
+    shadowColor: 'hsl(var(--vis-yellow))',
+  },
+  {
+    id: 'h',
+    path: '/templates/inbox',
+    title: 'Template H: Inbox / Notifications',
+    description: 'Notification center, message list, activity feed',
+    icon: <Bell className="w-5 h-5" />,
+    color: 'bg-vis-coral',
+    shadowColor: 'hsl(var(--vis-cyan))',
+  },
+  {
+    id: 'i',
+    path: '/templates/settings',
+    title: 'Template I: Settings Page',
+    description: 'App settings, toggles, preferences, configuration',
+    icon: <Sliders className="w-5 h-5" />,
+    color: 'bg-vis-orange',
+    shadowColor: 'hsl(var(--vis-purple))',
+  },
+  {
+    id: 'j',
+    path: '/templates/splash',
+    title: 'Template J: Splash / Welcome',
+    description: 'App splash screen, welcome page, onboarding entry',
+    icon: <Sparkles className="w-5 h-5" />,
+    color: 'bg-vis-violet',
+    shadowColor: 'hsl(var(--vis-green))',
+  },
+  {
+    id: 'k',
+    path: '/templates/selection',
+    title: 'Template K: Selection / Choice',
+    description: 'User type selection, multi-step choices, onboarding',
+    icon: <MousePointerClick className="w-5 h-5" />,
+    color: 'bg-vis-emergency',
+    shadowColor: 'hsl(var(--vis-blue))',
   },
 ];
 

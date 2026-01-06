@@ -51,6 +51,11 @@ import TemplateC_ListWithSearch from "./pages/templates/TemplateC_ListWithSearch
 import TemplateD_Form from "./pages/templates/TemplateD_Form";
 import TemplateE_Detail from "./pages/templates/TemplateE_Detail";
 import TemplateF_Grid from "./pages/templates/TemplateF_Grid";
+import TemplateG_Menu from "./pages/templates/TemplateG_Menu";
+import TemplateH_Inbox from "./pages/templates/TemplateH_Inbox";
+import TemplateI_Settings from "./pages/templates/TemplateI_Settings";
+import TemplateJ_Splash from "./pages/templates/TemplateJ_Splash";
+import TemplateK_Selection from "./pages/templates/TemplateK_Selection";
 
 const queryClient = new QueryClient();
 
@@ -115,6 +120,11 @@ const App = () => (
           <Route path="/templates/form" element={<TemplateD_Form />} />
           <Route path="/templates/detail" element={<TemplateE_Detail />} />
           <Route path="/templates/grid" element={<TemplateF_Grid />} />
+          <Route path="/templates/menu" element={<TemplateG_Menu />} />
+          <Route path="/templates/inbox" element={<TemplateH_Inbox />} />
+          <Route path="/templates/settings" element={<TemplateI_Settings />} />
+          <Route path="/templates/splash" element={<TemplateJ_Splash />} />
+          <Route path="/templates/selection" element={<TemplateK_Selection />} />
           
           {/* 404 */}
           <Route path="*" element={<NotFoundV3 />} />
