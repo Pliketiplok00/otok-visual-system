@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Leaf, Sparkles, ShieldAlert } from "lucide-react";
 
 import ImageHeader from "@/components/layout/ImageHeader";
@@ -8,6 +9,7 @@ import immortelleImg from "@/assets/immortelle.jpg";
 import viskaKaduljaImg from "@/assets/viska-kadulja.jpg";
 
 const GeoparkFloraV3 = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background">
       {/* Image Header */}
@@ -70,8 +72,9 @@ const GeoparkFloraV3 = () => {
 
         <div className="grid grid-cols-2 gap-3 mb-6">
           <div 
-            className="border-3 border-foreground bg-card overflow-hidden"
+            className="border-3 border-foreground bg-card overflow-hidden cursor-pointer hover:translate-y-[-2px] transition-transform"
             style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+            onClick={() => navigate("/geopark/flora/dalmatinski-iris")}
           >
             <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
               <img src={dalmatianIrisImg} alt="Dalmatinska perunika" className="w-full h-full object-cover" />
@@ -83,8 +86,9 @@ const GeoparkFloraV3 = () => {
           </div>
 
           <div 
-            className="border-3 border-foreground bg-card overflow-hidden"
+            className="border-3 border-foreground bg-card overflow-hidden cursor-pointer hover:translate-y-[-2px] transition-transform"
             style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+            onClick={() => navigate("/geopark/flora/viska-kadulja")}
           >
             <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
               <img src={viskaKaduljaImg} alt="Viška kadulja" className="w-full h-full object-cover" />
@@ -96,8 +100,9 @@ const GeoparkFloraV3 = () => {
           </div>
 
           <div 
-            className="border-3 border-foreground bg-card overflow-hidden"
+            className="border-3 border-foreground bg-card overflow-hidden cursor-pointer hover:translate-y-[-2px] transition-transform"
             style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+            onClick={() => navigate("/geopark/flora/smilje")}
           >
             <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
               <img src={immortelleImg} alt="Smilje" className="w-full h-full object-cover" />
@@ -109,8 +114,9 @@ const GeoparkFloraV3 = () => {
           </div>
 
           <div 
-            className="border-3 border-foreground bg-card overflow-hidden"
+            className="border-3 border-foreground bg-card overflow-hidden cursor-pointer hover:translate-y-[-2px] transition-transform"
             style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+            onClick={() => navigate("/geopark/flora/divlji-ruzmarin")}
           >
             <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
               <img src={wildRosemaryImg} alt="Divlji ružmarin" className="w-full h-full object-cover" />

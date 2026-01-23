@@ -26,6 +26,13 @@ import GeoparkFloraV3 from "./pages/GeoparkFloraV3";
 import GeoparkFaunaV3 from "./pages/GeoparkFaunaV3";
 import FloraDetailAlepskiBor from "./pages/FloraDetailAlepskiBor";
 import FloraDetailViskaKadulja from "./pages/FloraDetailViskaKadulja";
+import FloraDetailDalmatinskiIris from "./pages/FloraDetailDalmatinskiIris";
+import FloraDetailSmilje from "./pages/FloraDetailSmilje";
+import FloraDetailDivljiRuzmarin from "./pages/FloraDetailDivljiRuzmarin";
+import FaunaDetailSokolEleonore from "./pages/FaunaDetailSokolEleonore";
+import FaunaDetailDobriDupin from "./pages/FaunaDetailDobriDupin";
+import FaunaDetailSismis from "./pages/FaunaDetailSismis";
+import FaunaDetailMorskaKornjaca from "./pages/FaunaDetailMorskaKornjaca";
 import WaterInfoV3 from "./pages/WaterInfoV3";
 import WasteRecyclingV3 from "./pages/WasteRecyclingV3";
 import VisitorInfoV3 from "./pages/VisitorInfoV3";
@@ -83,7 +90,14 @@ const App = () => (
           <Route path="/geopark/flora" element={<GeoparkFloraV3 />} />
           <Route path="/geopark/flora/alepski-bor" element={<FloraDetailAlepskiBor />} />
           <Route path="/geopark/flora/viska-kadulja" element={<FloraDetailViskaKadulja />} />
+          <Route path="/geopark/flora/dalmatinski-iris" element={<FloraDetailDalmatinskiIris />} />
+          <Route path="/geopark/flora/smilje" element={<FloraDetailSmilje />} />
+          <Route path="/geopark/flora/divlji-ruzmarin" element={<FloraDetailDivljiRuzmarin />} />
           <Route path="/geopark/fauna" element={<GeoparkFaunaV3 />} />
+          <Route path="/geopark/fauna/sokol-eleonore" element={<FaunaDetailSokolEleonore />} />
+          <Route path="/geopark/fauna/dobri-dupin" element={<FaunaDetailDobriDupin />} />
+          <Route path="/geopark/fauna/sismis" element={<FaunaDetailSismis />} />
+          <Route path="/geopark/fauna/morska-kornjaca" element={<FaunaDetailMorskaKornjaca />} />
           
           {/* Aliases */}
           <Route path="/v3" element={<SplashV3 />} />
