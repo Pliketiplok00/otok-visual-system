@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Bird, Sparkles, ShieldAlert } from "lucide-react";
 
 import ImageHeader from "@/components/layout/ImageHeader";
@@ -7,6 +8,7 @@ import mediterraneanBatImg from "@/assets/mediterranean-bat.jpg";
 import eleonorasFalconCliffImg from "@/assets/eleonoras-falcon-cliff.jpg";
 
 const GeoparkFaunaV3 = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-background">
       {/* Image Header */}
@@ -69,8 +71,9 @@ const GeoparkFaunaV3 = () => {
 
         <div className="grid grid-cols-2 gap-3 mb-6">
           <div 
-            className="border-3 border-foreground bg-card overflow-hidden"
+            className="border-3 border-foreground bg-card overflow-hidden cursor-pointer hover:translate-y-[-2px] transition-transform"
             style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+            onClick={() => navigate("/geopark/fauna/sokol-eleonore")}
           >
             <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
               <img src={eleonorasFalconImg} alt="Sokol Eleonore" className="w-full h-full object-cover" />
@@ -82,8 +85,9 @@ const GeoparkFaunaV3 = () => {
           </div>
 
           <div 
-            className="border-3 border-foreground bg-card overflow-hidden"
+            className="border-3 border-foreground bg-card overflow-hidden cursor-pointer hover:translate-y-[-2px] transition-transform"
             style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+            onClick={() => navigate("/geopark/fauna/dobri-dupin")}
           >
             <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
               <img src={bottlenoseDolphinImg} alt="Dobri dupin" className="w-full h-full object-cover" />
@@ -95,8 +99,9 @@ const GeoparkFaunaV3 = () => {
           </div>
 
           <div 
-            className="border-3 border-foreground bg-card overflow-hidden"
+            className="border-3 border-foreground bg-card overflow-hidden cursor-pointer hover:translate-y-[-2px] transition-transform"
             style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+            onClick={() => navigate("/geopark/fauna/sismis")}
           >
             <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
               <img src={mediterraneanBatImg} alt="Šišmiši" className="w-full h-full object-cover" />
@@ -108,8 +113,9 @@ const GeoparkFaunaV3 = () => {
           </div>
 
           <div 
-            className="border-3 border-foreground bg-card overflow-hidden"
+            className="border-3 border-foreground bg-card overflow-hidden cursor-pointer hover:translate-y-[-2px] transition-transform"
             style={{ boxShadow: "4px 4px 0 hsl(var(--foreground))" }}
+            onClick={() => navigate("/geopark/fauna/morska-kornjaca")}
           >
             <div className="aspect-[4/3] overflow-hidden border-b-3 border-foreground">
               <img src={eleonorasFalconCliffImg} alt="Glavata želva" className="w-full h-full object-cover" />
